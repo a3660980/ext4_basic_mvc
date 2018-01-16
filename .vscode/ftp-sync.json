@@ -1,8 +1,8 @@
 {
     "remotePath": "./",
-    "host": "60.249.149.65",
-    "username": "study",
-    "password": "63KgKmPapeCbBxuZ",
+    "host": "",
+    "username": "",
+    "password": "",
     "port": 21,
     "secure": false,
     "protocol": "ftp",
