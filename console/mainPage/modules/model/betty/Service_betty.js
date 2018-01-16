@@ -1,0 +1,29 @@
+Ext.define('Console.model.betty.Service_betty',
+{
+	extend: 'Ext.data.Model',
+	fields: [ //對應資料庫
+	{
+		name:'student_id',
+		type:'varchar'
+	},{
+		name:'name',
+		type:'varchar'
+	},{
+		name:'gender',
+		type:'char'
+	},{
+		name:'email',
+		type:'varchar'
+	},{
+		name:'phone',
+		type:'varchar'
+	},{
+		name:'address',
+		type:'varchar'
+	},{
+		name:'birthday',
+		type:'datetime'
+	}
+	]
+}
+);

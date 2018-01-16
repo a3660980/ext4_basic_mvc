@@ -1,0 +1,57 @@
+Ext.define('Console.model.SystemConfiguration.CpsAppDescription', {
+	extend: 'Ext.data.Model',
+	fields: [
+    	{
+    		name: 'device_app_id',
+    		type: 'string'
+    	}, {
+    		name: 'app_name_id',
+    		type: 'string'
+    	}, {
+    		name: 'device_app_name',
+    		type: 'string'
+    	}, {
+    		name: 'app_icon',
+    		type: 'string'
+    	}, {
+    		name: 'corp_id',
+    		type: 'string'
+    	}, {
+    		name: 'contact_department',
+    		type: 'string'
+    	}, {
+    		name: 'contact_title',
+    		type: 'string'
+    	}, {
+    		name: 'contact_name',
+    		type: 'string'
+    	}, {
+    		name: 'contact_phone',
+    		type: 'string'
+    	}, {
+    		name: 'contact_mobile',
+    		type: 'string'
+    	}, {
+    		name: 'contact_email',
+    		type: 'string'
+    	}, {
+    		name: 'app_service_date',
+    		type: 'string'
+    	}, {
+    		name: 'app_service_status',
+    		type: 'string'
+    	}, {
+    		name: 'app_created_date',
+    		type: 'string'
+    	}, {
+    		name: 'app_updated_date',
+    		type: 'string'
+    	}, {
+    		name: 'operator',
+    		type: 'string'
+    	}, {
+    		name: 'corp_name',
+    		type: 'string'
+    	}
+	]
+});

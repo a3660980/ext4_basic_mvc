@@ -1,0 +1,54 @@
+Ext.define('Console.model.ServiceLog', {
+    extend: 'Ext.data.Model',
+    fields: [
+        {
+            name: 'log_serial',
+            type: 'string'
+        }, {
+            name: 'corp_id',
+            type: 'string'
+        }, {
+            name: 'user_name',
+            type: 'string'
+        }, {
+            name: 'device_app_name',
+            type: 'string'
+        }, {
+            name: 'user_app_version',
+            type: 'string'
+        }, {
+            name: 'device_vendor',
+            type: 'string'
+        }, {
+            name: 'device_model',
+            type: 'string'
+        }, {
+            name: 'device_os',
+            type: 'string'
+        }, {
+            name: 'service_name',
+            type: 'string'
+        }, {
+            name: 'service_url',
+            type: 'string'
+        }, {
+            name: 'request_datetime',
+            type: 'string'
+        }, {
+            name: 'service_response',
+            type: 'string'
+        }, {
+            name: 'response_datetime',
+            type: 'string'
+        }, {
+            name: 'response_level',
+            type: 'string'
+        }, {
+            name: 'response_level',
+            type: 'string'
+        }, {
+            name: 'log_time',
+            type: 'string'
+        }
+    ]
+});

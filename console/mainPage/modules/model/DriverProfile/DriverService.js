@@ -1,0 +1,86 @@
+Ext.define('Console.model.DriverProfile.DriverService',
+{
+	extend: 'Ext.data.Model',
+	fields: [
+	{
+		name: 'vehicle_no',
+		type: 'string'
+	}, {
+		name: 'user_name',
+		type: 'string'
+	}, {
+		name: 'job_identity',
+		type: 'string'
+	}, {
+		name: 'this_year_amount',
+		type: 'string'
+	}, {
+		name: 'total_amount',
+		type: 'string'
+	}, {
+		name: 'this_year_revenue',
+		type: 'string'
+	}, {
+		name: 'total_revenue',
+		type: 'string'
+	}, {
+		name: 'this_year_miles',
+		type: 'string'
+	}, {
+		name: 'total_miles',
+		type: 'string'
+	}, {
+		name: 'last_order_date',
+		type: 'string'
+	}, {
+		name: 'user_record_photo',
+		type: 'string'
+	}, {
+		name: 'gps_latitude',
+		type: 'string'
+	}, {
+		name: 'gps_longitude',
+		type: 'string'
+	}, {
+		name: 'ranking_result',
+		type: 'string'
+	}, {
+		name: 'car_loan_effective',
+		type: 'string'
+	}, {
+		name: 'insurance_weight',
+		type: 'string'
+	}, {
+		name: 'vehicle_age',
+		type: 'string'
+	}, {
+		name: 'complaint_amount',
+		type: 'string'
+	}, {
+		name: 'service_year',
+		type: 'string'
+	}, {
+		name: 'driver_status',
+		type: 'string'
+	}, {
+		name: 'created_date',
+		type: 'string'
+	}, {
+		name: 'updated_date',
+		type: 'string'
+	}, {
+		name: 'operator',
+		type: 'string'
+	}, {
+        name: 'device_app_id',
+        type: 'string'
+    }, {
+    	name: 'taxi_car_grade',
+		type: 'string'
+    }, {
+    	name: 'job_assign',
+		type: 'string'
+    }
+	]
+}
+);

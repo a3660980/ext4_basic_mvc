@@ -1,0 +1,881 @@
+[{
+	"id": "1-system-information",
+	"text_en": "System Information",
+	"text_big5": "System Information",
+	"expanded": true,
+	"checked": false,
+	"children": [{
+		"id": "1.1-account-profile",
+		"text_en": "Account Profile",
+		"text_big5": "Account Profile",
+		"leaf": true,
+		"checked": false
+	},{
+		"id": "1.2-system-configuration",
+		"text_en": "System Configuration",
+		"text_big5": "System Configuration",
+		"leaf": true,
+		"checked": false
+	}]
+},{
+	"id": "2-cps-console",
+	"text_en": "Cps Console",
+	"text_big5": "Cps Console",
+	"expanded": true,
+	"checked": false,
+	"children": [{
+		"id": "2.1-device-information",
+		"text_en": "Device Information",
+		"text_big5": "Device Information",
+		"leaf": true,
+		"checked": false
+	},{
+		"id": "2.2-session-management",
+		"text_en": "Session Management",
+		"text_big5": "Session Management",
+		"leaf": true,
+		"checked": false
+	},{
+		"id": "2.3-service-log",
+		"text_en": "Service Log",
+		"text_big5": "Service Log",
+		"leaf": true,
+		"checked": false
+	},{
+		"id": "2.4-message-queue",
+		"text_en": "Message Queue",
+		"text_big5": "Message Queue",
+		"leaf": true,
+		"checked": false
+	},{
+		"id": "2.5-message-log",
+		"text_en": "Message Log",
+		"text_big5": "Message Log",
+		"leaf": true,
+		"checked": false
+	}]
+},{
+    "id": "3-app-setup",
+    "text_en": "App Setup",
+    "text_big5": "App系統設定",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "3.1-service-info",
+        "text_en": "Service Info",
+        "text_big5": "服務項目",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.2-service-category",
+        "text_en": "Service Category",
+        "text_big5": "功能選項",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.3-taxi-grade",
+        "text_en": "Taxi Grade",
+        "text_big5": "車輛等級",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.4-bank-master",
+        "text_en": "Bank Master",
+        "text_big5": "金融機構",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.5-address-master",
+        "text_en": "Address Master",
+        "text_big5": "郵政地址",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.6-land-mark",
+        "text_en": "Land Mark",
+        "text_big5": "地標位置",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.7-invoice-donate",
+        "text_en": "Invoice Donate",
+        "text_big5": "發票捐贈",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.8-external-contact",
+        "text_en": "External Contact",
+        "text_big5": "客服妹妹",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "3.9-booking-match",
+        "text_en": "Booking Match",
+        "text_big5": "預約媒合",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "4-instant-message",
+    "text_en": "Instant Message",
+    "text_big5": "即時訊息",
+    "leaf": true,
+    "checked": false
+},{
+    "id": "5-general-member",
+    "text_en": "General Member",
+    "text_big5": "一般會員",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "5.1-user-account",
+        "text_en": "User Account",
+        "text_big5": "個人資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.2-user-profile",
+        "text_en": "User Profile",
+        "text_big5": "註冊資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.3-user-address",
+        "text_en": "User Address",
+        "text_big5": "常用地址",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.4-user-deposit",
+        "text_en": "User Deposit",
+        "text_big5": "儲值明細",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.5-user-withdraw",
+        "text_en": "User Withdraw",
+        "text_big5": "扣款明細",
+        "leaf": true,
+        "checked": false
+    // },{
+    //     "id": "4.6-user-coupon",
+    //     "text_en": "User Coupon",
+    //     "text_big5": "優惠券",
+    //     "leaf": true,
+    //     "checked": false
+    },{
+        "id": "5.6-trading-statistics",
+        "text_en": "Trading Statistics",
+        "text_big5": "交易統計",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.7-user-invoice",
+        "text_en": "User Invoice",
+        "text_big5": "統一發票",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "5.8-user-rank",
+        "text_en": "User Rank",
+        "text_big5": "評價等級",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "6-driver-profile",
+    "text_en": "Driver Profile",
+    "text_big5": "從業人員",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "6.1-driver-corp",
+        "text_en": "Driver Corp",
+        "text_big5": "車行資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.2-driver-contract",
+        "text_en": "Driver Contract",
+        "text_big5": "車行合約",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.3-apply-approve",
+        "text_en": "Apply Approve",
+        "text_big5": "申請核准",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.4-apply-errand",
+        "text_en": "Apply Errand",
+        "text_big5": "申請跑腿",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.5-apply-taxi",
+        "text_en": "Apply Taxi",
+        "text_big5": "申請接送",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.6-apply-truck",
+        "text_en": "Apply Truck",
+        "text_big5": "申請道援",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.7-driver-account",
+        "text_en": "Driver Account",
+        "text_big5": "個人資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.8-register-data",
+        "text_en": "Register Data",
+        "text_big5": "註冊資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.9-driver-deposit",
+        "text_en": "Driver Deposit",
+        "text_big5": "儲值明細",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.9-driver-withdraw",
+        "text_en": "Driver Withdraw",
+        "text_big5": "扣款明細",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.10-driver-trading-statistics",
+        "text_en": "Driver Trading Statistics",
+        "text_big5": "交易統計",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.11-driver-service",
+        "text_en": "Driver Service",
+        "text_big5": "媒合權重",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.12-driver-rank",
+        "text_en": "Driver Rank",
+        "text_big5": "司機評價",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.13-driver-order",
+        "text_en": "Driver Order",
+        "text_big5": "每月訂單明細(跑腿)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.14-driver-taxi",
+        "text_en": "Driver Taxi",
+        "text_big5": "每月訂單明細(接送)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.15-driver-truck",
+        "text_en": "Driver Truck",
+        "text_big5": "每月訂單明細(道援)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "6.16-driver-search",
+        "text_en": "Driver Search",
+        "text_big5": "儲值金明細查詢(跑腿)",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "7-corp-profile",
+    "text_en": "Corp Profile",
+    "text_big5": "企業客戶",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "7.1-corp-information",
+        "text_en": "Corp Information",
+        "text_big5": "客戶資料",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.2-corp-department",
+        "text_en": "Corp Department",
+        "text_big5": "部門名稱",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.3-corp-user-account",
+        "text_en": "Corp User Account",
+        "text_big5": "用戶帳號",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.4-corp-discount",
+        "text_en": "Corp Discount",
+        "text_big5": "折扣級距",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.5-corp-deposit",
+        "text_en": "Corp Deposit",
+        "text_big5": "儲值明細",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.6-corp-withdraw",
+        "text_en": "Corp Withdraw",
+        "text_big5": "扣款明細",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.7-manual-save",
+        "text_en": "Manual Save",
+        "text_big5": "手動儲值",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "7.8-corp-order",
+        "text_en": "Corp Order",
+        "text_big5": "每月訂單明細(跑腿)",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+//     "id": "6-user-management",
+//     "text_en": "User Management",
+//     "text_big5": "用戶管理",
+//     "expanded": true,
+//     "checked": false,
+//     "children": [{
+//         "id": "6.1-basic-information",
+//         "text_en": "Basic Information",
+//         "text_big5": "基本資料",
+//         "leaf": true,
+//         "checked": false
+//     },{
+//         "id": "6.2-permission-level",
+//         "text_en": "Permission Level",
+//         "text_big5": "權限等級",
+//         "leaf": true,
+//         "checked": false
+//     },{
+//         "id": "6.3-user-blockade",
+//         "text_en": "User Blockade",
+//         "text_big5": "用戶封鎖",
+//         "leaf": true,
+//         "checked": false
+//     },{
+//         "id": "6.4-remote-control",
+//         "text_en": "Remote Control",
+//         "text_big5": "遠端移除",
+//         "leaf": true,
+//         "checked": false
+//     }]
+// },{    
+    "id": "8-order-track",
+    "text_en": "Order Track",
+    "text_big5": "當日跑腿",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "8.1-create-order",
+        "text_en": "Create Order",
+        "text_big5": "媒合中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.2-confirm-order",
+        "text_en": "Confirm Order",
+        "text_big5": "已預約訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.3-service-order",
+        "text_en": "Service Order",
+        "text_big5": "服務中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.4-closed-order",
+        "text_en": "Closed Order",
+        "text_big5": "已結案訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.5-closed-order-stop",
+        "text_en": "Closed Order Stop",
+        "text_big5": "已結案訂單(停靠點)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.6-cancel-order",
+        "text_en": "Cancel Order",
+        "text_big5": "已取消訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.7-nobody-orders-record-order",
+        "text_en": "Nobody Orders Record Order",
+        "text_big5": "無人接單紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.8-invoice-exceptions-order",
+        "text_en": "Invoice Exceptions Order",
+        "text_big5": "發票異常清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "8.9-immediate-location-track",
+        "text_en": "Immediate Location Track",
+        "text_big5": "跑腿司機地圖",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "9-order-taxi",
+    "text_en": "Order Taxi",
+    "text_big5": "機場接送",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "9.1-create-taxi",
+        "text_en": "Create Taxi",
+        "text_big5": "媒合中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.2-confirm-taxi",
+        "text_en": "Confirm Taxi",
+        "text_big5": "確認中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.3-service-taxi",
+        "text_en": "Service Taxi",
+        "text_big5": "服務中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.4-closed-taxi",
+        "text_en": "Closed Taxi",
+        "text_big5": "已結案訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.5-cancel-taxi",
+        "text_en": "Cancel Taxi",
+        "text_big5": "已取消訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.6-nobody-orders-record-taxi",
+        "text_en": "Nobody Orders Record Taxi",
+        "text_big5": "無人接單紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.7-invoice-exceptions-taxi",
+        "text_en": "Invoice Exceptions Taxi",
+        "text_big5": "發票異常清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.8-immediate-location-taxi",
+        "text_en": "Immediate Location Taxi",
+        "text_big5": "接送司機地圖",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "9.10-message-taxi",
+        "text_en": "Message Taxi",
+        "text_big5": "系統訊息(接送)",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "10-order-truck",
+    "text_en": "Order Truck",
+    "text_big5": "當日道援",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "10.1-create-truck",
+        "text_en": "Create Truck",
+        "text_big5": "媒合中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.2-confirm-truck",
+        "text_en": "Confirm Truck",
+        "text_big5": "確認中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.3-service-truck",
+        "text_en": "Service Truck",
+        "text_big5": "服務中訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.4-closed-truck",
+        "text_en": "Closed Truck",
+        "text_big5": "已結案訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.5-cancel-truck",
+        "text_en": "Cancel Truck",
+        "text_big5": "已取消訂單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.6-nobody-orders-record-truck",
+        "text_en": "Nobody Orders Record Truck",
+        "text_big5": "無人接單紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.7-invoice-exceptions-truck",
+        "text_en": "Invoice Exceptions Truck",
+        "text_big5": "發票異常清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.8-immediate-location-truck",
+        "text_en": "Immediate Location Truck",
+        "text_big5": "道援司機地圖",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "10.10-message-truck",
+        "text_en": "Message Truck",
+        "text_big5": "系統訊息(道援)",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "17-reserve-management",
+    "text_en": "reserve management",
+    "text_big5": "預約管理",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "17.0-auto-scheduling",
+        "text_en": "auto scheduling",
+        "text_big5": "自動排班",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "17.1-reserve-table",
+        "text_en": "reserve table",
+        "text_big5": "預約班表",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "17.2-airport-service",
+        "text_en": "airport service",
+        "text_big5": "當日機場接送(服務中)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "17.3-airport-closed",
+        "text_en": "airport closed",
+        "text_big5": "當日機場接送(已結案)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "17.4-airport-cnacel",
+        "text_en": "airport cnacel",
+        "text_big5": "當日機場接送(已取消)",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "17.5-airport-invoice-exceptions",
+        "text_en": "airport invoice exceptions",
+        "text_big5": "機場接送(發票異常)",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "11-performance-statistics",
+    "text_en": "Performance Statistics",
+    "text_big5": "帳務管理",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "11.1-transfer-record",
+        "text_en": "Transfer Record",
+        "text_big5": "匯款紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.2-deposit-log",
+        "text_en": "Deposit Log",
+        "text_big5": "匯款異常清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.3-payment-cancel",
+        "text_en": "Payment Cancel",
+        "text_big5": "刷卡異常清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.4-credit-check",
+        "text_en": "Credit Check",
+        "text_big5": "信用卡請款清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.5-credit-log",
+        "text_en": "Credit Log",
+        "text_big5": "信用卡取消清單",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.6-month-performance",
+        "text_en": "Month Performance",
+        "text_big5": "業績統計",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "11.7-run-motorcycle",
+        "text_en": "Run Motorcycle",
+        "text_big5": "跑腿業績",
+        "leaf": true,
+        "checked": false
+    // },{
+    //     "id": "9.7-run-car",
+    //     "text_en": "Run Car",
+    //     "text_big5": "跑腿業績(汽車)",
+    //     "leaf": true,
+    //     "checked": false
+    },{
+        "id": "11.8-shuttle-downtownarea",
+        "text_en": "Shuttle Downtownarea",
+        "text_big5": "接送業績",
+        "leaf": true,
+        "checked": false
+    // },{
+    //     "id": "9.9-shuttle-airport",
+    //     "text_en": "Shuttle Airport",
+    //     "text_big5": "接送業績(機場)",
+    //     "leaf": true,
+    //     "checked": false
+    },{
+        "id": "11.9-road-assistance",
+        "text_en": "Road Assistance",
+        "text_big5": "道援業績",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "12-action-ad",
+    "text_en": "Action Ad",
+    "text_big5": "行銷管理",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "12.1-insert-ad",
+        "text_en": "Insert Ad",
+        "text_big5": "新增廣告",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "12.2-ad-push",
+        "text_en": "Ad Push",
+        "text_big5": "廣告推播",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "12.3-repush-ad",
+        "text_en": "Repush Ad",
+        "text_big5": "再次推播",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "12.4-adclick-record",
+        "text_en": "Adclick Record",
+        "text_big5": "點閱紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "13.1-coupon-master",
+        "text_en": "Coupon Master",
+        "text_big5": "優惠活動",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "13.2-coupon-detail",
+        "text_en": "Coupon Detail",
+        "text_big5": "設定優惠券",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "13.3-coupon-list",
+        "text_en": "Coupon List",
+        "text_big5": "優惠券名單",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "16-official-website",
+    "text_en": "official website",
+    "text_big5": "官方網站",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "16.1-latest-news",
+        "text_en": "Latest News",
+        "text_big5": "網頁內容",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.2-web-category",
+        "text_en": "Web Category",
+        "text_big5": "服務項目",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.3-web-feature",
+        "text_en": "Web Feature",
+        "text_big5": "服務特色",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.4-web-banner",
+        "text_en": "Web Banner",
+        "text_big5": "首頁廣告",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.5-web-client",
+        "text_en": "Web Client",
+        "text_big5": "用戶體驗",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.6-web-aboutus",
+        "text_en": "Web Aboutus",
+        "text_big5": "關於我們",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.7-web-faq",
+        "text_en": "Web Faq",
+        "text_big5": "FAQ",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "16.8-company-customer",
+        "text_en": "Company Customer",
+        "text_big5": "成為司機",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+    "id": "14-operating-statistical-analysis",
+    "text_en": "Operating Statistical Analysis",
+    "text_big5": "操作統計分析",
+    "expanded": true,
+    "checked": false,
+    "children": [{
+        "id": "14.1-user-operation",
+        "text_en": "User Operation",
+        "text_big5": "點選操作紀錄",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.2-user-order",
+        "text_en": "User Order",
+        "text_big5": "累計交易績效",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.3-user-service",
+        "text_en": "User Service",
+        "text_big5": "累計服務點閱次數",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.4-user-category",
+        "text_en": "User Category",
+        "text_big5": "累計功能點閱次數",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.5-app-summary",
+        "text_en": "App Summary",
+        "text_big5": "累計註冊人數",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.6-click-summary",
+        "text_en": "Click Summary",
+        "text_big5": "停留時間分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.7-time-summary",
+        "text_en": "Time Summary",
+        "text_big5": "使用時段分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.8-service-summary",
+        "text_en": "Service Summary",
+        "text_big5": "服務時段分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.9-category-summary",
+        "text_en": "Category Summary",
+        "text_big5": "功能時段分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.10-visit-summary",
+        "text_en": "Visit Summary",
+        "text_big5": "身份使用分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.11-location-summary",
+        "text_en": "Location Summary",
+        "text_big5": "區域時段分析",
+        "leaf": true,
+        "checked": false
+    },{
+        "id": "14.12-device-summary",
+        "text_en": "Device Summary",
+        "text_big5": "使用裝置分析",
+        "leaf": true,
+        "checked": false
+    }]
+},{
+	"id": "15-access-control",
+	"text_en": "Access Control",
+	"text_big5": "權限控管",
+	"expanded": true,
+	"checked": false,
+	"children": [{
+		"id": "15.1-access-setting",
+		"text_en": "Access Setting",
+		"text_big5": "權限設定",
+		"leaf": true,
+		"checked": false
+    },{
+		"id": "15.2-change-password",
+		"text_en": "Change Password",
+		"text_big5": "修改密碼",
+		"leaf": true,
+		"checked": false
+	}]
+}]

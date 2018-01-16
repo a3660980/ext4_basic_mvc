@@ -1,0 +1,51 @@
+Ext.define('Console.model.SystemConfiguration.CpsAppPlatform', {
+	extend: 'Ext.data.Model',
+	fields: [
+    	{
+    		name: 'app_platform_id',
+    		type: 'string'
+    	}, {
+    		name: 'device_app_id',
+    		type: 'string'
+    	}, {
+    		name: 'app_package_id',
+    		type: 'string'
+    	}, {
+    		name: 'app_package_type',
+    		type: 'string'
+    	}, {
+    		name: 'app_package_name',
+    		type: 'string'
+    	}, {
+    		name: 'app_package_version',
+    		type: 'string'
+    	}, {
+    		name: 'app_push_setting',
+    		type: 'string'
+    	}, {
+    		name: 'app_push_payload',
+    		type: 'string'
+    	}, {
+    		name: 'app_created_date',
+    		type: 'string'
+    	}, {
+    		name: 'app_updated_date',
+    		type: 'string'
+    	}, {
+    		name: 'certificate_url',
+    		type: 'string'
+    	}, {
+    		name: 'certificate_password',
+    		type: 'string'
+    	}, {
+    		name: 'production',
+    		type: 'string'
+    	}, {
+    		name: 'api_key',
+    		type: 'string'
+    	}, {
+    		name: 'operator',
+    		type: 'string'
+    	}
+	]
+});
