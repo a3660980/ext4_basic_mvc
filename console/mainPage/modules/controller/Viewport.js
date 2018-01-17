@@ -105,6 +105,9 @@ Ext.define('Console.controller.Viewport', {
 			},
 			'northpanel menuitem[action=clicktwo]': {
 				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_Student]': {
+				click: this.addTab
 			}
 		});
 	},
@@ -308,6 +311,11 @@ Ext.define('Console.controller.Viewport', {
 			title=MSG['click_two'];
 			xtype='bettytabpanel2';
 
+		}
+		else if(btn.getId()=='btn_Student'){
+			itemId='btn_Student';
+			title=MSG['btn_Student'];
+			xtype='johnnyTabPanel';
 		}
 		
 		

@@ -3,6 +3,7 @@
     //////test
 	require "../init.php";
     $sys_lang = "../lang/big5";//SYS_LANG 
+    
 	// 語系檔
 	require $sys_lang . "/lib/common.php";
 	require $sys_lang . "/mainPage/index.php";
@@ -15,7 +16,6 @@
 	require $sys_lang . "/mainPage/modules/user_management.php";
 	require $sys_lang . "/mainPage/modules/access_setting.php";
 	require $sys_lang . "/mainPage/modules/change_password.php";
-
 ?><!DOCTYPE html>
 <html>
 <head>

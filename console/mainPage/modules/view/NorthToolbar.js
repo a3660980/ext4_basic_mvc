@@ -123,6 +123,21 @@ Ext.define('Console.view.NorthToolbar', {
                         }   
                     ]
 
+                },{
+                    id: 'study-f',
+                    text: MSG['study_f'],
+                    defaults: {
+                        hidden: true
+                    },
+                   
+                    menu: [
+                        {
+                            id: 'btn_Student',
+                            text: MSG['btn_Student'],
+                             action:'btn_Student'
+                        }
+                    ]
+
                 },
                     {
                       hidden: false,

@@ -6,6 +6,14 @@
  * big5(zh-tw)
  */
 
+
+/*尤昭詠 語系*/
+$MSG['study_f'] = '尤昭詠';
+$MSG['btn_Student'] = '學生管理';
+
+/*結尾*/
+
+
 $MSG['html_title'] = 'Study Console';
 $MSG['acl'] = '權限控管';
 $MSG['system_information'] = 'System Information';

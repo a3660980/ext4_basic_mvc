@@ -38,8 +38,8 @@ Ext.application({
         'Dina_detail',
         'Dina',
         'betty',
-        'betty_detail'
-
+        'betty_detail',
+        'Johnny'
     ],
 
     launch: function() {
@@ -81,7 +81,8 @@ Ext.application({
             'study-b',
             'study-c',
             'study-d',
-            'study-e'
+            'study-e',
+            'study-f'
 
         ];
 

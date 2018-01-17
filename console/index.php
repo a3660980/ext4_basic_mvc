@@ -1,12 +1,13 @@
 <?php
 	session_start();
     session_destroy();
-
+    
 	require "./init.php";
 	// 語系檔
 	require SYS_LANG . "/lib/common.php";
 	require SYS_LANG . "/index.php";
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html>
 <head>
     <title><?php echo $MSG['html_title']; ?></title>

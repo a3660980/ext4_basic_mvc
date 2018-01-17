@@ -39,7 +39,7 @@ Ext.define('Console.view.Hank.FormEdit', {
             },
             items: [{
                 xtype: 'displayfield',
-                name: 'student_id',
+                name: 'id',
                 fieldLabel: MSG['student_idx'],
             }, {
                 name: 'name',
@@ -47,7 +47,7 @@ Ext.define('Console.view.Hank.FormEdit', {
                 allowBlank: false
             }, {
                 xtype: 'combo',
-                name: 'gender',
+                name: 'sex',
                 fieldLabel: MSG['gender_b'],
                 queryMode: 'local',
                 store: states,
@@ -67,11 +67,6 @@ Ext.define('Console.view.Hank.FormEdit', {
                 fieldLabel: MSG['mobile_number_b'],
                 maxLength: 10,
                 allowBlank: false
-            }, {
-                name: 'address',
-                fieldLabel: MSG['address_b'],
-                allowBlank: false,
-                maxLength: 100,
             }, {
                 xtype: 'datefield',
                 name: 'birthday',
