@@ -114,12 +114,12 @@ Ext.define('Console.view.NorthToolbar', {
                         {
                             id: 'clickone',
                             text: MSG['click_one'],
-                             action:'clickone'
+                            action:'clickone'
                         },
                         {
                             id: 'clicktwo',
                             text: MSG['click_two'],
-                             action:'clicktwo'
+                            action:'clicktwo'
                         }   
                     ]
 
@@ -134,7 +134,12 @@ Ext.define('Console.view.NorthToolbar', {
                         {
                             id: 'btn_Student',
                             text: MSG['btn_Student'],
-                             action:'btn_Student'
+                            action:'btn_Student'
+                        },
+                        {
+                            id: 'btn_Subject',
+                            text: MSG['btn_Subject'],
+                            action:'btn_Subject'
                         }
                     ]
 

@@ -1,50 +1,55 @@
-Ext.define('Console.view.betty_detail.GridDetail_betty', {
-    extend: 'Console.override.Grid',
-    alias: 'widget.btgriddetail',
-    requires: [
+Ext.define('Console.view.JohnnyDetail.DetailPanel', {
+	extend: 'Console.override.Grid',
+	alias: 'widget.johnnyDetailPanel',
+
+	requires: [
         'Ext.ux.ProgressBarPager',
     ],
-    selType: 'checkboxmodel',
+
+	selType: 'checkboxmodel',
+
     config: {
-        store: 'betty.ServiceDetail_betty',
+         store: 'Johnny.Service_johnnyDetail',
     },
-    initComponent: function() {
+
+	initComponent: function() {
         var me = this;
-        console.log(me.getStore())
-        Ext.apply(me, {
+		Ext.apply(me, {
             store: me.getStore(),
             columns: [
-                 {
-                    header: MSG['offer_id'],
-                    dataIndex: 'offer_id',
+                {
+                    header: MSG['detail_id'],
+                    dataIndex: 'detail_id',
                     flex: 1,
                     hidden:true
-                },{
-                    header: MSG['brand_id'],
-                    dataIndex: 'brand_id',
+                },
+                {
+                    header: MSG['student_id'],
+                    dataIndex: 'student_id',
                     flex: 1,
                     hidden:true
-                },{
-                    header: MSG['hand_gasoline_offer'],
-                    dataIndex: 'hand_gasoline_offer',
+                },
+                {
+                    header: MSG['subject'],
+                    dataIndex: 'subject',
                     flex: 1
-                },{
-                    header: MSG['self_gasoline_offer'],
-                    dataIndex: 'self_gasoline_offer',
+                }, {
+                    header: MSG['score'],
+                    dataIndex: 'score',
                     flex: 1
-                },{
-                    header: MSG['diesel_offer'],
-                    dataIndex: 'diesel_offer',
+                }, {
+                    header: MSG['semester'],
+                    dataIndex: 'semester',
                     flex: 1
-                },{
+                }, {
                     header: MSG['created_date'],
                     dataIndex: 'created_date',
                     flex: 1
-                },{
+                }, {
                     header: MSG['updated_date'],
                     dataIndex: 'updated_date',
                     flex: 1
-                },{
+                }, {
                     header: MSG['operator'],
                     dataIndex: 'operator',
                     flex: 1
@@ -52,38 +57,38 @@ Ext.define('Console.view.betty_detail.GridDetail_betty', {
             ],
             tbar: [
                 {
-                    text: MSG['add'],
-                    action: 'add_user',
+                    text: MSG['testadd'],
+                    action: 'detail_add_user',
                     loadEnabled: true,
                     disabled: true
                 }, {
-                    text: MSG['edit'],
-                    action: 'edit_user',
+                    text: MSG['testedit'],
+                    action: 'detail_edit_user',
                     allowMulti: false,
                     disabled: true
                 }, {
-                    text: MSG['delete'],
-                    action: 'delete_user',
+                    text: MSG['testdelete'],
+                    action: 'detail_delete_detail',
                     allowMulti: true,
                     disabled: true
-                }, '->', {
+                }, 
+                '->', 
+                {
                     xtype: 'searchfieldmvc',
                     store: me.getStore(),
                     fieldLabel: MSG['search'],
                     labelWidth: 50,
-                    width: 200
+                    width: 200,
                 }
             ],
             bbar: {
                 xtype: 'pagingtoolbar',
                 store: me.getStore(),
-                displayInfo: false,
+                displayInfo: true,
                 plugins: new Ext.ux.ProgressBarPager()
             }
-
         });
-    
+
         me.callParent(arguments);
-         
     }
 });

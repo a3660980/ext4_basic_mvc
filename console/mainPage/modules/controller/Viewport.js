@@ -108,7 +108,10 @@ Ext.define('Console.controller.Viewport', {
 			},
 			'northpanel menuitem[action=btn_Student]': {
 				click: this.addTab
-			}
+			},
+			'northpanel menuitem[action=btn_Subject]': {
+				click: this.addTab
+			},
 		});
 	},
 
@@ -316,6 +319,11 @@ Ext.define('Console.controller.Viewport', {
 			itemId='btn_Student';
 			title=MSG['btn_Student'];
 			xtype='johnnyTabPanel';
+		}
+		else if(btn.getId()=='btn_Subject'){
+			itemId='btn_Subject';
+			title=MSG['btn_Subject'];
+			xtype='johnnyDetailTabPanel';
 		}
 		
 		

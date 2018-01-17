@@ -26,6 +26,10 @@ Ext.define('Console.view.Johnny.ActionPanel_johnny', {
         			xtype: 'johnnyFormAdd'
         		}, {
         			xtype: 'johnnyFormEdit'
+        		}, {
+        			xtype: 'johnnyDetailAdd'
+        		}, {
+        			xtype: 'johnnyDetailEdit'
         		}
 			]
 		});

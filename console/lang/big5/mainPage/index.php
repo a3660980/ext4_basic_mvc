@@ -10,7 +10,7 @@
 /*尤昭詠 語系*/
 $MSG['study_f'] = '尤昭詠';
 $MSG['btn_Student'] = '學生管理';
-
+$MSG['btn_Subject'] = '成績管理';
 /*結尾*/
 
 
