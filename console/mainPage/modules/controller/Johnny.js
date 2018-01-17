@@ -206,14 +206,26 @@ Ext.define('Console.controller.Johnny', {
                             });
                         },
 
-                        failure: function() {
-                            Ext.MessageBox.show({
-                                title: MSG['msg_box_info'],
-                                msg: MSG['delete_fail'],
-                                width: 300,
-                                buttons: Ext.MessageBox.OK,
-                                icon: Ext.MessageBox.ERROR
-                            });
+                        failure: function(batch, options) {
+                            console.log(batch.proxy.getReader().jsonData.msg);
+                            if (batch.proxy.getReader().jsonData.msg == 'deleteFails') {
+                                Ext.MessageBox.show({
+                                    title: MSG['msg_box_info'],
+                                    msg: MSG['delete_data_fail'],
+                                    width: 300,
+                                    buttons: Ext.MessageBox.OK,
+                                    icon: Ext.MessageBox.ERROR
+                                });
+                            } else {
+                                Ext.MessageBox.show({
+                                    title: MSG['msg_box_info'],
+                                    msg: MSG['delete_fail'],
+                                    width: 300,
+                                    buttons: Ext.MessageBox.OK,
+                                    icon: Ext.MessageBox.ERROR
+                                });
+                            }
+                            
                             store.reload();
                         }
                     });

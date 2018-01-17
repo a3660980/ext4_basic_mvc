@@ -11,6 +11,7 @@
 $MSG['study_f'] = '尤昭詠';
 $MSG['btn_Student'] = '學生管理';
 $MSG['btn_Subject'] = '成績管理';
+$MSG['delete_data_fail'] = '明細表尚有資料！請先刪除明細';
 /*結尾*/
 
 
