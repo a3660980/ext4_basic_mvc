@@ -13,47 +13,57 @@ $data = json_decode($_POST['data']);
 $data = is_array($data) ? $data : [$data];
 $table = 'johnnyStudent';
 $detailTable = 'studentscore';
-
-dbBegin();
-
 $dbResult = true;
 $DeleteFail = false;
 
-
+//驗證資料表格要事先做判斷
 foreach($data as $key => $row) {
     $id = $row->id;
-    $whereClause = "{$table}.id = '{$id}'";
-    $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
-    $sql2 = "SELECT  * FROM {$detailTable} WHERE {$table}.student_id = {$id}";
+    $sql2 = "SELECT  * FROM {$detailTable} WHERE {$detailTable}.student_id = {$id}";
     $detailRecords = dbGetAll($sql2);
     $detailCount = dbGetTotal($detailRecords);
-    
-    $records = dbGetAll($sql);
-    
-    if(count($records) == 0) {
-        return; 
-    }
-
-    if($detailCount == 0) {
+    if($detailCount > 0) { //如果detail裡面 有資料 >0 的話 $DeleteFail = true
         $dbResult = false; 
         $DeleteFail = true; 
-        break;
-    }
-
-    if (!dbDelete($table, $whereClause)) {
-        $dbResult = false; 
-        break;
     }
 }
 
-
-$result['success'] = $dbResult;
-$result['msg'] = $result['success'] ? 'success' : $DeleteFail ? 'deleteFails' : 'fails';
-
-if ($result['success']) {
-    dbCommit();
+if($DeleteFail == true) { // 如果$DeleteFail = true 直接給result fail
+    $result['success'] = $dbResult;
+    $result['msg'] = $result['success'] ? 'success' : $DeleteFail ? 'deleteFails' : 'fails';
 } else {
-    dbRollback();
+
+    dbBegin(); //單一資料表格 不用使用 transection 浪費資源 所以這邊可以不用
+
+    $dbResult = true;
+
+    foreach($data as $key => $row) {
+        $id = $row->id;
+        $whereClause = "{$table}.id = '{$id}'";
+        $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
+        
+        $records = dbGetAll($sql);
+        
+        if(count($records) == 0) {
+            return; 
+        }
+
+        if (!dbDelete($table, $whereClause)) {
+            $dbResult = false; 
+            break;
+        }
+    }
+
+
+    $result['success'] = $dbResult;
+    $result['msg'] = $result['success'] ? 'success' : $DeleteFail ? 'deleteFails' : 'fails';
+
+    if ($result['success']) {
+        dbCommit();
+    } else {
+        dbRollback();
+    }
 }
+
 
 echo json_encode($result);

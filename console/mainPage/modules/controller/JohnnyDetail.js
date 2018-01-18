@@ -134,7 +134,7 @@ Ext.define('Console.controller.JohnnyDetail', {
         if (count == 1) {              
             store.clearFilter(true); //clearFilter:取消過濾並顯示所有數據 
             store.filter([//filter:在store內過濾資料
-                {property: 'student_id', value: record.get('id')}//用brand_id找資料
+                {property: 'student_id', value: record.get('id')}//用id找資料
             ]);
             store.reload(); //重置store
         } else {
