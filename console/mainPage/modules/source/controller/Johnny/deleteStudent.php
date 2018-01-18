@@ -57,7 +57,7 @@ if($DeleteFail == true) { // 如果$DeleteFail = true 直接給result fail
 
 
     $result['success'] = $dbResult;
-    $result['msg'] = $result['success'] ? 'success' : 'fails';
+    $result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
 
     if ($result['success']) {
         dbCommit();

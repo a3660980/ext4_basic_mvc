@@ -43,7 +43,7 @@ foreach($data as $key => $row) {
 }
 
 $result['success'] = $dbResult;
-$result['msg'] = $result['success'] ? 'success' : 'fails';
+$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
 
 if ($result['success']) {
     dbCommit();

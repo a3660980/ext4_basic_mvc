@@ -24,7 +24,7 @@ $arrField['cellphone'] = $cellphone;
 dbBegin();
 
 $result['success'] = dbUpdate($table, $arrField, $whereClause);
-$result['msg'] = $result['success'] ? 'success' : 'fails';
+$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
 
 if ($result['success']) {
     dbCommit(); 

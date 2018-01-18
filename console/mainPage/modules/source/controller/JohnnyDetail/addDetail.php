@@ -24,7 +24,7 @@ $arrField['created_date'] = $created_date;
 $arrField['operator'] = $operator;
 
 $result['success'] = dbInsert($table, $arrField);
-$result['msg'] = $result['success'] ? 'success' : 'fails';
+$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
 
 if ($result['success']){
     dbCommit();
