@@ -25,12 +25,13 @@ foreach($data as $key => $row) {
     if($detailCount > 0) { //如果detail裡面 有資料 >0 的話 $DeleteFail = true
         $dbResult = false; 
         $DeleteFail = true; 
+        break;
     }
 }
 
 if($DeleteFail == true) { // 如果$DeleteFail = true 直接給result fail
     $result['success'] = $dbResult;
-    $result['msg'] = $result['success'] ? 'success' : $DeleteFail ? 'deleteFails' : 'fails';
+    $result['msg'] = 'deleteFails';   //前端顯示訊息判斷
 } else {
 
     dbBegin(); //單一資料表格 不用使用 transection 浪費資源 所以這邊可以不用
@@ -56,7 +57,7 @@ if($DeleteFail == true) { // 如果$DeleteFail = true 直接給result fail
 
 
     $result['success'] = $dbResult;
-    $result['msg'] = $result['success'] ? 'success' : $DeleteFail ? 'deleteFails' : 'fails';
+    $result['msg'] = $result['success'] ? 'success' : 'fails';
 
     if ($result['success']) {
         dbCommit();

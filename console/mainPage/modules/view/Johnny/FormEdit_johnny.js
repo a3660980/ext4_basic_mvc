@@ -49,7 +49,7 @@ Ext.define('Console.view.Johnny.FormEdit_johnny', {
                     name: 'sex',
                     editable : false,
                     fieldLabel: MSG['gender_t'],//性別
-                    queryMode: 'local',
+                    queryMode: 'local', //combo的資料是取至於 本機 local 還是遠端
                     store: states,
                     displayField: 'name',
                     valueField: 'abbr',
@@ -61,7 +61,7 @@ Ext.define('Console.view.Johnny.FormEdit_johnny', {
                     fieldLabel: MSG['email_t'],//信箱
                     maxLength: 100,
                     vtype: 'email',
-                    allowBlank: true
+                    allowBlank: true //允許空值
                 },{
                     vtype: 'cellphone',
     				name: 'cellphone',

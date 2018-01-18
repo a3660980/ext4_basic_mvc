@@ -349,7 +349,7 @@ Ext.define('Console.controller.Johnny', {
                 switch (action.failureType) {
                     case Ext.form.action.Action.CLIENT_INVALID:
                         error_msg = MSG['form_invalid'];
-                        break;
+                    break;
                     case Ext.form.action.Action.CONNECT_FAILURE:
                         error_msg = MSG['server_connect_fail'];
                         break;
