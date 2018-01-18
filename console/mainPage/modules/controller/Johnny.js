@@ -314,19 +314,18 @@ Ext.define('Console.controller.Johnny', {
         var grid = me.getGrid();
         var store = grid.getStore();
         var form = formPanel.getForm();
-        var record = grid.getSelectionModel().getSelection()[0];
 
          // check value
         if (! form.isValid()) {
             return;
         }
 
-        form.submit({
-            url: me.getEditRequestUrl(),
-            method: 'POST',
-            submitEmptyText: false,
+        form.submit({ //表單送出
+            url: me.getEditRequestUrl(), //加入api
+            method: 'POST', //POST
+            submitEmptyText: false, //是否允許空白
             success: function() {
-                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
+                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true); //actionPanel收起
 
                 Ext.MessageBox.show({
                     title: MSG['msg_box_info'],
