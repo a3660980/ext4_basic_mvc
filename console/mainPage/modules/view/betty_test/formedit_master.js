@@ -32,8 +32,8 @@ Ext.define('Console.view.betty_test.formedit_master', {
             },
             defaultType: 'textfield',//默認為文字框
             fieldDefaults: {//提示欄位
-                msgTarget: 'under',// 提示訊息放的位置
-                autoFitErrors: false//提示訊息長度控制
+            msgTarget: 'under',// 提示訊息放的位置
+            autoFitErrors: false//提示訊息長度控制
             },
             items: [
                 {
@@ -140,6 +140,8 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     text: MSG['cancle'],
                     action: 'form_edit_cancel'
                 }
+            ],buttons: [
+
             ]
         });
 
@@ -148,11 +150,9 @@ Ext.define('Console.view.betty_test.formedit_master', {
     getImageResource: function(name, isCssBackground) {
         var me = this;
         var dir = me.getDir();
-
         if (isCssBackground) {
             return "url('" + dir + name + "')";
         }
-
         return dir + name;
     }
 });

@@ -55,7 +55,6 @@ if (isset($_FILES)) {
 
     if(! empty($_FILES[$uploadParam]['name'])){
         $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));
-
         //check file type is picture
         if (!$img_check) {
             $result = [

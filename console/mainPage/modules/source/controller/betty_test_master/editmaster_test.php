@@ -1,6 +1,5 @@
 <?php
 require "../../../../../init.php";
-ini_set("display_errors", 1);
 // $sysConnDebug = true;
 // result defination
 $result = [];
@@ -29,7 +28,7 @@ $table = 'joinme_gas_brand';
 // 資料表
 $whereClause = "brand_id = '{$brand_id}'";
 
-if (isset($_FILES)) {//上傳成功
+if (isset($_FILES)) {//不為空值
     $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
     $records = dbGetAll($sql);
     //select data check
@@ -37,46 +36,36 @@ if (isset($_FILES)) {//上傳成功
     return;
     }
     //db data change php array
-        foreach ($records as $key => $row) {
+    foreach ($records as $key => $row) {
         if($row['brand_logo'] != null)
-           $brand_logo = $row['brand_logo'];
-        }
-    
-}
-$filePath = "betty_test_master/{$brand_id}";
-// $filePath = "ServiceCategory";
-$fileName = $brand_id;
-
+        $brand_logo = $row['brand_logo'];
+    }
+    $filePath = "betty_test_master/{$brand_id}";
+    $fileName = $brand_id;
     if(!empty($_FILES[$uploadParam]['name'])){
         $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));
-
         //check file type is picture
-        if (!@getimagesize($FILES["name"])) {
-         $result = [
-                 'success' => false,
-                 'msg' => '請上傳圖檔(.jpg,.png)'
-             ];
-        echo json_encode($result);
-        return;
-        }       
-    }
+        if (!$img_check) {
+            $result = [
+                'success' => false,
+                'msg' => '檔案為非圖片格式類型'
+            ];
 
-$uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
-$size = $_FILES[$uploadParam]['size'];
-    if ($uploadFileResult['result']==false) {
-        $result['success'] = false;
-        $result['msg'] = $uploadFileResult['msg'];
-        echo json_encode($result);
+            echo json_encode($result);
 
-        return;
+            return;
+            }  
+            $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
+            if ($uploadFileResult['result']==false) {
+            $result['success'] = false;
+            $result['msg'] = $uploadFileResult['msg'];
+            echo json_encode($result);
+            return;
+            
+        }
+        $brand_logo = $uploadFileResult['name'];
     }
-$brand_logo = $uploadFileResult['name'];
 }    
-
-
-$column = "*";
-// 全部
-
 
 $arrField = [];
 $arrField['brand_id'] = $brand_id;
@@ -93,24 +82,11 @@ $arrField['reward_info'] = $reward_info;
 $arrField['created_date'] = $created_date;
 $arrField['updated_date'] = $updated_date;
 $arrField['operator'] = $operator;
-
-//存取資料陣列
-
-// dbBegin();
-// 呼叫server端準備進行操作 
-
 $result['success'] = dbUpdate($table, $arrField, $whereClause);
-// 成功後依輸入值執行更新欄位的值
 $result['msg'] = $result['success'] ? 'success' : 'fails';
-// 判斷更新資料是否成功
-
 if ($result['success'] ) {
     dbCommit();
-    // 上傳更新資料
 } else {
     dbRollback();
-    // 不要執行更新，把資料庫的狀態復原至我們執行dbBegin的時間點
 }
-
 echo json_encode($result);
-// 輸出是否成功訊息
