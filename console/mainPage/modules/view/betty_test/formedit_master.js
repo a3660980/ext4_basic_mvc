@@ -6,7 +6,8 @@ Ext.define('Console.view.betty_test.formedit_master', {
 
 	layout: 'anchor',
     config: {
-        comboboxStore: 'betty.ServiceContract_status'
+        comboboxStore: 'betty.ServiceContract_status',
+        dir: '../resource/default/image/'
     },//下拉式選單store
 
     initComponent: function() {
@@ -44,6 +45,12 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     fieldLabel: MSG['brand_name'],
                     maxLength: 10,
                     allowBlank: false
+                },{
+                    xtype: 'image',
+                    src: me.getImageResource('default.png'),
+                    width: 200,
+                    height: 200
+
                 },{
                     xtype: 'filefield',
                     fieldLabel: MSG['brand_logo'],
@@ -137,5 +144,15 @@ Ext.define('Console.view.betty_test.formedit_master', {
         });
 
         me.callParent(arguments);
+    },
+    getImageResource: function(name, isCssBackground) {
+        var me = this;
+        var dir = me.getDir();
+
+        if (isCssBackground) {
+            return "url('" + dir + name + "')";
+        }
+
+        return dir + name;
     }
 });

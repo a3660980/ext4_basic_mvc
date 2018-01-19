@@ -1,15 +1,11 @@
 <?php
 require "../../../../../init.php";
-
+ini_set("display_errors", 1);
 // $sysConnDebug = true;
-
 // result defination
 $result = [];
 $sql = [];
 // db execution
-
-
-
 $brand_id = isset($_POST['brand_id']) ? trim($_POST['brand_id']) : null;
 $brand_name = isset($_POST['brand_name']) ? trim($_POST['brand_name']) : null;
 $brand_logo = null;
@@ -33,52 +29,40 @@ $table = 'joinme_gas_brand';
 // 資料表
 $whereClause = "brand_id = '{$brand_id}'";
 
-if (isset($_FILES)) {
-
+if (isset($_FILES)) {//上傳成功
     $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
     $records = dbGetAll($sql);
-
     //select data check
     if(count($records) == 0){
-        return;
+    return;
     }
-
     //db data change php array
-    foreach ($records as $key => $row) {
+        foreach ($records as $key => $row) {
         if($row['brand_logo'] != null)
-            $brand_logo = $row['brand_logo'];
-    }
+           $brand_logo = $row['brand_logo'];
+        }
+    
+}
+$filePath = "betty_test_master/{$brand_id}";
+// $filePath = "ServiceCategory";
+$fileName = $brand_id;
 
-    $filePath = "betty_test_master/{$brand_id}";
-    // $filePath = "ServiceCategory";
-    $fileName = $brand_id;
-
-    if(! empty($_FILES[$uploadParam]['name'])){
+    if(!empty($_FILES[$uploadParam]['name'])){
         $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));
 
         //check file type is picture
-        if (!$img_check) {
-            $result = [
-                'success' => false,
-                'msg' => '檔案為非圖片格式類型'
-            ];
+        if (!@getimagesize($FILES["name"])) {
+         $result = [
+                 'success' => false,
+                 'msg' => '請上傳圖檔(.jpg,.png)'
+             ];
+        echo json_encode($result);
+        return;
+        }       
+    }
 
-            echo json_encode($result);
-
-            return;
-        }
-
-        $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
-        $size = $_FILES[$uploadParam]['size'];
-    // if ($size > 2000000) {
-    //         $result = [
-    //             'success' => false,
-    //             'msg' => '檔案過大'
-    //         ];
-    //         echo json_encode($result);
-
-    //     return;
-    //     } 
+$uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
+$size = $_FILES[$uploadParam]['size'];
     if ($uploadFileResult['result']==false) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
@@ -86,11 +70,10 @@ if (isset($_FILES)) {
 
         return;
     }
+$brand_logo = $uploadFileResult['name'];
+}    
 
-        $brand_logo = $uploadFileResult['name'];
-    }
 
-}
 $column = "*";
 // 全部
 
