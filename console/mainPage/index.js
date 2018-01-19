@@ -84,6 +84,7 @@ Ext.application({
             'study-d',
             'study-e',
             'study-f',
+            'study-g',
 
         ];
 

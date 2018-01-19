@@ -546,14 +546,27 @@ Ext.define('Console.controller.betty_detail', {
                             });
                         },
 
-                        failure: function() {
-                            Ext.MessageBox.show({
+                        failure: function(batch,options) {
+                            if(batch.proxy.getReader().jsonData=='DeteleFails'){
+                                Ext.MessageBox.show({
                                 title: MSG['msg_box_info'],
                                 msg: MSG['delete_fail_t'],
                                 width: 300,
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.ERROR
                             });
+
+                            }else{
+                                Ext.MessageBox.show({
+                                title: MSG['msg_box_info'],
+                                msg: MSG['delete_fail'],
+                                width: 300,
+                                buttons: Ext.MessageBox.OK,
+                                icon: Ext.MessageBox.ERROR
+                            });
+
+                            }
+                            
                             store.reload();
                         }
                     });
