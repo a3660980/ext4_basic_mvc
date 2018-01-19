@@ -5,6 +5,7 @@ require "../../../../../init.php";
 
 // result defination
 $result = [];
+$sql = [];
 // db execution
 
 
@@ -24,47 +25,51 @@ $reward_point= isset($_POST['reward_point']) ? trim($_POST['reward_point']) : nu
 $reward_info= isset($_POST['reward_info']) ? trim($_POST['reward_info']) : null;
 $created_date= isset($_POST['created_date']) ? trim($_POST['created_date']) : null;
 $updated_date= date(DB_DATE_FORMAT);
-$operator= $sysSession->user_name;//取使用者名稱
+$operator= $sysSession->user_name;
 
-dbBegin();//開始一個事務 關閉自動提交
+dbBegin();
 
 $table = 'joinme_gas_brand';
 // 資料表
 $whereClause = "brand_id = '{$brand_id}'";
 
 if (isset($_FILES)) {
+
     $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
-    $records = dbGetAll($sql);//dbgetall 回傳資料使用陣列格式
+    $records = dbGetAll($sql);
+
     //select data check
     if(count($records) == 0){
         return;
     }
-}
- 
+
     //db data change php array
-foreach ($records as $key => $row) {
-    if($row['brand_logo'] != null){
-        $brand_logo = $row['brand_logo'];
-    }else{
-        $filePath = "betty_test_master/{$brand_id}";
-        $fileName = $brand_id;
-        if(! empty($_FILES[$uploadParam]['name'])){//如果檔案存在
-        $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));//取得檔案格式
-            if (!$img_check) {
-                $result = [
+    foreach ($records as $key => $row) {
+        if($row['brand_logo'] != null)
+            $brand_logo = $row['brand_logo'];
+    }
+
+    $filePath = "GasBrand/{$brand_id}";
+    // $filePath = "ServiceCategory";
+    $fileName = $brand_id;
+
+    if(! empty($_FILES[$uploadParam]['name'])){
+        $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));
+
+        //check file type is picture
+        if (!$img_check) {
+            $result = [
                 'success' => false,
                 'msg' => '檔案為非圖片格式類型'
-                ];
-                echo json_encode($result);
-                return;
-            }   
-        }   
-    }
-    $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);//上傳圖片      
-}
+            ];
 
+            echo json_encode($result);
 
-        //$size = $_FILES[$uploadParam]['size'];
+            return;
+        }
+
+        $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
+        $size = $_FILES[$uploadParam]['size'];
     // if ($size > 2000000) {
     //         $result = [
     //             'success' => false,
@@ -78,17 +83,19 @@ foreach ($records as $key => $row) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
         echo json_encode($result);
+
         return;
     }
-        $brand_logo = $uploadFileResult['name'];//檔案名稱
+
+        $brand_logo = $uploadFileResult['name'];
     }
 
 }
-//$column = "*";
+$column = "*";
 // 全部
 
 
-$arrField = [];//宣告陣列
+$arrField = [];
 $arrField['brand_id'] = $brand_id;
 $arrField['brand_name'] = $brand_name;
 $arrField['brand_logo'] = $brand_logo;
@@ -116,10 +123,10 @@ $result['msg'] = $result['success'] ? 'success' : 'fails';
 
 if ($result['success'] ) {
     dbCommit();
-    // 提交更新
+    // 上傳更新資料
 } else {
     dbRollback();
-    //回到一開始
+    // 不要執行更新，把資料庫的狀態復原至我們執行dbBegin的時間點
 }
 
 echo json_encode($result);

@@ -82,19 +82,19 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     forceSelection: true,
                     editable: false 
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'hand_gasoline_offer',
                     fieldLabel: MSG['hand_gasoline_offer'],
                     maxLength: 4,
                     allowBlank: true
                 },{
-                    vtype:'ValidateNumber',//自訂，在index.js中
+                    //vtype:'ValidateNumber',//自訂，在index.js中
                     name: 'self_gasoline_offer',
                     fieldLabel: MSG['self_gasoline_offer'],
                     maxLength: 4,
                     allowBlank: true
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'diesel_offer',
                     fieldLabel: MSG['diesel_offer'],
                     maxLength: 4,
