@@ -49,7 +49,7 @@ if (isset($_FILES)) {
             $brand_logo = $row['brand_logo'];
     }
 
-    $filePath = "GasBrand/{$brand_id}";
+    $filePath = "betty_test_master/{$brand_id}";
     // $filePath = "ServiceCategory";
     $fileName = $brand_id;
 

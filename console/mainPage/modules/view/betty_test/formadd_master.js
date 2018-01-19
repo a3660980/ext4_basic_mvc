@@ -57,7 +57,7 @@ Ext.define('Console.view.betty_test.formadd_master', {
                     vtype:'url',//要符合http格式
                     fieldLabel: MSG['web_url'],
                     maxLength: 100,
-                    allowBlank: true
+                    allowBlank: false
                 },{
                     xtype:"numberfield",
                     name: 'priority',
@@ -87,25 +87,25 @@ Ext.define('Console.view.betty_test.formadd_master', {
                     editable: false 
 
                 },{
-                    //vtype:'ValidateNumber',//自己定義，在index.js中
+                    vtype:'ValidateNumber',//自己定義，在index.js中
                     name: 'hand_gasoline_offer',
                     fieldLabel: MSG['hand_gasoline_offer'],
-                    //maxLength: 4,
-                    allowBlank: true
+                    maxLength: 4,
+                    allowBlank: false
                     
                 },{
-                    //vtype:'ValidateNumber',
+                    vtype:'ValidateNumber',
                     name: 'self_gasoline_offer',
                     fieldLabel: MSG['self_gasoline_offer'],
-                    //maxLength: 4,
-                    allowBlank: true
+                    maxLength: 4,
+                    allowBlank: false
                    
                 },{
-                    //vtype:'ValidateNumber',
+                    vtype:'ValidateNumber',
                     name: 'diesel_offer',
                     fieldLabel: MSG['diesel_offer'],
-                    //maxLength: 4,
-                    allowBlank: true
+                    maxLength: 4,
+                    allowBlank: false
                 },{
                     vtype:'word',//自行定義，只能輸入數字
                     name: 'reward_point',
