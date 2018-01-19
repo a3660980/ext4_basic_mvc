@@ -5,7 +5,6 @@ require "../../../../../init.php";
 
 // result defination
 $result = [];
-$sql = [];
 // db execution
 
 
@@ -34,40 +33,37 @@ $table = 'joinme_gas_brand';
 $whereClause = "brand_id = '{$brand_id}'";
 
 if (isset($_FILES)) {
-
     $sql = "SELECT * FROM {$table} WHERE {$whereClause}";
     $records = dbGetAll($sql);//dbgetall 回傳資料使用陣列格式
-
     //select data check
     if(count($records) == 0){
         return;
     }
-
+}
+ 
     //db data change php array
-    foreach ($records as $key => $row) {
-        if($row['brand_logo'] != null)
-            $brand_logo = $row['brand_logo'];
-    }
-
-    $filePath = "betty_test_master/{$brand_id}";
-    // $filePath = "ServiceCategory";
-    $fileName = $brand_id;
-
-    if(! empty($_FILES[$uploadParam]['name'])){//如果檔案存在
+foreach ($records as $key => $row) {
+    if($row['brand_logo'] != null){
+        $brand_logo = $row['brand_logo'];
+    }else{
+        $filePath = "betty_test_master/{$brand_id}";
+        $fileName = $brand_id;
+        if(! empty($_FILES[$uploadParam]['name'])){//如果檔案存在
         $img_check = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));//取得檔案格式
-        var_dump($img_check);
-        if (!$img_check) {
-            $result = [
+            if (!$img_check) {
+                $result = [
                 'success' => false,
                 'msg' => '檔案為非圖片格式類型'
-            ];
+                ];
+                echo json_encode($result);
+                return;
+            }   
+        }   
+    }
+    $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);//上傳圖片      
+}
 
-            echo json_encode($result);
 
-            return;
-        }
-
-        $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);//上傳圖片
         //$size = $_FILES[$uploadParam]['size'];
     // if ($size > 2000000) {
     //         $result = [
@@ -82,10 +78,8 @@ if (isset($_FILES)) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
         echo json_encode($result);
-
         return;
     }
-
         $brand_logo = $uploadFileResult['name'];//檔案名稱
     }
 

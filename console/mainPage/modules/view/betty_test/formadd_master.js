@@ -51,13 +51,12 @@ Ext.define('Console.view.betty_test.formadd_master', {
                     name: 'brand_logo',
                     fieldLabel: MSG['brand_logo'],
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: true
                 },{
                     name: 'web_url',
                     vtype:'url',//要符合http格式
                     fieldLabel: MSG['web_url'],
                     maxLength: 100,
-                    value:"http://",
                     allowBlank: true
                 },{
                     xtype:"numberfield",
@@ -84,29 +83,29 @@ Ext.define('Console.view.betty_test.formadd_master', {
                     valueField: 'category_identity',
                     // 上傳的值
                     forceSelection: false,
-                    value:'配合',
+                    value:'1',
                     editable: false 
 
                 },{
-                    vtype:'ValidateNumber',//自己定義，在index.js中
+                    //vtype:'ValidateNumber',//自己定義，在index.js中
                     name: 'hand_gasoline_offer',
                     fieldLabel: MSG['hand_gasoline_offer'],
-                    maxLength: 4,
-                    allowBlank: false
+                    //maxLength: 4,
+                    allowBlank: true
                     
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'self_gasoline_offer',
                     fieldLabel: MSG['self_gasoline_offer'],
-                    maxLength: 4,
-                    allowBlank: false
+                    //maxLength: 4,
+                    allowBlank: true
                    
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'diesel_offer',
                     fieldLabel: MSG['diesel_offer'],
-                    maxLength: 4,
-                    allowBlank: false
+                    //maxLength: 4,
+                    allowBlank: true
                 },{
                     vtype:'word',//自行定義，只能輸入數字
                     name: 'reward_point',

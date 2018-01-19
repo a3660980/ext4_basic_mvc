@@ -40,6 +40,7 @@ $MSG['study_b'] = '許旻瑋';
 $MSG['study_c'] = '邱琬茹';
 
 $MSG['study_d'] = '劉育亨';
+
 $MSG['click_me'] = '點我';
 $MSG['student_id_d'] = '學號';
 $MSG['student_name_d'] ='姓名';

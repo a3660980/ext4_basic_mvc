@@ -143,6 +143,20 @@ Ext.define('Console.view.NorthToolbar', {
                         }
                     ]
 
+                },{
+                    id: 'study-g',
+                    text: '施文薰',
+                    defaults: {
+                        hidden: true
+                    },
+                    menu:[
+                        {
+                            id:'btn_emp',
+                            text:'人事資料',
+                            action:'btn_emp'
+
+                        }
+                    ]
                 },
                     {
                       hidden: false,

@@ -4,7 +4,7 @@ require "../../../../../init.php";
 // $sysConnDebug = true;
 // result defination
 $result = [];
-$sql = [];
+
 
 $student_id = isset($_POST['student_id']) ? trim($_POST['student_id']) : null; //判斷是否有數值 有去掉空白 無則傳回空白
 $name = isset($_POST['name']) ? trim($_POST['name']) : null;
