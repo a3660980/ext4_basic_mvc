@@ -9,7 +9,7 @@ Ext.define('Console.view.Johnny_HomePage.GridMaster', {
 	selType: 'checkboxmodel',
 
     config: {
-        store: 'Johnny.johnnyHomePage'
+        store: 'Johnny.HomePage'
     },
 
 	initComponent: function() {

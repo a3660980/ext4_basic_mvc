@@ -40,7 +40,8 @@ Ext.application({
         'betty',
         'betty_detail',
         'Johnny',
-        'JohnnyDetail'
+        'JohnnyDetail',
+        'JohnnyControllers.HomePage'
     ],
 
     launch: function() {
@@ -85,6 +86,7 @@ Ext.application({
             'study-e',
             'study-f',
             'study-g',
+            'hotel_johnny'
 
         ];
 
