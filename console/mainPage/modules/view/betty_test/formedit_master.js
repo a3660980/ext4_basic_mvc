@@ -6,7 +6,8 @@ Ext.define('Console.view.betty_test.formedit_master', {
 
 	layout: 'anchor',
     config: {
-        comboboxStore: 'betty.ServiceContract_status'
+        comboboxStore: 'betty.ServiceContract_status',
+        dir: '../resource/default/image/'
     },//下拉式選單store
 
     initComponent: function() {
@@ -31,8 +32,8 @@ Ext.define('Console.view.betty_test.formedit_master', {
             },
             defaultType: 'textfield',//默認為文字框
             fieldDefaults: {//提示欄位
-                msgTarget: 'under',// 提示訊息放的位置
-                autoFitErrors: false//提示訊息長度控制
+            msgTarget: 'under',// 提示訊息放的位置
+            autoFitErrors: false//提示訊息長度控制
             },
             items: [
                 {
@@ -44,6 +45,12 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     fieldLabel: MSG['brand_name'],
                     maxLength: 10,
                     allowBlank: false
+                },{
+                    xtype: 'image',
+                    src: me.getImageResource('default.png'),
+                    width: 200,
+                    height: 200
+
                 },{
                     xtype: 'filefield',
                     fieldLabel: MSG['brand_logo'],
@@ -82,19 +89,19 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     forceSelection: true,
                     editable: false 
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'hand_gasoline_offer',
                     fieldLabel: MSG['hand_gasoline_offer'],
                     maxLength: 4,
                     allowBlank: true
                 },{
-                    vtype:'ValidateNumber',//自訂，在index.js中
+                    //vtype:'ValidateNumber',//自訂，在index.js中
                     name: 'self_gasoline_offer',
                     fieldLabel: MSG['self_gasoline_offer'],
                     maxLength: 4,
                     allowBlank: true
                 },{
-                    vtype:'ValidateNumber',
+                    //vtype:'ValidateNumber',
                     name: 'diesel_offer',
                     fieldLabel: MSG['diesel_offer'],
                     maxLength: 4,
@@ -137,5 +144,13 @@ Ext.define('Console.view.betty_test.formedit_master', {
         });
 
         me.callParent(arguments);
+    },
+    getImageResource: function(name, isCssBackground) {
+        var me = this;
+        var dir = me.getDir();
+        if (isCssBackground) {
+            return "url('" + dir + name + "')";
+        }
+        return dir + name;
     }
 });
