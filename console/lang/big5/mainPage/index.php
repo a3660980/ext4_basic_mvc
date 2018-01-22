@@ -178,6 +178,11 @@ $MSG['priority_t']='優惠權重';
 $MSG['delete_fail_t']='下面表中有資料不可以刪除';
 
 
+
+
+
+
+
 $MSG['authorized'] = '授權項目';
 $MSG['authorized1'] = '1-system-information';
 $MSG['authorized2'] = '2-cps-console';

@@ -140,8 +140,6 @@ Ext.define('Console.view.betty_test.formedit_master', {
                     text: MSG['cancle'],
                     action: 'form_edit_cancel'
                 }
-            ],buttons: [
-
             ]
         });
 
