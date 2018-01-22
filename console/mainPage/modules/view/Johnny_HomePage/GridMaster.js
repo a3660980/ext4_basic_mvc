@@ -12,35 +12,36 @@ Ext.define('Console.view.Johnny_HomePage.GridMaster', {
         store: 'Johnny.HomePage'
     },
 
+    
+
 	initComponent: function() {
         var me = this;
 
 		Ext.apply(me, {
 			store: me.getStore(),//取得store檔
 			columns: [
-        		 {
-                    header: MSG['home_id'],
-                    dataIndex: 'home_id',
-                    flex: 1
-                },  {
+        		{
         			header: MSG['home_name'],
         			dataIndex: 'home_name',
         			flex: 1
-        		},  {
+        		}, {
                     header: MSG['home_photo'],
                     dataIndex: 'home_photo',
-                    flex: 1
+                    flex: 2,
+                     renderer: function(value, p, r) {
+                        return me.renderImage(this, r.data['home_photo']);//取得圖片
+                    }
                 }, {
                     header: MSG['start_date'],
                     dataIndex: 'start_date',
-                    flex: 2
+                    flex: 1
                 },{
                     header: MSG['expire_date'],
                     dataIndex: 'expire_date',
                     flex: 1
                 },{
-                    header: MSG['create_date'],
-                    dataIndex: 'create_date',
+                    header: MSG['created_date'],
+                    dataIndex: 'created_date',
                     flex: 1
                 },{
                     header: MSG['updated_date'],

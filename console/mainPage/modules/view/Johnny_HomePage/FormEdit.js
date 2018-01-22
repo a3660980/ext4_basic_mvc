@@ -1,4 +1,4 @@
-Ext.define('Console.view.JohnnyHome.FormEdit', {
+Ext.define('Console.view.Johnny_HomePage.FormEdit', {
     extend: 'Console.override.Form',
    
     alias:'widget.johnnyHomePageFormEdit', 
@@ -54,8 +54,8 @@ Ext.define('Console.view.JohnnyHome.FormEdit', {
                     allowExpireBlank: true,
                     startName: 'start_date',
                     expireName: 'expire_date',
-                    startLabelField: MSG.start_date_client,
-                    expireLabelField: MSG.expire_date_client
+                    startLabelField: MSG.start_date,
+                    expireLabelField: MSG.expire_date
                 },{
                     xtype: 'displayfield',
                     value: '＊若未填生效日與到期日，則系統將自動填入此活動的日期時段。',

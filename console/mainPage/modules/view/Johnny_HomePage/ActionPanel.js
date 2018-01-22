@@ -25,7 +25,7 @@ Ext.define('Console.view.Johnny_HomePage.ActionPanel', {
         		{
         			xtype: 'johnnyHomePageFormAdd'
         		}, {
-        			xtype: 'johnnyHomePageFromEdit'
+        			xtype: 'johnnyHomePageFormEdit'
         		}
 			]
 		});

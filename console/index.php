@@ -6,7 +6,7 @@
 	// 語系檔
 	require SYS_LANG . "/lib/common.php";
 	require SYS_LANG . "/index.php";
-    require SYS_LANG . "/modules/hotelApp.php";
+
 ?>
 <!DOCTYPE html>
 <html>

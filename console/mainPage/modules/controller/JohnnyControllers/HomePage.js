@@ -7,16 +7,16 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
         'Johnny.HomePage'
     ],
     views: [  
-        'JohnnyHomePage.TabPanel',
-        'JohnnyHomePage.GridMaster',
-        'JohnnyHomePage.ActionPanel',
-        'JohnnyHomePage.FormAdd',
-        'JohnnyHomePage.FormEdit'
+        'Johnny_HomePage.TabPanel',
+        'Johnny_HomePage.GridMaster',
+        'Johnny_HomePage.ActionPanel',
+        'Johnny_HomePage.FormAdd',
+        'Johnny_HomePage.FormEdit'
     ],
 
     refs: [ //指定任何在頁面上的組件
         {
-            ref: 'ctionPanel', 
+            ref: 'actionPanel', 
             selector: 'johnnyHomePageActionPanel' 
         }, {
             ref: 'grid',

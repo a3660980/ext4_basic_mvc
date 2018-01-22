@@ -16,6 +16,7 @@
 	require $sys_lang . "/mainPage/modules/user_management.php";
 	require $sys_lang . "/mainPage/modules/access_setting.php";
 	require $sys_lang . "/mainPage/modules/change_password.php";
+    require $sys_lang . "/mainPage/modules/hotelApp.php";
 ?><!DOCTYPE html>
 <html>
 <head>

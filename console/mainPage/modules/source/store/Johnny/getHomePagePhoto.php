@@ -2,7 +2,7 @@
 require "../../../../../init.php";
 
 $result = [];
-$table = "johnny_femobile_hotel_photo";
+$table = "johnny_femobile_hotel_homepage";
 $whereClause = '1=1';
 
 $sql="SELECT * FROM {$table} where {$whereClause}";

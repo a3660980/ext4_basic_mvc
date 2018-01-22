@@ -172,6 +172,21 @@ Ext.define('Console.view.NorthToolbar', {
                         }
                     ]
 
+                },{
+                    id: 'hotel_betty',
+                    text: MSG['hotel_betty'],
+                    defaults: {
+                        hidden: true
+                    },
+                   
+                    menu: [
+                        {
+                            id: 'btn_homePage',
+                            text: MSG['btn_homePage'],
+                            action:'btn_homePage'
+                        }
+                    ]
+
                 },
                     {
                       hidden: false,

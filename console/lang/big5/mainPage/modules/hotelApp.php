@@ -13,4 +13,5 @@ $MSG['edit_homepage_photo']='修改照片';
 $MSG['delete_homepage_photo']='刪除照片'; 
 $MSG['hotel_johnny']='國內訂房(尤昭詠)';
 $MSG['btn_HomePage']='首頁照片';
-
+$MSG['hotel_betty']='國內訂房(戴翊倩)';
+$MSG['btn_homePage']='首頁照片管理';

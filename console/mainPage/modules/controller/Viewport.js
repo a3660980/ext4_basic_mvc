@@ -115,6 +115,9 @@ Ext.define('Console.controller.Viewport', {
 			'northpanel menuitem[action=btn_HomePage]': {
 				click: this.addTab
 			},
+			'northpanel menuitem[action=btn_homePage]': {
+				click: this.addTab
+			}
 		});
 	},
 
@@ -332,6 +335,10 @@ Ext.define('Console.controller.Viewport', {
 			itemId='btn_HomePage';
 			title=MSG['btn_HomePage'];
 			xtype='johnnyHomePageTabPanel';
+		}else if(btn.getId()=='btn_homePage_t'){
+			itemId='btn_homePage_t';
+			title=MSG['btn_homePage_t'];
+			xtype='hlTabPanel';
 		}
 		
 		
