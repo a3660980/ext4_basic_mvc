@@ -11,9 +11,9 @@ Ext.define('Console.view.hotelhomepage.GridMaster', {
 
 	selType: 'checkboxmodel',//選擇類型的字符串，不能進行更多的設置；checkboxmodel,checkbox 選取
 // 勾勾
-    // config: {
+    config: {
     //     store: 'betty.Service_betty'
-    // },
+    },
 //存取store檔案的路徑
 	initComponent: function() {
         var me = this;
@@ -68,7 +68,7 @@ Ext.define('Console.view.hotelhomepage.GridMaster', {
     				action: 'delete_user',
                     allowMulti: true,//可否多選，可
     				disabled: true
-    			}
+    			}    
             ],
 			bbar: {//下方工具列
 				xtype: 'pagingtoolbar',//告知Server要顯示的資料為何

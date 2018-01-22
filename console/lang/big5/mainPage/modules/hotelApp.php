@@ -11,3 +11,6 @@ $MSG['operator']='操作人員';
 $MSG['add_homepage_photo']='新增照片';
 $MSG['edit_homepage_photo']='修改照片'; 
 $MSG['delete_homepage_photo']='刪除照片'; 
+$MSG['hotel_johnny']='國內訂房(尤昭詠)';
+$MSG['btn_HomePage']='首頁照片';
+
