@@ -1,9 +1,8 @@
 Ext.define('Console.controller.JohnnyControllers.HomePage', {
     extend: 'Ext.app.Controller',
-    
-    // stores: [ 
-    //     'Johnny.Service_johnny'
-    // ],
+    stores: [ 
+        'Johnny.HomePage'
+    ],
     models: [ 
         'Johnny.HomePage'
     ],
