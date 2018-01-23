@@ -78,7 +78,14 @@ Ext.define('Console.view.Johnny_HomePage.FormEdit', {
                             disabled: false
                         }
                     ]
-                }, {
+                },{
+                    xtype: 'displayfield',
+                    value: '＊圖片尺寸須符合1080x1920。',
+                    fieldStyle: {
+                        // fontStyle: 'italic',
+                        color: '#7f7f7f'
+                    }
+                },{
                     xtype:"numberfield",
                     name: 'home_sort',
                     fieldLabel: MSG['home_sort'],

@@ -1,17 +1,19 @@
-Ext.define('Console.view.HotelBranch.GridMaster', {
+Ext.define('Console.view.HotelRoom.GridMaster', {
     extend: 'Console.override.Grid',
-    alias: 'widget.hotbragridmaster',
+    alias: 'widget.hotroogridmaster',
 
     requires: [
         'Ext.ux.ProgressBarPager',
         'Ext.ux.form.SearchField'
     ],
 
+    
+
     selType: 'checkboxmodel', 
 
 
     config: {
-        store: 'HotelBranch.HotelBranch'  
+        store: 'HotelRoom.HotelRoom'  
     },
 
     initComponent: function() {
@@ -20,24 +22,40 @@ Ext.define('Console.view.HotelBranch.GridMaster', {
             store: me.getStore(),
             columns: [
                 {
+                    header: MSG['room_id'],
+                    dataIndex: 'room_id',
+                    flex: 1,
+                    hidden:true
+                },{
                     header: MSG['branch_id'],
                     dataIndex: 'branch_id',
                     flex: 1,
                     hidden:true
-                },
-                {
-                    header: MSG['branch_sort'],
-                    dataIndex: 'branch_sort',
-                    flex: 1
-                },  {
+                },{
                     header: MSG['branch_name'],
                     dataIndex: 'branch_name',
+                    flex: 1,
+                    // hidden:true
+                },{
+                    header: MSG['room_sort'],
+                    dataIndex: 'room_sort',
+                    flex: 1
+                },  {
+                    header: MSG['room_name'],
+                    dataIndex: 'room_name',
                     flex: 1
                 }, {
-                    header: MSG['branch_photo'],
-                    dataIndex: 'branch_photo',
+                    header: MSG['room_spec'],
+                    dataIndex: 'room_spec',
+                    flex: 1
+                    // hidden:true
+                },  {
+                    header: MSG['room_photo'],
+                    dataIndex: 'room_photo',
                     flex: 1,
-                    hidden:true
+                    renderer: function(value, p, r) {
+                        return me.renderImage(this, r.data['room_photo']);
+                    }
                 }, {
                     header: MSG['user_i18n'],
                     dataIndex: 'user_i18n',

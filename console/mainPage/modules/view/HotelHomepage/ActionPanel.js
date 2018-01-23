@@ -1,7 +1,7 @@
-Ext.define('Console.view.hotelhomepage_betty.ActionPanel', {
+Ext.define('Console.view.HotelHomepage.ActionPanel', {
 	extend: 'Console.override.ActionPanel',
-	alias: 'widget.hlactionpanel',
-// 框 跑出動作
+	alias: 'widget.hothomactionpanel',
+
 	requires: ['Ext.layout.container.Fit'],
 
 	layout: 'fit',
@@ -14,18 +14,18 @@ Ext.define('Console.view.hotelhomepage_betty.ActionPanel', {
         var me = this;
 
 		Ext.apply(me, {
-			collapseMode: 'mini', //面板的折疊
+			collapseMode: 'mini',
 			collapsed: true,
 			collapsible: false,
             defaults: {
                 hidden: true
             },
 			items: [
-        		{
-        			xtype: 'hlformadd'
-        		}, {
-        			xtype: 'hlformedit'
-        		}
+    			{
+    				xtype: 'hothomformadd'
+    			}, {
+    				xtype: 'hothomformedit'
+    			}
 			]
 		});
 

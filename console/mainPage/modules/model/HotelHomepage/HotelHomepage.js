@@ -1,0 +1,38 @@
+Ext.define('Console.model.HotelHomepage.HotelHomepage',
+{
+	extend: 'Ext.data.Model',
+	fields: [
+	{
+		name:'home_id',
+		type:'string'
+	},{
+		name:'home_sort',
+		type:'string'
+	},{
+		name:'home_name',
+		type:'string'
+	},{
+		name:'home_photo',
+		type:'string'
+	},{
+		name:'user_i18n',
+		type:'string'
+	},{
+		name:'start_date',
+		type:'string'
+	},{
+		name:'expire_date',
+		type:'string'
+	},{
+		name:'created_date',
+		type:'string'
+	},{
+		name:'updated_date',
+		type:'string'
+	},{
+		name:'operator',
+		type:'string'
+	}
+	]
+}
+);

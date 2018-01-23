@@ -20,7 +20,7 @@ $MSG['add_homepage_photo']='新增照片';
 $MSG['edit_homepage_photo']='修改照片'; 
 $MSG['delete_homepage_photo']='刪除照片'; 
 $MSG['btn_HomePage']='首頁照片';
-$MSG['btn_homePage']='首頁照片管理';
+$MSG['btn_homePage_t']='首頁照片管理';
 $MSG['home_sort'] = '顯示順序';
 
 
@@ -29,3 +29,11 @@ $MSG['add_branch'] = '新增分館';
 $MSG['edit_branch'] = '修改分館';
 $MSG['delete_branch'] = '刪除分館';
 $MSG['btn_Branch'] = '分館名稱';
+
+//BranchPhoto
+$MSG['photo_name'] = '照片名稱';
+$MSG['photo_url'] = '照片檔案';
+$MSG['btn_BranchPhoto'] = '各館照片';
+$MSG['add_branch_photo'] = '新增相片';
+$MSG['edit_branch_photo'] = '修改相片';
+$MSG['delete_branch_photo'] = '刪除相片';

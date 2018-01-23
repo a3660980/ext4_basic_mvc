@@ -1,6 +1,6 @@
-Ext.define('Console.view.hotelhomepage_betty.TabPanel', {
+Ext.define('Console.view.bettyHotel.TabPanel', {
 	extend: 'Ext.panel.Panel',
-	alias: 'widget.hltabpanel',
+	alias: 'widget.bhtabpanel',
 	requires: ['Ext.layout.container.Border'],//api框架
 
 	layout: 'border',
@@ -14,10 +14,10 @@ Ext.define('Console.view.hotelhomepage_betty.TabPanel', {
 			items: [
     			{
     				region: 'center',
-    				xtype: 'hlgridmaster' 
+    				xtype: 'bhgridmaster' //中間的檔案
     			}, {
     				region: 'west',
-    				xtype: 'hlactionpanel'// 視窗跳出方向
+    				xtype: 'bhactionpanel'// 視窗跳出方向
     			}
 			]
 		});

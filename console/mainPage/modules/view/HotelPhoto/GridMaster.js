@@ -1,21 +1,21 @@
-Ext.define('Console.view.HotelBranch.GridMaster', {
+Ext.define('Console.view.HotelPhoto.GridMaster', {
     extend: 'Console.override.Grid',
-    alias: 'widget.hotbragridmaster',
+    alias: 'widget.hotphogridmaster',
 
-    requires: [
+      requires: [
         'Ext.ux.ProgressBarPager',
-        'Ext.ux.form.SearchField'
+       'Ext.ux.form.SearchField'
     ],
 
-    selType: 'checkboxmodel', 
-
+    selType: 'checkboxmodel',
 
     config: {
-        store: 'HotelBranch.HotelBranch'  
+         store: 'HotelBranch.HotelBranch',
     },
 
     initComponent: function() {
         var me = this;
+
         Ext.apply(me, {
             store: me.getStore(),
             columns: [
@@ -24,12 +24,11 @@ Ext.define('Console.view.HotelBranch.GridMaster', {
                     dataIndex: 'branch_id',
                     flex: 1,
                     hidden:true
-                },
-                {
+                }, {
                     header: MSG['branch_sort'],
                     dataIndex: 'branch_sort',
-                    flex: 1
-                },  {
+                    flex: 1,
+                }, {
                     header: MSG['branch_name'],
                     dataIndex: 'branch_name',
                     flex: 1
@@ -57,20 +56,9 @@ Ext.define('Console.view.HotelBranch.GridMaster', {
                     flex: 1
                 }
             ],
-            tbar: [
-                {
-                    text: MSG['add'],
-                    action: 'add_user',
 
-                }, {
-                    text: MSG['edit2'],
-                    action: 'edit_user',
-                    allowMulti: false
-                }, {
-                    text: MSG['delete'],
-                    action: 'delete_user',
-                    allowMulti: true
-                }, '->', {
+            tbar: [
+                '->', {
                     xtype: 'searchfieldmvc',
                     store: me.getStore(),
                     fieldLabel: MSG['search'],
@@ -87,5 +75,10 @@ Ext.define('Console.view.HotelBranch.GridMaster', {
         });
 
         me.callParent(arguments);
+
+        // rowexpander事件監聽
+        //this.getView().addListener('expandbody', function(rowNode, record, expandRow, eOpts) {
+         //   this.getSelectionModel().select([record]);
+       // });
     }
 });

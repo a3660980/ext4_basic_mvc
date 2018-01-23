@@ -1,16 +1,15 @@
-Ext.define('Console.view.hotelhomepage_betty.Formadd', {
+Ext.define('Console.view.bettyHotel.FormAdd', {
 	extend: 'Console.override.Form',
    
-	alias:'widget.hlformadd', //這個js檔的別名
+	alias:'widget.bhformadd', //這個js檔的別名
 
 	requires:['Ext.layout.container.Anchor'],//API(應用程式介面)讓元件大小隨容器改變
 
 	layout:'anchor',//頁面布局
 
-
-
 	initComponent: function() {
         var me = this;       
+
 		Ext.apply(me, {
 			width: 450,
             // 寬度
@@ -36,40 +35,42 @@ Ext.define('Console.view.hotelhomepage_betty.Formadd', {
                 {
                     name:'home_id',
                     hidden:true
+       
                 },{
-                    name:'home_name',
-                    fieldLabel:MSG['home_name'],
-                    maxLength:50,
+                    xtype:'numberfield',
+                    name: 'home_sort',
+                    fieldLabel: MSG['home_sort'],
+                    maxLength: 4,
                     allowBlank: true,
-                },{
-                    xtype:"numberfield",
-                    name:'home_sort',
-                    fieldLabel:MSG['home_sort'],
-                    maxLength:4,
-                    allowblank:true,
-                    editable: false,
+                    value:10,
                     minValue:10,
-                    value:10
+                    editable: false
+    			},{
+                    name: 'home_name',
+                    fieldLabel: MSG['home_name'],//性別
+                    maxLength: 50
                 },{
-                    xtype: 'filefield',
                     name: 'home_photo',
-                    fieldLabel: MSG['home_photo'],
+                    xtype:'filefield',
+                    fieldLabel: MSG['home_photo'],//信箱
                     maxLength: 200,
                     allowBlank: false
+                    
                 },{
                     xtype: 'startexpiredatefield',
                     allowStartBlank: false,
-                    allowExpireBlank: false,
+                    allowExpireBlank: true,
                     startName: 'start_date',
                     expireName: 'expire_date',
                     startLabelField: MSG['start_date'],
-                    expireLabelField: MSG['expire_date']    
-                },{
+                    expireLabelField: MSG['expire_date']
+    			},{
                     name: 'operator',
                     fieldLabel: MSG['operator'],
                     maxLength: 50,
-                    allowBlank: false,
+                    allowBlank: true,
                     hidden:true
+                    
                 }
 			],
 			bbar: [

@@ -1,22 +1,21 @@
 <?php
 require "../../../../../init.php";
-
 $result = [];
-$home_id = uuid_generator();
-$home_name = isset($_POST['home_name']) ? trim($_POST['home_name']) : null;
-$home_photo = null;
-$uploadParam='home_photo';
-$home_sort = isset($_POST['home_sort']) ? trim($_POST['home_sort']) : null;
-$start_date = !empty($_POST['start_date']) ? trim($_POST['start_date']) : date(DB_DATE_FORMAT);
-$expire_date = !empty($_POST['expire_date']) ? trim($_POST['expire_date']) : null;
+$branch_photo_id = uuid_generator();
+$branch_id = isset($_POST['branch_id']) ? trim($_POST['branch_id']) : null;
+$photo_name = isset($_POST['photo_name']) ? trim($_POST['photo_name']) : null;
+$photo_url = null;
+$uploadParam='photo_url';
+$photo_sort = isset($_POST['photo_sort']) ? trim($_POST['photo_sort']) : null;
 $created_date= date(DB_DATE_FORMAT);
 $operator= $sysSession->user_name;
 
+
+
+
 if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
    $extension = strtolower(pathinfo($_FILES[$uploadParam]['name'], PATHINFO_EXTENSION));
-    //strtolower:將字符串轉成小寫,pathinfo:返回文件路徑的信息
-    //check picture .png/.jpg
-   // PATHINFO_EXTENSION:取得文件副檔名
+  
     if ($extension != 'png' && $extension != 'jpg') {
         $result = [
             'success' => false,
@@ -40,8 +39,8 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
         return;
      }
 
-    $filePath = "JohnnyHotelHomePage/{$home_id}";
-    $fileName = $home_id.'_photo';
+    $filePath = "JohnnyHotelHomePage/{$branch_photo_id}";
+    $fileName = $branch_photo_id.'_photo';
     $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
      
     if ($uploadFileResult['result']==false) {
@@ -52,7 +51,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
         return;
     }
 
-    $home_photo = $uploadFileResult['name'];
+    $photo_url = $uploadFileResult['name'];
 
 }else{
     $result = [
@@ -65,26 +64,19 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     return;
 }
 
+$table = "johnny_femobile_hotel_photo";
 
-
-
-
-$table = "johnny_femobile_hotel_homepage";
-
-$arrField = []; //自定變數陣列
-$arrField['home_id'] = $home_id;
-$arrField['home_name'] = $home_name;
-$arrField['home_photo'] = $home_photo;
-$arrField['home_sort'] = $home_sort;
-$arrField['start_date'] = $start_date;
-if($expire_date != null) {
-    $arrField['expire_date'] = $expire_date;
-}
+$arrField = [];
+$arrField['branch_photo_id'] = $branch_photo_id;
+$arrField['branch_id'] = $branch_id;
+$arrField['photo_name'] = $photo_name;
+$arrField['photo_url'] = $photo_url;
+$arrField['photo_sort'] = $photo_sort;
 $arrField['created_date'] = $created_date;
 $arrField['operator'] = $operator;
 
 
 $result['success'] = dbInsert($table, $arrField);
 $result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
-
 echo json_encode($result);
+closeConn();

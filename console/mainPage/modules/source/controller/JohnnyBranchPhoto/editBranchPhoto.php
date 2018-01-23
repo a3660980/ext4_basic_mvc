@@ -1,22 +1,21 @@
 <?php
 require "../../../../../init.php";
 $result = [];
-$home_id = isset($_POST['home_id']) ? trim($_POST['home_id']) : null;
-$home_name = isset($_POST['home_name']) ? trim($_POST['home_name']) : null;
-$home_photo = isset($_POST['home_photo']) ? trim($_POST['home_photo']) : null;
-$uploadParam= 'home_photo_file';
-$home_sort = isset($_POST['home_sort']) ? trim($_POST['home_sort']) : null;
-$start_date = isset($_POST['start_date']) ? trim($_POST['start_date']) : date(DB_DATE_FORMAT);
-$expire_date = isset($_POST['expire_date']) ? trim($_POST['expire_date']) : null;
+$branch_photo_id = isset($_POST['branch_photo_id']) ? trim($_POST['branch_photo_id']) : null;
+$branch_id = isset($_POST['branch_id']) ? trim($_POST['branch_id']) : null;
+$photo_name = isset($_POST['photo_name']) ? trim($_POST['photo_name']) : null;
+$photo_url = isset($_POST['photo_url']) ? trim($_POST['photo_url']) : null;
+$photo_sort = isset($_POST['photo_sort']) ? trim($_POST['photo_sort']) : null;
+$uploadParam='photo_url_file';
 $updated_date= date(DB_DATE_FORMAT);
 $operator= $sysSession->user_name;
 
 
-$table = "johnny_femobile_hotel_homepage";
+$table = "johnny_femobile_hotel_photo";
 
 
 //判斷照片是否與資料庫相同
-$sql = "SELECT * FROM {$table} WHERE home_photo = '{$home_photo}';";
+$sql = "SELECT * FROM {$table} WHERE photo_url = '{$photo_url}';";
 $records = dbGetAll($sql);
 $total = dbGetTotal($records);
 
@@ -50,8 +49,8 @@ if($total == 0) {
             return;
          }
 
-        $filePath = "JohnnyHotelHomePage/{$home_id}";
-        $fileName = $home_id.'_photo';
+        $filePath = "JohnnyHotelHomePage/{$branch_photo_id}";
+        $fileName = $branch_photo_id.'_photo';
         $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
          
         if ($uploadFileResult['result']==false) {
@@ -62,20 +61,16 @@ if($total == 0) {
             return;
         }
 
-        $home_photo = $uploadFileResult['name'];
+        $photo_url = $uploadFileResult['name'];
 
         $arrField = []; //自定變數陣列
-        $arrField['home_id'] = $home_id;
-        $arrField['home_name'] = $home_name;
-        $arrField['home_photo'] = $home_photo;
-        $arrField['home_sort'] = $home_sort;
-        $arrField['start_date'] = $start_date;
-        if($expire_date != null) {
-            $arrField['expire_date'] = $expire_date;
-        }
+        $arrField['branch_photo_id'] = $branch_photo_id;
+        $arrField['branch_id'] = $branch_id;
+        $arrField['photo_name'] = $photo_name;
+        $arrField['photo_url'] = $photo_url;
+        $arrField['photo_sort'] = $photo_sort;
         $arrField['updated_date'] = $updated_date;
         $arrField['operator'] = $operator;
-        $whereClause = "home_id = '{$home_id}'";
 
     }else{
         $result = [
@@ -91,17 +86,15 @@ if($total == 0) {
 } else {
 
     $arrField = []; //自定變數陣列
-    $arrField['home_id'] = $home_id;
-    $arrField['home_name'] = $home_name;
-    $arrField['home_sort'] = $home_sort;
-    $arrField['start_date'] = $start_date;
-    if($expire_date != null) {
-        $arrField['expire_date'] = $expire_date;
-    }
+    $arrField['branch_photo_id'] = $branch_photo_id;
+    $arrField['branch_id'] = $branch_id;
+    $arrField['photo_name'] = $photo_name;
+    $arrField['photo_sort'] = $photo_sort;
     $arrField['updated_date'] = $updated_date;
     $arrField['operator'] = $operator;
-    $whereClause = "home_id = '{$home_id}'";
 }
+
+$whereClause = "branch_photo_id = '{$branch_photo_id}'";
 
 
 $result['success'] = dbUpdate($table, $arrField, $whereClause);

@@ -1,7 +1,7 @@
-Ext.define('Console.view.JohnnyBranch.FormEdit', {
+Ext.define('Console.view.JohnnyBranchPhoto.DetailFormEdit', {
     extend: 'Console.override.Form',
    
-    alias:'widget.johnnyBranchFormEdit', 
+    alias:'widget.johnnyBranchPhotoDetailFormEdit', 
 
     requires:['Ext.layout.container.Anchor'],//API(應用程式介面)讓元件大小隨容器改變
 
@@ -38,33 +38,34 @@ Ext.define('Console.view.JohnnyBranch.FormEdit', {
             },
             items: [
                 {
-                    name:'branch_id',
-                    fieldLabel: MSG['branch_id'],
-                    hidden: true
-                },
-                {
-                    name:'branch_name',
-                    fieldLabel: MSG['branch_name'],
+                    name:'branch_photo_id',
+                    hidden:true
+                },{
+                    name: 'branch_id',
+                    hidden:true
+                },{
+                    name:'photo_name',
+                    fieldLabel: MSG['photo_name'],
                     maxLength: 50,
                     allowBlank: true
                 },{
                     xtype: 'fieldcontainer',
-                    id:'branch_photo',
+                    id:'photo_url',
                     fieldLabel: MSG['home_photo'],
-                    allowBlank: true,
+                    allowBlank: false,
                     layout: 'hbox',
                     items: [
                         {
                             xtype: 'textfield',
-                            name: 'branch_photo',
-                            itemId: 'textfield_branch_photo',
+                            name: 'photo_url',
+                            itemId: 'textfield_photo_url',
                             editable:false,
-                            allowBlank: true,
+                            allowBlank: false,
                             width: 180
                         },{
                             xtype: 'filefield',
-                            name: 'branch_photo_file',
-                            itemId: 'filefield_branch_photo',
+                            name: 'photo_url_file',
+                            itemId: 'filefield_photo_url',
                             buttonText: '上傳照片',
                             buttonOnly:true,
                             disabled: true,
@@ -78,9 +79,16 @@ Ext.define('Console.view.JohnnyBranch.FormEdit', {
                             disabled: false
                         }
                     ]
-                }, {
+                },{
+                    xtype: 'displayfield',
+                    value: '＊圖片尺寸須符合1080x1920。',
+                    fieldStyle: {
+                        // fontStyle: 'italic',
+                        color: '#7f7f7f'
+                    }
+                },{
                     xtype:"numberfield",
-                    name: 'branch_sort',
+                    name: 'photo_sort',
                     fieldLabel: MSG['home_sort'],
                     allowBlank:false,
                     editable: false,//是否可以編輯

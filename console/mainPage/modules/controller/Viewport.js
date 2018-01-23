@@ -118,6 +118,9 @@ Ext.define('Console.controller.Viewport', {
 			'northpanel menuitem[action=btn_Branch]': {
 				click: this.addTab
 			},
+			'northpanel menuitem[action=btn_BranchPhoto]': {
+				click: this.addTab
+			},
 			'northpanel menuitem[action=btn_homePage_t]': {
 				click: this.addTab
 			},
@@ -128,6 +131,15 @@ Ext.define('Console.controller.Viewport', {
 				click: this.addTab
 			},
 			'northpanel menuitem[action=hotel_photo]': {
+				click: this.addTab
+			},
+			'northpanel menuitem[action=hotel_room]': {
+				click: this.addTab
+			},
+			'northpanel menuitem[action=hotel_detail]': {
+				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_emp]':{
 				click: this.addTab
 			}
 		});
@@ -352,22 +364,46 @@ Ext.define('Console.controller.Viewport', {
 			itemId='btn_Branch';
 			title=MSG['btn_Branch'];
 			xtype='johnnyBranchTabPanel';
-		}else if(btn.getId()=='btn_homePage_t'){
+		}
+		else if(btn.getId()=='btn_BranchPhoto'){
+			itemId='btn_BranchPhoto';
+			title=MSG['btn_BranchPhoto'];
+			xtype='johnnyBranchPhotoTabPanel';
+		}
+		else if(btn.getId()=='btn_homePage_t'){
 			itemId='btn_homePage_t';
 			title=MSG['btn_homePage_t'];
-			xtype='hltabpanel';
-		}else if(btn.getId()=='hotel-homepage'){
+			xtype='bhtabpanel';
+		}
+		else if(btn.getId()=='hotel-homepage'){
 			itemId='hotel-homepage';
 			title=MSG['hotel_homepage'];
 			xtype='hothomtabpanel';
-		}else if(btn.getId()=='hotel-branch'){
+		}
+		else if(btn.getId()=='hotel-branch'){
 			itemId='hotel-branch';
 			title=MSG['hotel_branch'];
 			xtype='hotbratabpanel';
-		}else if(btn.getId()=='hotel-photo'){
+		}
+		else if(btn.getId()=='hotel-photo'){
 			itemId='hotel-photo';
 			title=MSG['hotel_photo'];
 			xtype='hotphotabpanel';
+		}
+		else if(btn.getId()=='hotel-room'){
+			itemId='hotel-room';
+			title=MSG['hotel_room'];
+			xtype='hotrootabpanel';
+		}
+		else if(btn.getId()=='hotel-detail'){
+			itemId='hotel-detail';
+			title=MSG['hotel_detail'];
+			xtype='hotdettabpanel';
+		}
+		else if(btn.getId()=='btn_emp'){
+			itemId='btn-emp';
+			title='人事資料';
+			xtype='dintabpanel';
 		}
 		
 		

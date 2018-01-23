@@ -48,6 +48,7 @@ Ext.define('Console.view.JohnnyBranch.FormAdd', {
                     name: 'branch_photo',
                     fieldLabel: MSG['branch_photo'],
                     maxLength: 200,
+                    buttonText: '上傳照片',
                     allowBlank: true
                 },{
                     xtype:"numberfield",

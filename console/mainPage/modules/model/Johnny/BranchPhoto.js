@@ -1,0 +1,31 @@
+Ext.define('Console.model.Johnny.BranchPhoto',
+{
+	extend: 'Ext.data.Model',
+	fields: [ 
+		{
+			name:'branch_photo_id',
+			type:'string'
+		},{
+			name:'branch_id',
+			type:'string'
+		},{
+			name:'photo_name',
+			type:'string'
+		},{
+			name:'photo_sort',
+			type:'int'
+		},{
+			name:'photo_url',
+			type:'string'
+		},{
+			name:'created_date',
+			type:'string'
+		},{
+			name:'updated_date',
+			type:'string'
+		},{
+			name:'operator',
+			type:'string'
+		}
+	]
+});

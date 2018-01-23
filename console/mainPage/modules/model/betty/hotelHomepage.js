@@ -1,0 +1,39 @@
+Ext.define('Console.model.betty.hotelHomepage',
+{
+	extend: 'Ext.data.Model',
+	fields: [ //對應資料庫
+	{
+		name:'home_id',
+		type:'String'
+	},{
+		name:'home_sort',
+		type:'String'
+	},{
+		name:'home_name',
+		type:'String'
+	},{
+		name:'home_photo',
+		type:'String'
+	},{
+		name:'user_i18n',
+		type:'String'
+	},{
+		name:'start_date',
+		type:'String'
+	},{
+		name:'expire_date',
+		type:'String'
+	},{
+		name:'created_date',
+		type:'String'
+	},{
+        name:'updated_date',
+        type:'String'
+	},{
+		name:'operator',
+		type:'String'
+
+	}
+	]
+}
+);
