@@ -9,6 +9,7 @@ Ext.define('Console.package.StartExpireDateField', {
 
     initComponent: function() {
         var me = this;
+        let today = new Date();
 
         Ext.apply(Ext.form.field.VTypes, {
             startexpiredate: function(val, field) {
@@ -56,7 +57,8 @@ Ext.define('Console.package.StartExpireDateField', {
                     name: me.startName,
                     vtype: 'startexpiredate',
                     fieldLabel: me.startLabelField,
-                    tag: 'start'
+                    tag: 'start',
+                    value: today.toISOString().substring(0, 10)
                 }, {
                     allowBlank:me.allowExpireBlank,
                     name: me.expireName,

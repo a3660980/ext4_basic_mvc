@@ -181,9 +181,24 @@ Ext.define('Console.view.NorthToolbar', {
                    
                     menu: [
                         {
-                            id: 'btn_homePage',
-                            text: MSG['btn_homePage'],
-                            action:'btn_homePage'
+                            id: 'btn_homePage_t',
+                            text: MSG['btn_homePage_t'],
+                            action:'btn_homePage_t'
+                        }
+                    ]
+
+                },{
+                    id: 'femobile_hotel',
+                    text: MSG['femobile_hotel'],
+                    defaults: {
+                        hidden: true
+                    },
+                   
+                    menu: [
+                        {
+                            id: 'hotel-branch',
+                            text: MSG['hotel_branch'],
+                            action:'hotel_branch'
                         }
                     ]
 

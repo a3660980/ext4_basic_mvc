@@ -1,6 +1,6 @@
-Ext.define('Console.view.hotelhpmepage.TabPanel', {
+Ext.define('Console.view.JohnnyBranch.TabPanel', {
 	extend: 'Ext.panel.Panel',
-	alias: 'widget.hltabpanel',
+	alias: 'widget.johnnyBranchTabPanel',
 	requires: ['Ext.layout.container.Border'],//api框架
 
 	layout: 'border',
@@ -14,10 +14,10 @@ Ext.define('Console.view.hotelhpmepage.TabPanel', {
 			items: [
     			{
     				region: 'center',
-    				xtype: 'hlgridmaster' 
+    				xtype: 'johnnyBranchGridMaster' //中間的檔案
     			}, {
     				region: 'west',
-    				xtype: 'hlactionpanel'// 視窗跳出方向
+    				xtype: 'johnnyBranchActionPanel'// 視窗跳出方向
     			}
 			]
 		});

@@ -1,6 +1,5 @@
 <?php
     // init
-    //////test123
 	require "../init.php";
     $sys_lang = "../lang/big5";//SYS_LANG 
     

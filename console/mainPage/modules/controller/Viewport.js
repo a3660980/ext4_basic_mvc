@@ -115,7 +115,10 @@ Ext.define('Console.controller.Viewport', {
 			'northpanel menuitem[action=btn_HomePage]': {
 				click: this.addTab
 			},
-			'northpanel menuitem[action=btn_homePage]': {
+			'northpanel menuitem[action=btn_homePage_t]': {
+				click: this.addTab
+			},
+			'northpanel menuitem[action=hotel_branch]': {
 				click: this.addTab
 			}
 		});
@@ -338,7 +341,11 @@ Ext.define('Console.controller.Viewport', {
 		}else if(btn.getId()=='btn_homePage_t'){
 			itemId='btn_homePage_t';
 			title=MSG['btn_homePage_t'];
-			xtype='hlTabPanel';
+			xtype='hltabpanel';
+		}else if(btn.getId()=='hotel-branch'){
+			itemId='hotel-branch';
+			title=MSG['hotel_branch'];
+			xtype='hotbratabpanel';
 		}
 		
 		

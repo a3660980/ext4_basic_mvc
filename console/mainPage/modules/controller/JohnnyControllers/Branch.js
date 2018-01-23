@@ -1,84 +1,84 @@
-Ext.define('Console.controller.JohnnyControllers.HomePage', {
+Ext.define('Console.controller.JohnnyControllers.Branch', {
     extend: 'Ext.app.Controller',
     stores: [ 
-        'Johnny.HomePage'
+        'Johnny.Branch'
     ],
     models: [ 
-        'Johnny.HomePage'
+        'Johnny.Branch'
     ],
     views: [  
-        'Johnny_HomePage.TabPanel',
-        'Johnny_HomePage.GridMaster',
-        'Johnny_HomePage.ActionPanel',
-        'Johnny_HomePage.FormAdd',
-        'Johnny_HomePage.FormEdit'
+        'JohnnyBranch.TabPanel',
+        'JohnnyBranch.GridMaster',
+        'JohnnyBranch.ActionPanel',
+        'JohnnyBranch.FormAdd',
+        'JohnnyBranch.FormEdit'
     ],
 
     refs: [ //指定任何在頁面上的組件
         {
             ref: 'actionPanel', 
-            selector: 'johnnyHomePageActionPanel' 
+            selector: 'johnnyBranchActionPanel' 
         }, {
             ref: 'grid',
-            selector: 'johnnyHomePageGridMaster'
+            selector: 'johnnyBranchGridMaster'
         }, {
             ref: 'formAdd',
-            selector: 'johnnyHomePageFormAdd'
+            selector: 'johnnyBranchFormAdd'
         }, {
             ref: 'formEdit',
-            selector: 'johnnyHomePageFormEdit'
+            selector: 'johnnyBranchFormEdit'
         },{
             ref: 'Textfield_home_photo',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #textfield_home_photo'
+            selector: 'johnnyBranchFormEdit fieldcontainer #textfield_branch_photo'
         },{
             ref: 'Filefield_home_photo',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #filefield_home_photo'
+            selector: 'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo'
         },{
             ref: 'Button_clearFile',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #button_clearFile'
+            selector: 'johnnyBranchFormEdit fieldcontainer #button_clearFile'
         }
     ],
 
     config: { //配置
         formAddTitle: '新增照片',
         formEditTitle: '修改照片',
-        addRequestUrl: './modules/source/controller/JohnnyHomePage/addHomePagePhoto.php',
-        editRequestUrl: './modules/source/controller/JohnnyHomePage/editHomePagePhoto.php'
+        addRequestUrl: './modules/source/controller/JohnnyBranch/addBranch.php',
+        editRequestUrl: './modules/source/controller/JohnnyBranch/editBranch.php'
     },
 
     init: function() { //controller
         var me = this;
 
         me.control({
-            'johnnyHomePageGridMaster': {
+            'johnnyBranchGridMaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'johnnyHomePageGridMaster button[action=add_homepage_photo]': {
+            'johnnyBranchGridMaster button[action=add_branch_photo]': {
                 click: me.addData
             },
-            'johnnyHomePageGridMaster button[action=edit_homepage_photo]': {
+            'johnnyBranchGridMaster button[action=edit_branch_photo]': {
                 click: me.editData
             },
-            'johnnyHomePageGridMaster button[action=delete_homepage_photo]': {
+            'johnnyBranchGridMaster button[action=delete_branch_photo]': {
                 click: me.deleteData
             },
-            'johnnyHomePageFormAdd button[action=form_confirm]': {//確認
+            'johnnyBranchFormAdd button[action=form_confirm]': {//確認
                 click: me.addConfirm
             },
-            'johnnyHomePageFormAdd button[action=form_cancel]': {//取消
+            'johnnyBranchFormAdd button[action=form_cancel]': {//取消
                 click: me.addCancel
             },
-            'johnnyHomePageFormEdit button[action=form_confirm]': {
+            'johnnyBranchFormEdit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'johnnyHomePageFormEdit button[action=form_cancel]': {
+            'johnnyBranchFormEdit button[action=form_cancel]': {
                 click: me.editCancel
             },
-            'johnnyHomePageFormEdit fieldcontainer #button_clearFile' :{
+            'johnnyBranchFormEdit fieldcontainer #button_clearFile' :{
                 click: me.Clear_importFile
             },
-            'johnnyHomePageFormEdit fieldcontainer #filefield_home_photo': {
+            'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo': {
                 change: me.Import_filefield_change
             }
 
@@ -219,7 +219,6 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
                         },
 
                         failure: function(batch, options) {
-                            console.log(batch.proxy.getReader().jsonData.msg);
                             if (batch.proxy.getReader().jsonData.msg == 'deleteFails') {
                                 Ext.MessageBox.show({
                                     title: MSG['msg_box_info'],
@@ -444,7 +443,6 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
         var clearFile_btn = me.getButton_clearFile();
         var jpg_reg = /\.([jJ][pP][gG]){1}$/;
         var png_reg = /\.([pP][nN][gG]){1}$/;
-        console.log(files[0].name)
 
         if (files !== null && files !== undefined) {
 

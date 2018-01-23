@@ -1,12 +1,12 @@
-Ext.define('Console.store.Johnny.HomePage', {
+Ext.define('Console.store.Johnny.Branch', {
     extend: 'Ext.data.Store',
-    model: 'Console.model.Johnny.HomePage',
+    model: 'Console.model.Johnny.Branch',
     proxy: {
         actionMethods: 'POST',
         type: 'ajax',
         api: {
-            read: './modules/source/store/Johnny/getHomePagePhoto.php',
-            destroy: './modules/source/controller/JohnnyHomePage/deleteHomePagePhoto.php'
+            read: './modules/source/store/Johnny/getBranch.php',
+            destroy: './modules/source/controller/JohnnyBranch/deleteBranch.php'
         },
         reader: {
             type: 'json',

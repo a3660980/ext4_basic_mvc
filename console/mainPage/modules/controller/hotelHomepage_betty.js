@@ -1,4 +1,4 @@
-Ext.define('Console.controller.hotelHomepage', {
+Ext.define('Console.controller.hotelHomepage_betty', {
     extend: 'Ext.app.Controller',
 
     stores: [ 
@@ -8,11 +8,11 @@ Ext.define('Console.controller.hotelHomepage', {
         'betty.hotelHomepage'
     ],
     views: [  
-        'hotelhomepage.TabPanel',
-        'hotelhomepage.GridMaster',
-        'hotelhomepage.ActionPanel',
-        'hotelhomepage.Formadd',
-        'hotelhomepage.FormEdit'
+        'hotelhomepage_betty.TabPanel',
+        'hotelhomepage_betty.GridMaster',
+        'hotelhomepage_betty.ActionPanel',
+        'hotelhomepage_betty.Formadd',
+        'hotelhomepage_betty.FormEdit'
     ],
 
     refs: [ 

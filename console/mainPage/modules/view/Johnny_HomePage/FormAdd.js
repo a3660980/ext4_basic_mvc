@@ -14,7 +14,8 @@ Ext.define('Console.view.Johnny_HomePage.FormAdd', {
     //宣告性別下拉式選單的值
 
 	initComponent: function() {
-        var me = this;       
+        var me = this;    
+        
 
 		Ext.apply(me, {
 			width: 400,
@@ -49,20 +50,31 @@ Ext.define('Console.view.Johnny_HomePage.FormAdd', {
                     maxLength: 200,
                     allowBlank: false
                 },{
+                    xtype:"numberfield",
+                    name: 'home_sort',
+                    fieldLabel: MSG['home_sort'],
+                    allowBlank:false,
+                    value:10,
+                    editable: false,//是否可以編輯
+                    allowNegative:false,//是否允許負數
+                    maxValue:99,
+                    minValue:10
+                },{
+                    xtype: 'displayfield',
+                    value: '＊數字越小順序越前面(從10開始)。',
+                    fieldStyle: {
+                        // fontStyle: 'italic',
+                        color: '#7f7f7f'
+                    }
+                },{
                     xtype: 'startexpiredatefield',
-                    allowStartBlank: true,
+                    allowStartBlank: false,
                     allowExpireBlank: true,
                     startName: 'start_date',
                     expireName: 'expire_date',
                     startLabelField: MSG.start_date,
                     expireLabelField: MSG.expire_date,
-                },{
-                    xtype: 'displayfield',
-                    value: '＊若未填生效日與到期日，則系統將自動填入此活動的日期時段。',
-                    fieldStyle: {
-                        // fontStyle: 'italic',
-                        color: '#7f7f7f'
-                    }
+                    
                 }
 			],
 			bbar: [

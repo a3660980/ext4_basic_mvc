@@ -1,7 +1,8 @@
-Ext.define('Console.view.hotelhomepage.ActionPanel', {
+Ext.define('Console.view.JohnnyBranch.ActionPanel', {
 	extend: 'Console.override.ActionPanel',
-	alias: 'widget.hlactionpanel',
-// 框 跑出動作
+	
+	alias: 'widget.johnnyBranchActionPanel',
+
 	requires: ['Ext.layout.container.Fit'],
 
 	layout: 'fit',
@@ -22,9 +23,9 @@ Ext.define('Console.view.hotelhomepage.ActionPanel', {
             },
 			items: [
         		{
-        			xtype: 'hlformadd'
+        			xtype: 'johnnyBranchFormAdd'
         		}, {
-        			xtype: 'hlformedit'
+        			xtype: 'johnnyBranchFormEdit'
         		}
 			]
 		});

@@ -1,7 +1,7 @@
-Ext.define('Console.view.Johnny_HomePage.FormEdit', {
+Ext.define('Console.view.JohnnyBranch.FormEdit', {
     extend: 'Console.override.Form',
    
-    alias:'widget.johnnyHomePageFormEdit', 
+    alias:'widget.johnnyBranchFormEdit', 
 
     requires:['Ext.layout.container.Anchor'],//API(應用程式介面)讓元件大小隨容器改變
 
@@ -38,33 +38,33 @@ Ext.define('Console.view.Johnny_HomePage.FormEdit', {
             },
             items: [
                 {
-                    name:'home_id',
-                    fieldLabel: MSG['home_id'],
+                    name:'branch_id',
+                    fieldLabel: MSG['branch_id'],
                     hidden: true
                 },
                 {
-                    name:'home_name',
-                    fieldLabel: MSG['home_name'],
+                    name:'branch_name',
+                    fieldLabel: MSG['branch_name'],
                     maxLength: 50,
                     allowBlank: true
                 },{
                     xtype: 'fieldcontainer',
-                    id:'home_photo',
+                    id:'branch_photo',
                     fieldLabel: MSG['home_photo'],
                     allowBlank: false,
                     layout: 'hbox',
                     items: [
                         {
                             xtype: 'textfield',
-                            name: 'home_photo',
-                            itemId: 'textfield_home_photo',
+                            name: 'branch_photo',
+                            itemId: 'textfield_branch_photo',
                             editable:false,
                             allowBlank: false,
                             width: 180
                         },{
                             xtype: 'filefield',
-                            name: 'home_photo_file',
-                            itemId: 'filefield_home_photo',
+                            name: 'branch_photo_file',
+                            itemId: 'filefield_branch_photo',
                             buttonText: '上傳照片',
                             buttonOnly:true,
                             disabled: true,
@@ -80,7 +80,7 @@ Ext.define('Console.view.Johnny_HomePage.FormEdit', {
                     ]
                 }, {
                     xtype:"numberfield",
-                    name: 'home_sort',
+                    name: 'branch_sort',
                     fieldLabel: MSG['home_sort'],
                     allowBlank:false,
                     editable: false,//是否可以編輯
@@ -90,21 +90,6 @@ Ext.define('Console.view.Johnny_HomePage.FormEdit', {
                 },{
                     xtype: 'displayfield',
                     value: '＊數字越小順序越前面(從10開始)。',
-                    fieldStyle: {
-                        // fontStyle: 'italic',
-                        color: '#7f7f7f'
-                    }
-                },{
-                    xtype: 'startexpiredatefield',
-                    allowStartBlank: true,
-                    allowExpireBlank: true,
-                    startName: 'start_date',
-                    expireName: 'expire_date',
-                    startLabelField: MSG.start_date,
-                    expireLabelField: MSG.expire_date
-                },{
-                    xtype: 'displayfield',
-                    value: '＊若未填生效日與到期日，則系統將自動填入此活動的日期時段。',
                     fieldStyle: {
                         // fontStyle: 'italic',
                         color: '#7f7f7f'

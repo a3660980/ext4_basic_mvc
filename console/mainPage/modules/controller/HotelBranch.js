@@ -1,88 +1,73 @@
-Ext.define('Console.controller.JohnnyControllers.HomePage', {
+Ext.define('Console.controller.HotelBranch', {
     extend: 'Ext.app.Controller',
-    stores: [ 
-        'Johnny.HomePage'
-    ],
-    models: [ 
-        'Johnny.HomePage'
-    ],
-    views: [  
-        'Johnny_HomePage.TabPanel',
-        'Johnny_HomePage.GridMaster',
-        'Johnny_HomePage.ActionPanel',
-        'Johnny_HomePage.FormAdd',
-        'Johnny_HomePage.FormEdit'
+
+    // stores: [
+    //     'HotelBranch.ServiceInfo_Catie'
+    // ],
+    // models: [
+    //     'HotelBranch.ServiceInfo_Catie'
+    // ],
+    views: [
+        'HotelBranch.TabPanel',
+        'HotelBranch.GridMaster',
+        'HotelBranch.ActionPanel',
+        'HotelBranch.FormAdd',
+        'HotelBranch.FormEdit'
     ],
 
-    refs: [ //指定任何在頁面上的組件
-        {
-            ref: 'actionPanel', 
-            selector: 'johnnyHomePageActionPanel' 
-        }, {
-            ref: 'grid',
-            selector: 'johnnyHomePageGridMaster'
-        }, {
-            ref: 'formAdd',
-            selector: 'johnnyHomePageFormAdd'
-        }, {
-            ref: 'formEdit',
-            selector: 'johnnyHomePageFormEdit'
-        },{
-            ref: 'Textfield_home_photo',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #textfield_home_photo'
-        },{
-            ref: 'Filefield_home_photo',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #filefield_home_photo'
-        },{
-            ref: 'Button_clearFile',
-            selector: 'johnnyHomePageFormEdit fieldcontainer #button_clearFile'
-        }
-    ],
+    // refs: [
+    //     {
+    //         ref: 'actionPanel',
+    //         selector: 'ctactionpanel'
+    //     }, {
+    //         ref: 'grid',
+    //         selector: 'ctgridmaster'
+    //     }, {
+    //         ref: 'formAdd',
+    //         selector: 'ctformadd'
+    //     }, {
+    //         ref: 'formEdit',
+    //         selector: 'ctformedit'
+    //     }
+    // ],
 
-    config: { //配置
-        formAddTitle: '新增照片',
-        formEditTitle: '修改照片',
-        addRequestUrl: './modules/source/controller/JohnnyHomePage/addHomePagePhoto.php',
-        editRequestUrl: './modules/source/controller/JohnnyHomePage/editHomePagePhoto.php'
-    },
+    // config: {
+    //     formAddTitle: '新增用戶資料',
+    //     formEditTitle: '修改用戶資料',
+    //     addRequestUrl: './modules/source/controller/Catie/addService_Catie.php',
+    //     editRequestUrl: './modules/source/controller/Catie/editService_Catie.php'
+    // },
 
-    init: function() { //controller
+    init: function() {
         var me = this;
 
-        me.control({
-            'johnnyHomePageGridMaster': {
-                select: me.selectMasterList,
-                deselect: me.deselectMasterList
-            },
-            'johnnyHomePageGridMaster button[action=add_homepage_photo]': {
-                click: me.addData
-            },
-            'johnnyHomePageGridMaster button[action=edit_homepage_photo]': {
-                click: me.editData
-            },
-            'johnnyHomePageGridMaster button[action=delete_homepage_photo]': {
-                click: me.deleteData
-            },
-            'johnnyHomePageFormAdd button[action=form_confirm]': {//確認
-                click: me.addConfirm
-            },
-            'johnnyHomePageFormAdd button[action=form_cancel]': {//取消
-                click: me.addCancel
-            },
-            'johnnyHomePageFormEdit button[action=form_confirm]': {
-                click: me.editConfirm
-            },
-            'johnnyHomePageFormEdit button[action=form_cancel]': {
-                click: me.editCancel
-            },
-            'johnnyHomePageFormEdit fieldcontainer #button_clearFile' :{
-                click: me.Clear_importFile
-            },
-            'johnnyHomePageFormEdit fieldcontainer #filefield_home_photo': {
-                change: me.Import_filefield_change
-            }
-
-        });
+        // me.control({
+        //     'ctgridmaster': {
+        //         select: me.selectMasterList,
+        //         deselect: me.deselectMasterList
+        //     },
+        //     'ctgridmaster button[action=add_user]': {
+        //         click: me.addData
+        //     },
+        //     'ctgridmaster button[action=edit_user]': {
+        //         click: me.editData
+        //     },
+        //     'ctgridmaster button[action=delete_user]': {
+        //         click: me.deleteData
+        //     },
+        //     'ctformadd button[action=form_confirm]': {
+        //         click: me.addConfirm
+        //     },
+        //     'ctformadd button[action=form_cancel]': {
+        //         click: me.addCancel
+        //     },
+        //     'ctformedit button[action=form_confirm]': {
+        //         click: me.editConfirm
+        //     },
+        //     'ctformedit button[action=form_cancel]': {
+        //         click: me.editCancel
+        //     }
+        // });
     },
 
     checkSession: function() {
@@ -173,14 +158,19 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
     },
 
     editData: function(btn) {
-        let me = this;
-        let form = me.getFormEdit(),
+        var me = this;
+        var form = me.getFormEdit(),
             title = me.getFormEditTitle(),
-            records = me.getGrid().getSelectionModel().getSelection();
-        let filefield = me.getFilefield_home_photo();
-        filefield.setDisabled(true);
+            record = me.getGrid().getSelectionModel().getSelection()[0];
+        var name = record.data['name'];
+            // corp_name = record.data['user_organization_id'].split(',')[0],
+            // department_name = record.data['user_organization_id'].split(',')[1];
 
-        me.show_form_load(form, records, title, true);
+        me.showForm(form, title);
+        me.loadFormReocrd(form, record);
+        form.getForm().findField('name').setValue(name);
+        // form.getForm().findField('corp_name').setValue(corp_name);
+        // form.getForm().findField('department_name').setValue(department_name);
     },
 
     deleteData: function(btn) {
@@ -218,26 +208,14 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
                             });
                         },
 
-                        failure: function(batch, options) {
-                            console.log(batch.proxy.getReader().jsonData.msg);
-                            if (batch.proxy.getReader().jsonData.msg == 'deleteFails') {
-                                Ext.MessageBox.show({
-                                    title: MSG['msg_box_info'],
-                                    msg: MSG['delete_data_fail'],
-                                    width: 300,
-                                    buttons: Ext.MessageBox.OK,
-                                    icon: Ext.MessageBox.ERROR
-                                });
-                            } else {
-                                Ext.MessageBox.show({
-                                    title: MSG['msg_box_info'],
-                                    msg: MSG['delete_fail'],
-                                    width: 300,
-                                    buttons: Ext.MessageBox.OK,
-                                    icon: Ext.MessageBox.ERROR
-                                });
-                            }
-                            
+                        failure: function() {
+                            Ext.MessageBox.show({
+                                title: MSG['msg_box_info'],
+                                msg: MSG['delete_fail'],
+                                width: 300,
+                                buttons: Ext.MessageBox.OK,
+                                icon: Ext.MessageBox.ERROR
+                            });
                             store.reload();
                         }
                     });
@@ -326,18 +304,19 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
         var grid = me.getGrid();
         var store = grid.getStore();
         var form = formPanel.getForm();
+        var record = grid.getSelectionModel().getSelection()[0];
 
          // check value
         if (! form.isValid()) {
             return;
         }
 
-        form.submit({ //表單送出
-            url: me.getEditRequestUrl(), //加入api
-            method: 'POST', //POST
-            submitEmptyText: false, //是否允許空白
+        form.submit({
+            url: me.getEditRequestUrl(),
+            method: 'POST',
+            submitEmptyText: false,
             success: function() {
-                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true); //actionPanel收起
+                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
 
                 Ext.MessageBox.show({
                     title: MSG['msg_box_info'],
@@ -361,7 +340,7 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
                 switch (action.failureType) {
                     case Ext.form.action.Action.CLIENT_INVALID:
                         error_msg = MSG['form_invalid'];
-                    break;
+                        break;
                     case Ext.form.action.Action.CONNECT_FAILURE:
                         error_msg = MSG['server_connect_fail'];
                         break;
@@ -386,87 +365,5 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
         var form = me.getFormEdit();
 
         me.hideForm(form);
-    },
-
-    show_form_load: function(formPanel, records, title, is_show, actionViewPanel) {
-        var me = this;
-        var actionPanel = formPanel.up();
-
-        if(is_show){
-            if(!actionPanel.getCollapsed() && formPanel.isHidden()){
-                Ext.MessageBox.show({
-                    title: MSG.msg_box_info,
-                    msg: MSG.plz_close,
-                    width: 300,
-                    buttons: Ext.MessageBox.OK,
-                    icon: Ext.MessageBox.INFO
-                });
-
-                return;
-            }else{
-                if(actionViewPanel !== undefined ){
-                    me.hide_panel(actionViewPanel);
-                }
-
-                formPanel.show();
-                actionPanel.setTitle(title);
-                actionPanel.expand(true);
-            }
-        }
-
-        if(!formPanel.isHidden()){
-            me.loadRecordForm(formPanel, records);
-        }
-    },
-    loadRecordForm: function(formPanel, records) {
-        var me = this;
-        var count = records.length;
-        var title = formPanel.up().getHeader().title;
-
-        if(title === me.getFormAddTitle()){
-            formPanel.getForm().reset();
-        }
-
-        if(title === me.getFormEditTitle()){
-            if(count !== 1){
-                formPanel.getForm().reset();
-                return;
-            }
-
-            formPanel.loadRecord(records[0]);
-        }
-    },
-     Import_filefield_change: function( filefield, value, eOpts ) {
-        
-        var me = this;
-        var files = filefield.fileInputEl.dom.files;
-        var textfield = me.getTextfield_home_photo();
-        var clearFile_btn = me.getButton_clearFile();
-        var jpg_reg = /\.([jJ][pP][gG]){1}$/;
-        var png_reg = /\.([pP][nN][gG]){1}$/;
-        console.log(files[0].name)
-
-        if (files !== null && files !== undefined) {
-
-            if (!jpg_reg.test(files[0].name) && !png_reg.test(files[0].name)) {
-                Ext.Msg.alert('提示','只支援副檔名為jpg或png的圖片！');
-                filefield.reset();
-            }else{
-                textfield.setValue(files[0].name);
-                textfield.setDisabled(true);
-                clearFile_btn.setDisabled(false);
-            }
-        }
-    },
-
-    Clear_importFile: function(btn) {
-        var me = this;
-        var textfield = me.getTextfield_home_photo();
-        var filefield = me.getFilefield_home_photo();
-        textfield.setValue('');
-        textfield.setDisabled(false);
-        filefield.reset();
-        filefield.setDisabled(false);
-        btn.setDisabled(true);
-    },
+    }
 });
