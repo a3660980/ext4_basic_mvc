@@ -48,7 +48,7 @@ Ext.define('Console.view.JohnnyBranch.FormAdd', {
                     name: 'branch_photo',
                     fieldLabel: MSG['branch_photo'],
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: true
                 },{
                     xtype:"numberfield",
                     name: 'branch_sort',

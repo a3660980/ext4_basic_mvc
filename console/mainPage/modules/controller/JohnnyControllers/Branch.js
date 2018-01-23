@@ -54,13 +54,13 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'johnnyBranchGridMaster button[action=add_branch_photo]': {
+            'johnnyBranchGridMaster button[action=add_branch]': {
                 click: me.addData
             },
-            'johnnyBranchGridMaster button[action=edit_branch_photo]': {
+            'johnnyBranchGridMaster button[action=edit_branch]': {
                 click: me.editData
             },
-            'johnnyBranchGridMaster button[action=delete_branch_photo]': {
+            'johnnyBranchGridMaster button[action=delete_branch]': {
                 click: me.deleteData
             },
             'johnnyBranchFormAdd button[action=form_confirm]': {//確認
@@ -178,7 +178,15 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
             title = me.getFormEditTitle(),
             records = me.getGrid().getSelectionModel().getSelection();
         let filefield = me.getFilefield_home_photo();
-        filefield.setDisabled(true);
+        let clearFile_btn = me.getButton_clearFile();
+        if (records[0].data['branch_photo'] != '') {
+            filefield.setDisabled(true);
+            clearFile_btn.setDisabled(false);
+        } else {
+            filefield.setDisabled(false);
+            clearFile_btn.setDisabled(true);
+        }
+        
 
         me.show_form_load(form, records, title, true);
     },

@@ -115,10 +115,19 @@ Ext.define('Console.controller.Viewport', {
 			'northpanel menuitem[action=btn_HomePage]': {
 				click: this.addTab
 			},
+			'northpanel menuitem[action=btn_Branch]': {
+				click: this.addTab
+			},
 			'northpanel menuitem[action=btn_homePage_t]': {
 				click: this.addTab
 			},
+			'northpanel menuitem[action=hotel_homepage]': {
+				click: this.addTab
+			},
 			'northpanel menuitem[action=hotel_branch]': {
+				click: this.addTab
+			},
+			'northpanel menuitem[action=hotel_photo]': {
 				click: this.addTab
 			}
 		});
@@ -338,14 +347,27 @@ Ext.define('Console.controller.Viewport', {
 			itemId='btn_HomePage';
 			title=MSG['btn_HomePage'];
 			xtype='johnnyHomePageTabPanel';
+		}
+		else if(btn.getId()=='btn_Branch'){
+			itemId='btn_Branch';
+			title=MSG['btn_Branch'];
+			xtype='johnnyBranchTabPanel';
 		}else if(btn.getId()=='btn_homePage_t'){
 			itemId='btn_homePage_t';
 			title=MSG['btn_homePage_t'];
 			xtype='hltabpanel';
+		}else if(btn.getId()=='hotel-homepage'){
+			itemId='hotel-homepage';
+			title=MSG['hotel_homepage'];
+			xtype='hothomtabpanel';
 		}else if(btn.getId()=='hotel-branch'){
 			itemId='hotel-branch';
 			title=MSG['hotel_branch'];
 			xtype='hotbratabpanel';
+		}else if(btn.getId()=='hotel-photo'){
+			itemId='hotel-photo';
+			title=MSG['hotel_photo'];
+			xtype='hotphotabpanel';
 		}
 		
 		

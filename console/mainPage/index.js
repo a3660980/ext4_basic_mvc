@@ -42,8 +42,9 @@ Ext.application({
         'Johnny',
         'JohnnyDetail',
         'JohnnyControllers.HomePage',
-        //'hotelHomepage_betty',
-        'hotelHomepage',
+        'JohnnyControllers.Branch',
+        'hotelHomepage_betty',
+        'HotelHomepage',
         'HotelBranch'
     ],
 

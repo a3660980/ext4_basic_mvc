@@ -51,7 +51,7 @@ Ext.define('Console.view.JohnnyBranch.FormEdit', {
                     xtype: 'fieldcontainer',
                     id:'branch_photo',
                     fieldLabel: MSG['home_photo'],
-                    allowBlank: false,
+                    allowBlank: true,
                     layout: 'hbox',
                     items: [
                         {
@@ -59,7 +59,7 @@ Ext.define('Console.view.JohnnyBranch.FormEdit', {
                             name: 'branch_photo',
                             itemId: 'textfield_branch_photo',
                             editable:false,
-                            allowBlank: false,
+                            allowBlank: true,
                             width: 180
                         },{
                             xtype: 'filefield',

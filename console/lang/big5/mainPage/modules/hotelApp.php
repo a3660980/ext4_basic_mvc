@@ -28,3 +28,4 @@ $MSG['home_sort'] = '顯示順序';
 $MSG['add_branch'] = '新增分館';
 $MSG['edit_branch'] = '修改分館';
 $MSG['delete_branch'] = '刪除分館';
+$MSG['btn_Branch'] = '分館名稱';
