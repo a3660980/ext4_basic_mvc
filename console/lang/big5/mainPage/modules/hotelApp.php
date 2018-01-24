@@ -48,3 +48,8 @@ $MSG['delete_branch_room'] = '刪除房間';
 $MSG['btn_BranchRoom'] = '各館房型';
 $MSG['room_spec'] = '床型規格';
 $MSG['room_photo'] = '房型照片';
+$MSG['room_name'] = '房型名稱';
+
+//BranchRoomPhoto
+$MSG['detail_name'] = '房型簡介';
+$MSG['detail_photo'] = '展示照片';

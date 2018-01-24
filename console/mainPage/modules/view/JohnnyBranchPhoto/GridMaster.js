@@ -21,14 +21,7 @@ Ext.define('Console.view.JohnnyBranchPhoto.GridMaster', {
         			header: MSG['branch_name'],
         			dataIndex: 'branch_name',
         			flex: 1
-        		}, {
-                    header: MSG['branch_photo'],
-                    dataIndex: 'branch_photo',
-                    flex: 2,
-                     renderer: function(value, p, r) {
-                        return me.renderImage(this, r.data['branch_photo']);//取得圖片
-                    }
-                },{
+        		},{
                     header: MSG['created_date'],
                     dataIndex: 'created_date',
                     flex: 1

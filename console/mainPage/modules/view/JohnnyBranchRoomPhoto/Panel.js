@@ -1,6 +1,6 @@
-Ext.define('Console.view.JohnnyBranchPhoto.Panel', {
+Ext.define('Console.view.JohnnyBranchRoomPhoto.Panel', {
 	extend: 'Console.override.PanelMasterDetail',
-	alias: 'widget.johnnyBranchPhotoPanel',
+	alias: 'widget.johnnyBranchRoomPhotoPanel',
 
 	requires: ['Ext.layout.container.Border'],
 
@@ -16,11 +16,11 @@ Ext.define('Console.view.JohnnyBranchPhoto.Panel', {
 				flex: 1,
 			    split: true,
 				// 表格分裂
-				xtype: 'johnnyBranchPhotoGridMaster'
+				xtype: 'johnnyBranchRoomPhotoGridMaster'
 			}, {
 				region: 'center',
 				flex: 1,
-				xtype: 'johnnyBranchPhotoDetailPanel'
+				xtype: 'johnnyBranchRoomPhotoDetailPanel'
 			}
 
 			]
