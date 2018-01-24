@@ -403,7 +403,7 @@ Ext.define('Console.controller.Viewport', {
 		else if(btn.getId()=='btn_emp'){
 			itemId='btn-emp';
 			title='人事資料';
-			xtype='dintabpanel';
+			//xtype='zoetabpanel';
 		}
 		
 		

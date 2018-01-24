@@ -37,3 +37,11 @@ $MSG['btn_BranchPhoto'] = '各館照片';
 $MSG['add_branch_photo'] = '新增相片';
 $MSG['edit_branch_photo'] = '修改相片';
 $MSG['delete_branch_photo'] = '刪除相片';
+
+//BranchRoom
+$MSG['add_branch_room'] = '新增分館';
+$MSG['edit_branch_room'] = '修改分館';
+$MSG['delete_branch_room'] = '刪除分館';
+$MSG['btn_BranchRoom'] = '各館房型';
+$MSG['room_spec'] = '床型規格';
+$MSG['room_photo'] = '房型照片';

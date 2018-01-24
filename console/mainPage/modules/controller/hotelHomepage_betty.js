@@ -1,70 +1,70 @@
 Ext.define('Console.controller.hotelHomepage_betty', {
     extend: 'Ext.app.Controller',
 
-    stores: [ 
+    stores: [ //store資料夾中的betty資料夾向下的Service_betty
         'betty.Service_hotelHomepage'
     ],
-    models: [ 
+    models: [ //model資料夾中的betty資料夾向下的Service_betty
         'betty.hotelHomepage'
     ],
-    views: [  
-        'hotelhomepage_betty.TabPanel',
-        'hotelhomepage_betty.GridMaster',
-        'hotelhomepage_betty.ActionPanel',
-        'hotelhomepage_betty.Formadd',
-        'hotelhomepage_betty.FormEdit'
+    views: [  //view資料夾中的betty資料夾向下的五個檔案
+        'bettyHotel.TabPanel',
+        'bettyHotel.GridMaster',
+        'bettyHotel.ActionPanel',
+        'bettyHotel.FormAdd',
+        'bettyHotel.FormEdit'
     ],
 
-    refs: [ 
+    refs: [ //指定任何在頁面上的組件
         {
-            ref: 'actionPanel', 
-            selector: 'hlactionpanel' 
+            ref: 'actionPanel', //將actionpanel指向給bettyactionpanel這個參照
+            selector: 'bhactionpanel' //指定頁面中的bettyactionpanel
         }, {
             ref: 'grid',
-            selector: 'hlgridmaster'
+            selector: 'bhgridmaster'
         }, {
             ref: 'formAdd',
-            selector: 'hlformadd'
+            selector: 'bhformadd'
         }, {
             ref: 'formEdit',
-            selector: 'hlformedit'
+            selector: 'bhformedit'
         }
     ],
 
     config: { //配置
         formAddTitle: '新增用戶資料',
         formEditTitle: '修改用戶資料',
-        addRequestUrl: './modules/source/controller/hotelHomepage/add_hotelHomepage.php',
-        editRequestUrl: './modules/source/controller/hotelHomepage/edit_hotelHomepage.php'
+        addRequestUrl: './modules/source/controller/betty_hotel/add_hotel.php',
+        editRequestUrl: './modules/source/controller/betty_hotel/edit_hotel.php'
     },
 
     init: function() { //controller
         var me = this;
 
         me.control({
-            'hlgridmaster': {
+            'bhgridmaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'hlgridmaster button[action=add_user]': {
+            'bhgridmaster button[action=add_user]': {
                 click: me.addData
             },
-            'hlgridmaster button[action=edit_user]': {
+            'bhgridmaster button[action=edit_user]': {
                 click: me.editData
             },
-            'hlgridmaster button[action=delete_user]': {
+            'bhgridmaster button[action=delete_user]': {
                 click: me.deleteData
             },
-            'hlformadd button[action=form_confirm]': {//確認
+            'bhformadd button[action=form_confirm]': {//確認
                 click: me.addConfirm
             },
-            'hlformadd button[action=form_cancel]': {//取消
+            'bhformadd button[action=form_cancel]': {//取消
                 click: me.addCancel
             },
-            'hlformedit button[action=form_confirm]': {
+            'bhformedit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'hlformedit button[action=form_cancel]': {
+            'bhformedit button[action=form_cancel]': {
                 click: me.editCancel
             }
         });
@@ -147,6 +147,9 @@ Ext.define('Console.controller.hotelHomepage_betty', {
 
     loadFormReocrd: function(form, record) {
         form.loadRecord(record);
+        // var name = record.data['name'];
+        // form.getForm().findField('name').setValue(name);
+
     },
 
     addData: function(btn) {
@@ -162,13 +165,9 @@ Ext.define('Console.controller.hotelHomepage_betty', {
         var form = me.getFormEdit(),
             title = me.getFormEditTitle(),
             record = me.getGrid().getSelectionModel().getSelection()[0];
-        var name = record.data['name'];
-            // corp_name = record.data['user_organization_id'].split(',')[0],
-            // department_name = record.data['user_organization_id'].split(',')[1];
-
         me.showForm(form, title);
         me.loadFormReocrd(form, record);
-        form.getForm().findField('name').setValue(name);
+       
         // form.getForm().findField('corp_name').setValue(corp_name);
         // form.getForm().findField('department_name').setValue(department_name);
     },
@@ -227,13 +226,11 @@ Ext.define('Console.controller.hotelHomepage_betty', {
     addConfirm: function(btn) {
         var me = this;
         me.checkSession();
-
         var actionPanel = me.getActionPanel();
         var formPanel = me.getFormAdd();
         var grid = me.getGrid();
         var store = grid.getStore();
         var form = formPanel.getForm();
-
         // check value
         if (! form.isValid()) {
             return;

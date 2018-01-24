@@ -1,84 +1,85 @@
-Ext.define('Console.controller.JohnnyControllers.Branch', {
+Ext.define('Console.controller.JohnnyControllers.BranchRoom', {
     extend: 'Ext.app.Controller',
     stores: [ 
-        'Johnny.Branch'
+        'Johnny.BranchRoom',
+        'Johnny.comboxBranch'
     ],
     models: [ 
-        'Johnny.Branch'
+        'Johnny.BranchRoom'
     ],
     views: [  
-        'JohnnyBranch.TabPanel',
-        'JohnnyBranch.GridMaster',
-        'JohnnyBranch.ActionPanel',
-        'JohnnyBranch.FormAdd',
-        'JohnnyBranch.FormEdit'
+        'JohnnyBranchRoom.TabPanel',
+        'JohnnyBranchRoom.GridMaster',
+        'JohnnyBranchRoom.ActionPanel',
+        'JohnnyBranchRoom.FormAdd',
+        'JohnnyBranchRoom.FormEdit'
     ],
 
     refs: [ //指定任何在頁面上的組件
         {
             ref: 'actionPanel', 
-            selector: 'johnnyBranchActionPanel' 
+            selector: 'johnnyBranchRoomActionPanel' 
         }, {
             ref: 'grid',
-            selector: 'johnnyBranchGridMaster'
+            selector: 'johnnyBranchRoomGridMaster'
         }, {
             ref: 'formAdd',
-            selector: 'johnnyBranchFormAdd'
+            selector: 'johnnyBranchRoomFormAdd'
         }, {
             ref: 'formEdit',
-            selector: 'johnnyBranchFormEdit'
+            selector: 'johnnyBranchRoomFormEdit'
         },{
-            ref: 'Textfield_home_photo',
-            selector: 'johnnyBranchFormEdit fieldcontainer #textfield_branch_photo'
+            ref: 'Textfield_room_photo',
+            selector: 'johnnyBranchRoomFormEdit fieldcontainer #textfield_room_photo'
         },{
-            ref: 'Filefield_home_photo',
-            selector: 'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo'
+            ref: 'Filefield_room_photo',
+            selector: 'johnnyBranchRoomFormEdit fieldcontainer #filefield_room_photo'
         },{
             ref: 'Button_clearFile',
-            selector: 'johnnyBranchFormEdit fieldcontainer #button_clearFile'
+            selector: 'johnnyBranchRoomFormEdit fieldcontainer #button_clearFile'
         }
     ],
 
     config: { //配置
-        formAddTitle: '新增分館',
-        formEditTitle: '修改分館',
-        addRequestUrl: './modules/source/controller/JohnnyBranch/addBranch.php',
-        editRequestUrl: './modules/source/controller/JohnnyBranch/editBranch.php'
+        formAddTitle: '新增房間',
+        formEditTitle: '修改房間',
+        addRequestUrl: './modules/source/controller/JohnnyBranchRoom/addBranchRoom.php',
+        editRequestUrl: './modules/source/controller/JohnnyBranchRoom/editBranchRoom.php'
     },
 
     init: function() { //controller
         var me = this;
 
         me.control({
-            'johnnyBranchGridMaster': {
+            'johnnyBranchRoomGridMaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'johnnyBranchGridMaster button[action=add_branch]': {
+            'johnnyBranchRoomGridMaster button[action=add_branch_room]': {
                 click: me.addData
             },
-            'johnnyBranchGridMaster button[action=edit_branch]': {
+            'johnnyBranchRoomGridMaster button[action=edit_branch_room]': {
                 click: me.editData
             },
-            'johnnyBranchGridMaster button[action=delete_branch]': {
+            'johnnyBranchRoomGridMaster button[action=delete_branch_room]': {
                 click: me.deleteData
             },
-            'johnnyBranchFormAdd button[action=form_confirm]': {//確認
+            'johnnyBranchRoomFormAdd button[action=form_confirm]': {//確認
                 click: me.addConfirm
             },
-            'johnnyBranchFormAdd button[action=form_cancel]': {//取消
+            'johnnyBranchRoomFormAdd button[action=form_cancel]': {//取消
                 click: me.addCancel
             },
-            'johnnyBranchFormEdit button[action=form_confirm]': {
+            'johnnyBranchRoomFormEdit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'johnnyBranchFormEdit button[action=form_cancel]': {
+            'johnnyBranchRoomFormEdit button[action=form_cancel]': {
                 click: me.editCancel
             },
-            'johnnyBranchFormEdit fieldcontainer #button_clearFile' :{
+            'johnnyBranchRoomFormEdit fieldcontainer #button_clearFile' :{
                 click: me.Clear_importFile
             },
-            'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo': {
+            'johnnyBranchRoomFormEdit fieldcontainer #filefield_room_photo': {
                 change: me.Import_filefield_change
             }
 
@@ -177,9 +178,9 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
         let form = me.getFormEdit(),
             title = me.getFormEditTitle(),
             records = me.getGrid().getSelectionModel().getSelection();
-        let filefield = me.getFilefield_home_photo();
+        let filefield = me.getFilefield_room_photo();
         let clearFile_btn = me.getButton_clearFile();
-        if (records[0].data['branch_photo'] != '') {
+        if (records[0].data['room_photo'] != '') {
             filefield.setDisabled(true);
             clearFile_btn.setDisabled(false);
         } else {
@@ -447,7 +448,7 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
         
         var me = this;
         var files = filefield.fileInputEl.dom.files;
-        var textfield = me.getTextfield_home_photo();
+        var textfield = me.getTextfield_room_photo();
         var clearFile_btn = me.getButton_clearFile();
         var jpg_reg = /\.([jJ][pP][gG]){1}$/;
         var png_reg = /\.([pP][nN][gG]){1}$/;
@@ -467,8 +468,8 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
 
     Clear_importFile: function(btn) {
         var me = this;
-        var textfield = me.getTextfield_home_photo();
-        var filefield = me.getFilefield_home_photo();
+        var textfield = me.getTextfield_room_photo();
+        var filefield = me.getFilefield_room_photo();
         textfield.setValue('');
         textfield.setDisabled(false);
         filefield.reset();

@@ -4,8 +4,8 @@ Ext.define('Console.view.zoe.TabPanel_zoe',{
 
 	requires: ['Ext.layout.container.Border'],
 
-	layout: 'Border',
-
+	layout: 'border',
+    
 	initComponent: function(){
 		var me = this;
 

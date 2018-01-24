@@ -1,12 +1,13 @@
 Ext.define('Console.controller.HotelBranch', {
     extend: 'Ext.app.Controller',
 
-    // stores: [
-    //     'HotelBranch.ServiceInfo_Catie'
-    // ],
-    // models: [
-    //     'HotelBranch.ServiceInfo_Catie'
-    // ],
+    stores: [
+        'HotelBranch.HotelBranch',
+        'HotelHomepage.UserI18n'
+    ],
+    models: [
+        'HotelBranch.HotelBranch'
+    ],
     views: [
         'HotelBranch.TabPanel',
         'HotelBranch.GridMaster',
@@ -15,59 +16,59 @@ Ext.define('Console.controller.HotelBranch', {
         'HotelBranch.FormEdit'
     ],
 
-    // refs: [
-    //     {
-    //         ref: 'actionPanel',
-    //         selector: 'ctactionpanel'
-    //     }, {
-    //         ref: 'grid',
-    //         selector: 'ctgridmaster'
-    //     }, {
-    //         ref: 'formAdd',
-    //         selector: 'ctformadd'
-    //     }, {
-    //         ref: 'formEdit',
-    //         selector: 'ctformedit'
-    //     }
-    // ],
+    refs: [
+        {
+            ref: 'actionPanel',
+            selector: 'hotbraactionpanel'
+        }, {
+            ref: 'grid',
+            selector: 'hotbragridmaster'
+        }, {
+            ref: 'formAdd',
+            selector: 'hotbraformadd'
+        }, {
+            ref: 'formEdit',
+            selector: 'hotbraformedit'
+        }
+    ],
 
-    // config: {
-    //     formAddTitle: '新增用戶資料',
-    //     formEditTitle: '修改用戶資料',
-    //     addRequestUrl: './modules/source/controller/Catie/addService_Catie.php',
-    //     editRequestUrl: './modules/source/controller/Catie/editService_Catie.php'
-    // },
+    config: {
+        formAddTitle: '新增用戶資料',
+        formEditTitle: '修改用戶資料',
+        addRequestUrl: './modules/source/controller/HotelBranch/addHotelBranch.php',
+        editRequestUrl: './modules/source/controller/HotelBranch/editHotelBranch.php'
+    },
 
     init: function() {
         var me = this;
 
-        // me.control({
-        //     'ctgridmaster': {
-        //         select: me.selectMasterList,
-        //         deselect: me.deselectMasterList
-        //     },
-        //     'ctgridmaster button[action=add_user]': {
-        //         click: me.addData
-        //     },
-        //     'ctgridmaster button[action=edit_user]': {
-        //         click: me.editData
-        //     },
-        //     'ctgridmaster button[action=delete_user]': {
-        //         click: me.deleteData
-        //     },
-        //     'ctformadd button[action=form_confirm]': {
-        //         click: me.addConfirm
-        //     },
-        //     'ctformadd button[action=form_cancel]': {
-        //         click: me.addCancel
-        //     },
-        //     'ctformedit button[action=form_confirm]': {
-        //         click: me.editConfirm
-        //     },
-        //     'ctformedit button[action=form_cancel]': {
-        //         click: me.editCancel
-        //     }
-        // });
+        me.control({
+            'hotbragridmaster': {
+                select: me.selectMasterList,
+                deselect: me.deselectMasterList
+            },
+            'hotbragridmaster button[action=add_user]': {
+                click: me.addData
+            },
+            'hotbragridmaster button[action=edit_user]': {
+                click: me.editData
+            },
+            'hotbragridmaster button[action=delete_user]': {
+                click: me.deleteData
+            },
+            'hotbraformadd button[action=form_confirm]': {
+                click: me.addConfirm
+            },
+            'hotbraformadd button[action=form_cancel]': {
+                click: me.addCancel
+            },
+            'hotbraformedit button[action=form_confirm]': {
+                click: me.editConfirm
+            },
+            'hotbraformedit button[action=form_cancel]': {
+                click: me.editCancel
+            }
+        });
     },
 
     checkSession: function() {
@@ -162,13 +163,13 @@ Ext.define('Console.controller.HotelBranch', {
         var form = me.getFormEdit(),
             title = me.getFormEditTitle(),
             record = me.getGrid().getSelectionModel().getSelection()[0];
-        var name = record.data['name'];
+        
             // corp_name = record.data['user_organization_id'].split(',')[0],
             // department_name = record.data['user_organization_id'].split(',')[1];
 
         me.showForm(form, title);
         me.loadFormReocrd(form, record);
-        form.getForm().findField('name').setValue(name);
+        
         // form.getForm().findField('corp_name').setValue(corp_name);
         // form.getForm().findField('department_name').setValue(department_name);
     },
@@ -211,7 +212,7 @@ Ext.define('Console.controller.HotelBranch', {
                         failure: function() {
                             Ext.MessageBox.show({
                                 title: MSG['msg_box_info'],
-                                msg: MSG['delete_fail'],
+                                msg: this.getReader().jsonData['msg'],
                                 width: 300,
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.ERROR
@@ -304,7 +305,6 @@ Ext.define('Console.controller.HotelBranch', {
         var grid = me.getGrid();
         var store = grid.getStore();
         var form = formPanel.getForm();
-        var record = grid.getSelectionModel().getSelection()[0];
 
          // check value
         if (! form.isValid()) {

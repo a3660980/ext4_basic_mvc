@@ -227,13 +227,12 @@ Ext.define('Console.controller.betty', {
     addConfirm: function(btn) {
         var me = this;
         me.checkSession();
-
         var actionPanel = me.getActionPanel();
         var formPanel = me.getFormAdd();
         var grid = me.getGrid();
         var store = grid.getStore();
         var form = formPanel.getForm();
-
+        
         // check value
         if (! form.isValid()) {
             return;

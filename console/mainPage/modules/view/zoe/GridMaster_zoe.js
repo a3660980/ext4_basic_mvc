@@ -1,11 +1,11 @@
-Ext.defind({'Console.view.zoe.GridMaster_zoe',{
+Ext.define('Console.view.zoe.GridMaster_zoe',{
 	extend:'Console.override.Grid',
 	alias: 'widget.zoegridmaster',  //alias指的是取別名,widget是固定字，後面是自己取的名字
 
 	requires: [
         'Ext.ux.ProgressBarPager',
         'Ext.ux.form.SearchField'
-    ]
+    ],
 
     plugins: [      
         {
@@ -28,7 +28,7 @@ Ext.defind({'Console.view.zoe.GridMaster_zoe',{
     	var me = this;
 
     	Ext.apply(me,{
-    		store : me.getStore();
+    		store : me.getStore(),
     		columns: [
     		    {
     		    	header: MSG['id_ct'],
@@ -59,7 +59,7 @@ Ext.defind({'Console.view.zoe.GridMaster_zoe',{
     		    },{
     		    	text: MSG['edit_user'],
     		    	action: 'edit_user',
-    		    	allowMulti: false;
+    		    	allowMulti: false,
     		    },{
     		    	text: MSG['delete_user'],
     		    	action: 'delete_user',
@@ -68,7 +68,7 @@ Ext.defind({'Console.view.zoe.GridMaster_zoe',{
     		    	text: MSG['p_total'],
     		    	action: 'p_total',
     		    	allowMulti: true,
-    		    	disabled: true;
+    		    	disabled: true,
 
     		    },'->',{
     		    	xtype: 'searchfieldmvc',
@@ -83,7 +83,7 @@ Ext.defind({'Console.view.zoe.GridMaster_zoe',{
     		    	xtype: 'pagingtoolbar',
     		    	store: me.getStore(),
     		    	displayInfo: true,
-    		    	plugins: new Ext.ux.ProgressBarPager();
+    		    	plugins: new Ext.ux.ProgressBarPager()
     		    }
     		]
 

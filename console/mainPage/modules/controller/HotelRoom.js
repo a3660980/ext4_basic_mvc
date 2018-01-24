@@ -1,87 +1,73 @@
-Ext.define('Console.controller.JohnnyControllers.Branch', {
+Ext.define('Console.controller.HotelRoom', {
     extend: 'Ext.app.Controller',
-    stores: [ 
-        'Johnny.Branch'
+
+    stores: [
+        'HotelRoom.HotelRoom',
+        'HotelHomepage.UserI18n'
     ],
-    models: [ 
-        'Johnny.Branch'
+    models: [
+        'HotelRoom.HotelRoom'
     ],
-    views: [  
-        'JohnnyBranch.TabPanel',
-        'JohnnyBranch.GridMaster',
-        'JohnnyBranch.ActionPanel',
-        'JohnnyBranch.FormAdd',
-        'JohnnyBranch.FormEdit'
+    views: [
+        'HotelRoom.TabPanel',
+        'HotelRoom.GridMaster',
+        'HotelRoom.ActionPanel',
+        'HotelRoom.FormAdd',
+        'HotelRoom.FormEdit'
     ],
 
-    refs: [ //指定任何在頁面上的組件
+    refs: [
         {
-            ref: 'actionPanel', 
-            selector: 'johnnyBranchActionPanel' 
+            ref: 'actionPanel',
+            selector: 'hotrooactionpanel'
         }, {
             ref: 'grid',
-            selector: 'johnnyBranchGridMaster'
+            selector: 'hotroogridmaster'
         }, {
             ref: 'formAdd',
-            selector: 'johnnyBranchFormAdd'
+            selector: 'hotrooformadd'
         }, {
             ref: 'formEdit',
-            selector: 'johnnyBranchFormEdit'
-        },{
-            ref: 'Textfield_home_photo',
-            selector: 'johnnyBranchFormEdit fieldcontainer #textfield_branch_photo'
-        },{
-            ref: 'Filefield_home_photo',
-            selector: 'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo'
-        },{
-            ref: 'Button_clearFile',
-            selector: 'johnnyBranchFormEdit fieldcontainer #button_clearFile'
+            selector: 'hotrooformedit'
         }
     ],
 
-    config: { //配置
-        formAddTitle: '新增分館',
-        formEditTitle: '修改分館',
-        addRequestUrl: './modules/source/controller/JohnnyBranch/addBranch.php',
-        editRequestUrl: './modules/source/controller/JohnnyBranch/editBranch.php'
+    config: {
+        formAddTitle: '新增用戶資料',
+        formEditTitle: '修改用戶資料',
+        addRequestUrl: './modules/source/controller/HotelRoom/addHotelRoom.php',
+        editRequestUrl: './modules/source/controller/HotelRoom/editHotelRoom.php'
     },
 
-    init: function() { //controller
+    init: function() {
         var me = this;
 
         me.control({
-            'johnnyBranchGridMaster': {
+            'hotroogridmaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'johnnyBranchGridMaster button[action=add_branch]': {
+            'hotroogridmaster button[action=add_user]': {
                 click: me.addData
             },
-            'johnnyBranchGridMaster button[action=edit_branch]': {
+            'hotroogridmaster button[action=edit_user]': {
                 click: me.editData
             },
-            'johnnyBranchGridMaster button[action=delete_branch]': {
+            'hotroogridmaster button[action=delete_user]': {
                 click: me.deleteData
             },
-            'johnnyBranchFormAdd button[action=form_confirm]': {//確認
+            'hotrooformadd button[action=form_confirm]': {
                 click: me.addConfirm
             },
-            'johnnyBranchFormAdd button[action=form_cancel]': {//取消
+            'hotrooformadd button[action=form_cancel]': {
                 click: me.addCancel
             },
-            'johnnyBranchFormEdit button[action=form_confirm]': {
+            'hotrooformedit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'johnnyBranchFormEdit button[action=form_cancel]': {
+            'hotrooformedit button[action=form_cancel]': {
                 click: me.editCancel
-            },
-            'johnnyBranchFormEdit fieldcontainer #button_clearFile' :{
-                click: me.Clear_importFile
-            },
-            'johnnyBranchFormEdit fieldcontainer #filefield_branch_photo': {
-                change: me.Import_filefield_change
             }
-
         });
     },
 
@@ -173,22 +159,19 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
     },
 
     editData: function(btn) {
-        let me = this;
-        let form = me.getFormEdit(),
+        var me = this;
+        var form = me.getFormEdit(),
             title = me.getFormEditTitle(),
-            records = me.getGrid().getSelectionModel().getSelection();
-        let filefield = me.getFilefield_home_photo();
-        let clearFile_btn = me.getButton_clearFile();
-        if (records[0].data['branch_photo'] != '') {
-            filefield.setDisabled(true);
-            clearFile_btn.setDisabled(false);
-        } else {
-            filefield.setDisabled(false);
-            clearFile_btn.setDisabled(true);
-        }
+            record = me.getGrid().getSelectionModel().getSelection()[0];
         
+            // corp_name = record.data['user_organization_id'].split(',')[0],
+            // department_name = record.data['user_organization_id'].split(',')[1];
 
-        me.show_form_load(form, records, title, true);
+        me.showForm(form, title);
+        me.loadFormReocrd(form, record);
+        
+        // form.getForm().findField('corp_name').setValue(corp_name);
+        // form.getForm().findField('department_name').setValue(department_name);
     },
 
     deleteData: function(btn) {
@@ -226,25 +209,14 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
                             });
                         },
 
-                        failure: function(batch, options) {
-                            if (batch.proxy.getReader().jsonData.msg == 'deleteFails') {
-                                Ext.MessageBox.show({
-                                    title: MSG['msg_box_info'],
-                                    msg: MSG['delete_data_fail'],
-                                    width: 300,
-                                    buttons: Ext.MessageBox.OK,
-                                    icon: Ext.MessageBox.ERROR
-                                });
-                            } else {
-                                Ext.MessageBox.show({
-                                    title: MSG['msg_box_info'],
-                                    msg: MSG['delete_fail'],
-                                    width: 300,
-                                    buttons: Ext.MessageBox.OK,
-                                    icon: Ext.MessageBox.ERROR
-                                });
-                            }
-                            
+                        failure: function() {
+                            Ext.MessageBox.show({
+                                title: MSG['msg_box_info'],
+                                msg: MSG['delete_fail'],
+                                width: 300,
+                                buttons: Ext.MessageBox.OK,
+                                icon: Ext.MessageBox.ERROR
+                            });
                             store.reload();
                         }
                     });
@@ -339,12 +311,12 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
             return;
         }
 
-        form.submit({ //表單送出
-            url: me.getEditRequestUrl(), //加入api
-            method: 'POST', //POST
-            submitEmptyText: false, //是否允許空白
+        form.submit({
+            url: me.getEditRequestUrl(),
+            method: 'POST',
+            submitEmptyText: false,
             success: function() {
-                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true); //actionPanel收起
+                actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
 
                 Ext.MessageBox.show({
                     title: MSG['msg_box_info'],
@@ -368,7 +340,7 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
                 switch (action.failureType) {
                     case Ext.form.action.Action.CLIENT_INVALID:
                         error_msg = MSG['form_invalid'];
-                    break;
+                        break;
                     case Ext.form.action.Action.CONNECT_FAILURE:
                         error_msg = MSG['server_connect_fail'];
                         break;
@@ -393,86 +365,5 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
         var form = me.getFormEdit();
 
         me.hideForm(form);
-    },
-
-    show_form_load: function(formPanel, records, title, is_show, actionViewPanel) {
-        var me = this;
-        var actionPanel = formPanel.up();
-
-        if(is_show){
-            if(!actionPanel.getCollapsed() && formPanel.isHidden()){
-                Ext.MessageBox.show({
-                    title: MSG.msg_box_info,
-                    msg: MSG.plz_close,
-                    width: 300,
-                    buttons: Ext.MessageBox.OK,
-                    icon: Ext.MessageBox.INFO
-                });
-
-                return;
-            }else{
-                if(actionViewPanel !== undefined ){
-                    me.hide_panel(actionViewPanel);
-                }
-
-                formPanel.show();
-                actionPanel.setTitle(title);
-                actionPanel.expand(true);
-            }
-        }
-
-        if(!formPanel.isHidden()){
-            me.loadRecordForm(formPanel, records);
-        }
-    },
-    loadRecordForm: function(formPanel, records) {
-        var me = this;
-        var count = records.length;
-        var title = formPanel.up().getHeader().title;
-
-        if(title === me.getFormAddTitle()){
-            formPanel.getForm().reset();
-        }
-
-        if(title === me.getFormEditTitle()){
-            if(count !== 1){
-                formPanel.getForm().reset();
-                return;
-            }
-
-            formPanel.loadRecord(records[0]);
-        }
-    },
-     Import_filefield_change: function( filefield, value, eOpts ) {
-        
-        var me = this;
-        var files = filefield.fileInputEl.dom.files;
-        var textfield = me.getTextfield_home_photo();
-        var clearFile_btn = me.getButton_clearFile();
-        var jpg_reg = /\.([jJ][pP][gG]){1}$/;
-        var png_reg = /\.([pP][nN][gG]){1}$/;
-
-        if (files !== null && files !== undefined) {
-
-            if (!jpg_reg.test(files[0].name) && !png_reg.test(files[0].name)) {
-                Ext.Msg.alert('提示','只支援副檔名為jpg或png的圖片！');
-                filefield.reset();
-            }else{
-                textfield.setValue(files[0].name);
-                textfield.setDisabled(true);
-                clearFile_btn.setDisabled(false);
-            }
-        }
-    },
-
-    Clear_importFile: function(btn) {
-        var me = this;
-        var textfield = me.getTextfield_home_photo();
-        var filefield = me.getFilefield_home_photo();
-        textfield.setValue('');
-        textfield.setDisabled(false);
-        filefield.reset();
-        filefield.setDisabled(false);
-        btn.setDisabled(true);
-    },
+    }
 });

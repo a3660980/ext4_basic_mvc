@@ -36,3 +36,5 @@ $result['result'] = $records;
 
 echo json_encode($result);
 $sysConn = null;
+
+?>
