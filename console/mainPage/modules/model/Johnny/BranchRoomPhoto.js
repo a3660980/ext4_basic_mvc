@@ -1,0 +1,40 @@
+Ext.define('Console.model.Johnny.BranchRoomPhoto',
+{
+	extend: 'Ext.data.Model',
+	fields: [ 
+		{
+			name:'detail_id',
+			type:'string'
+		},{
+			name:'room_id',
+			type:'string'
+		},{
+			name:'branch_id',
+			type:'string'
+		},{
+			name:'room_name',
+			type:'string'
+		},{
+			name:'detail_name',
+			type:'string'
+		},{
+			name:'detail_sort',
+			type:'int'
+		},{
+			name:'room_spec',
+			type:'string'
+		},{
+			name:'detail_photo',
+			type:'string'
+		},{
+			name:'created_date',
+			type:'string'
+		},{
+			name:'updated_date',
+			type:'string'
+		},{
+			name:'operator',
+			type:'string'
+		}
+	]
+});

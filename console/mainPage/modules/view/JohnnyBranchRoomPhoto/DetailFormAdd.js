@@ -7,6 +7,10 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
 
     layout: 'anchor',
 
+    config: {
+        comboboxStore: 'Johnny.BranchRoom'
+    }
+
     initComponent: function() {
         var me = this; 
         
@@ -38,8 +42,22 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     name: 'branch_id',
                     hidden:true
                 },{
+                    xtype: 'combo',
                     name: 'room_id',
-                    hidden:true
+                    fieldLabel: MSG['room_name'],
+                    allowBlank: false,
+                    store: me.getComboboxStore(),
+                    queryMode: 'remote',
+                    displayField: 'room_name', 
+                    valueField: 'room_id', 
+                    editable: false,
+                    listeners: {
+                        // 即時reload combox
+                        expand: function(field, eOpts) {
+                            field.getStore().reload();
+                        }
+                    }
+
                 },{
                     name: 'detail_name',
                     fieldLabel: MSG['detail_name'],

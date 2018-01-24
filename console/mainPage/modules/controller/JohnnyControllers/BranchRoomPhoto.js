@@ -1,95 +1,95 @@
-Ext.define('Console.controller.JohnnyControllers.BranchPhoto', {
+Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
     extend: 'Ext.app.Controller',
     stores: [ 
         'Johnny.Branch',
-        'Johnny.BranchPhoto'
+        'Johnny.BranchRoomPhoto'
     ],
     models: [ 
         'Johnny.Branch',
-        'Johnny.BranchPhoto'
+        'Johnny.BranchRoomPhoto'
     ],
     views: [  
-        'JohnnyBranchPhoto.TabPanel',
-        'JohnnyBranchPhoto.GridMaster',
-        'JohnnyBranchPhoto.ActionPanel',
-        'JohnnyBranchPhoto.DetailFormAdd',
-        'JohnnyBranchPhoto.DetailFormEdit',
-        'JohnnyBranchPhoto.Panel',
-        'JohnnyBranchPhoto.DetailPanel'
+        'JohnnyBranchRoomPhoto.TabPanel',
+        'JohnnyBranchRoomPhoto.GridMaster',
+        'JohnnyBranchRoomPhoto.ActionPanel',
+        'JohnnyBranchRoomPhoto.DetailFormAdd',
+        'JohnnyBranchRoomPhoto.DetailFormEdit',
+        'JohnnyBranchRoomPhoto.Panel',
+        'JohnnyBranchRoomPhoto.DetailPanel'
     ],
 
     refs: [ //指定任何在頁面上的組件
         {
             ref: 'actionPanel', 
-            selector: 'johnnyBranchPhotoActionPanel' 
+            selector: 'johnnyBranchRoomPhotoActionPanel' 
         }, {
             ref: 'grid',
-            selector: 'johnnyBranchPhotoGridMaster'
+            selector: 'johnnyBranchRoomPhotoGridMaster'
         }, {
             ref: 'DetailGrid',
-            selector: 'johnnyBranchPhotoDetailPanel'
+            selector: 'johnnyBranchRoomPhotoDetailPanel'
         }, {
             ref: 'formAdd',
-            selector: 'johnnyBranchPhotoDetailFormAdd'
+            selector: 'johnnyBranchRoomPhotoDetailFormAdd'
         }, {
             ref: 'formEdit',
-            selector: 'johnnyBranchPhotoDetailFormEdit'
+            selector: 'johnnyBranchRoomPhotoDetailFormEdit'
         },{
             ref: 'Textfield_photo_url',
-            selector: 'johnnyBranchPhotoDetailFormEdit fieldcontainer #textfield_photo_url'
+            selector: 'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #textfield_detail_photo'
         },{
             ref: 'Filefield_photo_url',
-            selector: 'johnnyBranchPhotoDetailFormEdit fieldcontainer #filefield_photo_url'
+            selector: 'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #filefield_detail_photo'
         },{
             ref: 'Button_clearFile',
-            selector: 'johnnyBranchPhotoDetailFormEdit fieldcontainer #button_clearFile'
+            selector: 'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #button_clearFile'
         }
     ],
 
     config: { //配置
         formAddTitle: '新增照片',
         formEditTitle: '修改照片',
-        addRequestUrl: './modules/source/controller/JohnnyBranchPhoto/addBranchPhoto.php',
-        editRequestUrl: './modules/source/controller/JohnnyBranchPhoto/editBranchPhoto.php'
+        addRequestUrl: './modules/source/controller/JohnnyBranchRoomPhoto/addBranchRoomPhoto.php',
+        editRequestUrl: './modules/source/controller/JohnnyBranchRoomPhoto/editBranchRoomPhoto.php'
     },
 
     init: function() { //controller
         var me = this;
 
         me.control({
-            'johnnyBranchPhotoGridMaster': {
+            'johnnyBranchRoomPhotoGridMaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'johnnyBranchPhotoDetailPanel': {
+            'johnnyBranchRoomPhotoDetailPanel': {
                 select: me.selectDetailList,
                 deselect: me.deselectDetailList
             },
-            'johnnyBranchPhotoDetailPanel button[action=add_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=add_branch_photo]': {
                 click: me.addData
             },
-            'johnnyBranchPhotoDetailPanel button[action=edit_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=edit_branch_photo]': {
                 click: me.editData
             },
-            'johnnyBranchPhotoDetailPanel button[action=delete_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=delete_branch_photo]': {
                 click: me.deleteData
             },
-            'johnnyBranchPhotoDetailFormAdd button[action=form_confirm]': {//確認
+            'johnnyBranchRoomPhotoDetailFormAdd button[action=form_confirm]': {//確認
                 click: me.addConfirm
             },
-            'johnnyBranchPhotoDetailFormAdd button[action=form_cancel]': {//取消
+            'johnnyBranchRoomPhotoDetailFormAdd button[action=form_cancel]': {//取消
                 click: me.addCancel
             },
-            'johnnyBranchPhotoDetailFormEdit button[action=form_confirm]': {
+            'johnnyBranchRoomPhotoDetailFormEdit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'johnnyBranchPhotoDetailFormEdit button[action=form_cancel]': {
+            'johnnyBranchRoomPhotoDetailFormEdit button[action=form_cancel]': {
                 click: me.editCancel
             },
-            'johnnyBranchPhotoDetailFormEdit fieldcontainer #button_clearFile' :{
+            'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #button_clearFile' :{
                 click: me.Clear_importFile
             },
-            'johnnyBranchPhotoDetailFormEdit fieldcontainer #filefield_photo_url': {
+            'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #filefield_detail_photo': {
                 change: me.Import_filefield_change
             }
 
@@ -211,7 +211,7 @@ Ext.define('Console.controller.JohnnyControllers.BranchPhoto', {
             records = me.getDetailGrid().getSelectionModel().getSelection();
         let filefield = me.getFilefield_photo_url();
         let clearFile_btn = me.getButton_clearFile();
-        if (records[0].data['photo_url'] != '') {
+        if (records[0].data['detail_photo'] != '') {
             filefield.setDisabled(true);
             clearFile_btn.setDisabled(false);
         } else {

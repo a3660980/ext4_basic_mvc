@@ -31,6 +31,16 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailPanel', {
                     dataIndex: 'room_id',
                     flex: 1,
                     hidden:true
+                },{
+                    xtype: 'displayfield',
+                    name: 'room_name',
+                    fieldLabel: MSG['room_name'],
+                    store: me.getBranchRoomStore()
+                },{
+                    xtype: 'displayfield',
+                    name: 'room_spec',
+                    fieldLabel: MSG['room_spec'],
+                    store: me.getBranchRoomStore()
                 },
                 {
                     header: MSG['detail_name'],

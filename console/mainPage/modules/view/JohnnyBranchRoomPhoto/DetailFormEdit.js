@@ -47,6 +47,16 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormEdit', {
                     name: 'room_id',
                     hidden:true
                 },{
+                    xtype: 'displayfield',
+                    name: 'room_name',
+                    fieldLabel: MSG['room_name'],
+                    store: me.getComboboxStore()
+                },{
+                    xtype: 'displayfield',
+                    name: 'room_spec',
+                    fieldLabel: MSG['room_spec'],
+                    store: me.getComboboxStore()
+                },{
                     name:'detail_name',
                     fieldLabel: MSG['detail_name'],
                     maxLength: 50,

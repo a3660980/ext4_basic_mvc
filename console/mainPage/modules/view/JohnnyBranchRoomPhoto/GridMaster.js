@@ -8,8 +8,7 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.GridMaster', {
     selType: 'checkboxmodel',
 
     config: {
-        store: 'Johnny.BranchRoom',
-        comboboxStore: 'Johnny.comboxBranch'
+        store: 'Johnny.Branch'
     },
 
     
@@ -22,17 +21,7 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.GridMaster', {
             columns: [
                 {
                     header: MSG['branch_name'],
-                    dataIndex: 'com_name',
-                    flex: 1,
-                    store: me.getComboboxStore()
-                },
-                {
-                    header: MSG['room_name'],
-                    dataIndex: 'room_name',
-                    flex: 1
-                },{
-                    header: MSG['room_spec'],
-                    dataIndex: 'room_spec',
+                    dataIndex: 'branch_name',
                     flex: 1
                 },{
                     header: MSG['created_date'],
