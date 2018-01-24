@@ -52,7 +52,7 @@ Ext.define('Console.view.JohnnyBranchRoom.FormEdit', {
                     store: me.getComboboxStore()
                 },{
                     xtype: 'displayfield',
-                    name: 'branch_name',
+                    name: 'com_name',
                     fieldLabel: MSG['branch_name'],
                     store: me.getComboboxStore()
                 },{

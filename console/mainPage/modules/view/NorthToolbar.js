@@ -179,6 +179,11 @@ Ext.define('Console.view.NorthToolbar', {
                             id: 'btn_BranchPhoto',
                             text: MSG['btn_BranchPhoto'],
                             action:'btn_BranchPhoto'
+                        },
+                        {
+                            id: 'btn_BranchRoom',
+                            text: MSG['btn_BranchRoom'],
+                            action:'btn_BranchRoom'
                         }
                     ]
 
@@ -194,6 +199,10 @@ Ext.define('Console.view.NorthToolbar', {
                             id: 'btn_homePage_t',
                             text: MSG['btn_homePage_t'],
                             action:'btn_homePage_t'
+                        },{
+                            id: 'btn_Hotelbranch',
+                            text: MSG['btn_Hotelbranch'],
+                            action:'btn_Hotelbranch'
                         }
                     ]
 

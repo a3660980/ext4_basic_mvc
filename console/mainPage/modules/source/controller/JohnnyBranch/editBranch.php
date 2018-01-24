@@ -78,7 +78,6 @@ if($total == 0) {
 
 $whereClause = "branch_id = '{$branch_id}'";
 $result['success'] = dbUpdate($table, $arrField, $whereClause);
-$result['test'] = $arrField['branch_id'];
 $result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
 
 echo json_encode($result);

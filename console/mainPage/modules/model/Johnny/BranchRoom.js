@@ -9,6 +9,9 @@ Ext.define('Console.model.Johnny.BranchRoom',
 			name:'branch_id',
 			type:'string'
 		},{
+			name:'com_name',
+			type:'string'
+		},{
 			name:'room_name',
 			type:'string'
 		},{

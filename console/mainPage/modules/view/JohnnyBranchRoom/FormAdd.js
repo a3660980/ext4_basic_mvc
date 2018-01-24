@@ -6,6 +6,10 @@ Ext.define('Console.view.JohnnyBranchRoom.FormAdd', {
 	requires:['Ext.layout.container.Anchor'],//API(應用程式介面)讓元件大小隨容器改變
 
 	layout:'anchor',//頁面布局
+
+    config: {
+        comboboxStore: 'Johnny.comboxBranch'
+    },
    
     //以上是檔案基本定義
 
@@ -38,15 +42,28 @@ Ext.define('Console.view.JohnnyBranchRoom.FormAdd', {
                 // 提示訊息長度控制
 	        },
 			items: [
-                {
-                    name:'branch_id',
-                    hidden: true
-                },
-                {
+               {
+                    xtype: 'combo',
+                    name: 'branch_id',
+                    fieldLabel: MSG['branch_name'],
+                    allowBlank: false,
+                    store: me.getComboboxStore(),
+                    queryMode: 'remote',
+                    displayField: 'com_name', 
+                    valueField: 'com_id', 
+                    editable: false,
+                    listeners: {
+                        // 即時reload combox
+                        expand: function(field, eOpts) {
+                            field.getStore().reload();
+                        }
+                    }
+
+                },{
                     name:'room_name',
                     fieldLabel: MSG['room_name'],
                     maxLength: 50,
-                    allowBlank: true
+                    allowBlank: false
                 },{
                     name:'room_spec',
                     fieldLabel: MSG['room_spec'],

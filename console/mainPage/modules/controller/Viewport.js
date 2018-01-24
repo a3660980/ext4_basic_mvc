@@ -121,6 +121,9 @@ Ext.define('Console.controller.Viewport', {
 			'northpanel menuitem[action=btn_BranchPhoto]': {
 				click: this.addTab
 			},
+			'northpanel menuitem[action=btn_BranchRoom]': {
+				click: this.addTab
+			},
 			'northpanel menuitem[action=btn_homePage_t]': {
 				click: this.addTab
 			},
@@ -140,6 +143,9 @@ Ext.define('Console.controller.Viewport', {
 				click: this.addTab
 			},
 			'northpanel menuitem[action=btn_emp]':{
+				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_Hotelbranch]':{
 				click: this.addTab
 			}
 		});
@@ -365,6 +371,11 @@ Ext.define('Console.controller.Viewport', {
 			title=MSG['btn_Branch'];
 			xtype='johnnyBranchTabPanel';
 		}
+		else if(btn.getId()=='btn_BranchRoom'){
+			itemId='btn_BranchRoom';
+			title=MSG['btn_BranchRoom'];
+			xtype='johnnyBranchRoomTabPanel';
+		}
 		else if(btn.getId()=='btn_BranchPhoto'){
 			itemId='btn_BranchPhoto';
 			title=MSG['btn_BranchPhoto'];
@@ -403,7 +414,11 @@ Ext.define('Console.controller.Viewport', {
 		else if(btn.getId()=='btn_emp'){
 			itemId='btn-emp';
 			title='人事資料';
-			//xtype='zoetabpanel';
+			xtype='zoetabpanel';
+		}else if(btn.getId()=='btn_Hotelbranch'){
+			itemId='btn_Hotelbranch';
+			title=MSG['btn_Hotelbranch'];
+			xtype='bhbtabpanel';
 		}
 		
 		

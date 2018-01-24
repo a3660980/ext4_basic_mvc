@@ -36,7 +36,7 @@ Ext.application({
         'humhum',
         'humhum_detail',
         'Dina_detail',
-        'Dina',
+        //'Dina',
         'betty',
         'betty_detail',
         'Johnny',
@@ -44,12 +44,15 @@ Ext.application({
         'JohnnyControllers.HomePage',
         'JohnnyControllers.Branch',
         'JohnnyControllers.BranchPhoto',
+        'JohnnyControllers.BranchRoom',
         'hotelHomepage_betty',
+        'hotelHomepagebranch_betty',
         'HotelHomepage',
         'HotelBranch',
         'HotelPhoto',
         'HotelRoom',
-        'HotelDetail'
+        'HotelDetail',
+        'Zoe'
     ],
 
     launch: function() {
