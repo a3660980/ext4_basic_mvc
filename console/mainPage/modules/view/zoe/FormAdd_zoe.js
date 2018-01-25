@@ -8,6 +8,14 @@ Ext.define('Console.view.zoe.FormAdd_zoe', {
 
     initComponent: function(){
     	var me = this;
+        var depnames = Ext.create('Ext.data.Store', {
+            fields: ['depno', 'name'],
+            data : [
+                {"depno":"02", "name":"總經理室"},
+                {"depno":"04", "name":"業務部"},
+                {"depno":"08", "name":"資訊部"}
+            ]
+        });
         
     	Ext.apply(me,{
     		width:250,
@@ -33,22 +41,21 @@ Ext.define('Console.view.zoe.FormAdd_zoe', {
                     maxLength: 10,
                     allowBlank: false
                 }, {
+                    xtype: 'combo',
                     name: 't_dep',
                     fieldLabel: MSG['department'],
-                    maxLength: 2,
+                    queryMode: 'local',
+                    store: depnames,
+                    displayField: 'name',
+                    valueField: 'depno',
+                    forceSelection: true,
                     allowBlank: true
                 }, {
                     xtype: 'datefield',
                     name: 't_date1',
                     fieldLabel: MSG['t_date1'],
                     //maxLength: 10,
-                    allowBlank: true
-                }, {
-                    xtype: 'datefield',
-                    name: 't_date2',
-                    fieldLabel: MSG['t_date2'],
-                    //maxLength: 10,
-                    allowBlank: true
+                    allowBlank: false
                 }
             ],
             bbar: [ //確認 取消

@@ -186,11 +186,16 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
 
     selectMasterList: function(obj, record, index, eOpts) {
         var me = this;
+        var count = obj.getCount();
         var records = me.getGrid().getSelectionModel().getSelection();
         var grid = me.getDetailGrid();
+        var store = grid.getStore();
         var filter = ['branch_id'];
-
-        me.show_grid_load(grid ,records, filter);
+        if (count ==1) {
+            me.show_grid_load(grid ,records, filter);
+        } else {
+            store.removeAll();
+        }
     },
 
     deselectMasterList: function(obj, record, index, eOpts) {
@@ -198,11 +203,17 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
         var count = obj.getCount();
         var formEdit = me.getFormEdit();
         let formAdd = me.getFormAdd();
+        var grid = me.getDetailGrid();
+        var store = grid.getStore();
 
         if (count == 1) {
             var deselectRecord = obj.selected.items[0];
             me.loadFormReocrd(formEdit, deselectRecord);
+            store.clearFilter(true);
+            store.filter('branch_id', deselectRecord.get('branch_id'));
+            store.reload();
         } else {
+            store.removeAll();
             formEdit.getForm().reset();
             formAdd.getForm().reset();
         }

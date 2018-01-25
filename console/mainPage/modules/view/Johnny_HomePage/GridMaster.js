@@ -38,7 +38,11 @@ Ext.define('Console.view.Johnny_HomePage.GridMaster', {
                 },{
                     header: MSG['expire_date'],
                     dataIndex: 'expire_date',
-                    flex: 1
+                    flex: 1,
+                    renderer: function(value, p, r) {
+                        if (r.data['expire_date'] == '') return '永久有效';
+                        else return r.data['expire_date'];
+                    }
                 },{
                     header: MSG['created_date'],
                     dataIndex: 'created_date',
@@ -46,7 +50,11 @@ Ext.define('Console.view.Johnny_HomePage.GridMaster', {
                 },{
                     header: MSG['updated_date'],
                     dataIndex: 'updated_date',
-                    flex: 1
+                    flex: 1,
+                    renderer: function(value, p, r) {
+                        if (r.data['expire_date'] == '') return '-';
+                        else return r.data['expire_date'];
+                    }
                 },{
                     header: MSG['operator'],
                     dataIndex: 'operator',

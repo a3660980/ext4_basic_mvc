@@ -50,6 +50,7 @@ Ext.define('Console.view.HotelDetail.GridDetail', {
                     header: MSG['detail_name'],
                     dataIndex: 'detail_name',
                     flex: 1,
+                    hidden:true
                 }, {
                     header: MSG['detail_photo'],
                     dataIndex: 'detail_photo',

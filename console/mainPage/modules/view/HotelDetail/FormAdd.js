@@ -7,7 +7,6 @@ Ext.define('Console.view.HotelDetail.FormAdd', {
     layout: 'anchor',
 
     config: {
-        UserI18n: 'HotelHomepage.UserI18n',
         RoomId: 'HotelDetail.RoomId'
     },
 
@@ -53,30 +52,12 @@ Ext.define('Console.view.HotelDetail.FormAdd', {
                     value: 10,
                     editable: false
                 }, {
-                    name: 'detail_name',
-                    fieldLabel: MSG['detail_name'],
-                    allowBlank: false,
-                    maxLength: 50,
-                }, {
                     name: 'detail_photo',
                     fieldLabel: MSG['detail_photo'],
                     maxLength: 200,
                     xtype: 'filefield',
                     allowBlank: false,
                     emptyText: '請上傳1080X1080px的照片'
-                }, {
-                    
-                    name:'user_i18n',
-                    fieldLabel: MSG['user_i18n'],
-                    allowBlank: true,
-                    xtype: 'combo',
-                    store: me.getUserI18n(),
-                    queryMode: 'local',
-                    displayField: 'display',
-                    valueField: 'value',
-                    value: 'tw',
-                    editable: false,
-                    multiSelect: false,            
                 }
             ],
             bbar: [ //確認 取消

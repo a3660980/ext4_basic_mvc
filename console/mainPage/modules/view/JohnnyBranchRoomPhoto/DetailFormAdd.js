@@ -42,17 +42,17 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     name: 'branch_id',
                     hidden:true
                 },{
-                    xtype: 'combo',
+                    xtype: 'combobox',
                     action: 'room_id',
                     name: 'room_id',
                     itemId: 'add_room_id',
                     fieldLabel: MSG['room_name'],
                     allowBlank: false,
                     store: me.getComboboxStore(),
-                    queryMode: 'remote',
                     displayField: 'room_name', 
                     valueField: 'room_id', 
                     editable: false,
+                    
                 },{
                     name: 'detail_name',
                     fieldLabel: MSG['detail_name'],

@@ -236,7 +236,6 @@ Ext.define('Console.controller.HotelDetail', {
     },
 
     addHotelDetailConfirm: function(btn){
-
         var me = this;
         me.checkSession();
 

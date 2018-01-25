@@ -31,10 +31,6 @@ Ext.define('Console.view.HotelHomepage.GridMaster', {
                     flex: 1,
                     hidden:true
                 }, {
-                    header: MSG['home_name'],
-                    dataIndex: 'home_name',
-                    flex: 1
-                }, {
                     header: MSG['home_photo'],
                     dataIndex: 'home_photo',
                     flex: 1,
