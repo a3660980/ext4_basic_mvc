@@ -3,10 +3,12 @@ Ext.define('Console.controller.HotelRoom', {
 
     stores: [
         'HotelRoom.HotelRoom',
-        'HotelHomepage.UserI18n'
+        'HotelHomepage.UserI18n',
+        'HotelRoom.BranchName'
     ],
     models: [
-        'HotelRoom.HotelRoom'
+        'HotelRoom.HotelRoom',
+        'HotelBranch.HotelBranch'
     ],
     views: [
         'HotelRoom.TabPanel',
@@ -70,6 +72,7 @@ Ext.define('Console.controller.HotelRoom', {
             }
         });
     },
+
 
     checkSession: function() {
         var me = this;
@@ -212,7 +215,7 @@ Ext.define('Console.controller.HotelRoom', {
                         failure: function() {
                             Ext.MessageBox.show({
                                 title: MSG['msg_box_info'],
-                                msg: MSG['delete_fail'],
+                                msg: this.getReader().jsonData['msg'],
                                 width: 300,
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.ERROR

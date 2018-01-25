@@ -55,6 +55,7 @@ Ext.define('Console.view.HotelPhoto.FormEdit', {
                     fieldLabel: MSG['photo_url'],
                     maxLength: 200,
                     xtype: 'filefield',
+                    emptyText: '請上傳1080X1920px的照片'
                 }, {
                     
                     name:'user_i18n',

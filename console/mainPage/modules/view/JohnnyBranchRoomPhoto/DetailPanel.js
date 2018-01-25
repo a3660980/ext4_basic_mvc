@@ -31,16 +31,11 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailPanel', {
                     dataIndex: 'room_id',
                     flex: 1,
                     hidden:true
-                },{
-                    xtype: 'displayfield',
-                    name: 'room_name',
-                    fieldLabel: MSG['room_name'],
-                    store: me.getBranchRoomStore()
-                },{
-                    xtype: 'displayfield',
-                    name: 'room_spec',
-                    fieldLabel: MSG['room_spec'],
-                    store: me.getBranchRoomStore()
+                },
+                {
+                    header: MSG['room_name'],
+                    dataIndex: 'room_name',
+                    flex: 1
                 },
                 {
                     header: MSG['detail_name'],
@@ -69,17 +64,17 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailPanel', {
             ],
             tbar: [
                 {
-                    text: MSG['add_branch_room_photo'],
+                    text: MSG['add_branch_photo'],
                     action: 'add_branch_room_photo',
                     loadEnabled: true,
                     disabled: true
                 }, {
-                    text: MSG['edit_branch_room_photo'],
+                    text: MSG['edit_branch_photo'],
                     action: 'edit_branch_room_photo',
                     allowMulti: false,
                     disabled: true
                 }, {
-                    text: MSG['delete_branch_room_photo'],
+                    text: MSG['delete_branch_photo'],
                     action: 'delete_branch_room_photo',
                     allowMulti: true,
                     disabled: true

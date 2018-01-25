@@ -1,15 +1,15 @@
 Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
     extend: 'Console.override.Form',
 // 延伸
-    alias: 'widget.johnnyBranchPhotoRoomDetailFormAdd',
+    alias: 'widget.johnnyBranchRoomPhotoDetailFormAdd',
 // 新增
     requires: ['Ext.layout.container.Anchor'],
 
     layout: 'anchor',
 
     config: {
-        comboboxStore: 'Johnny.BranchRoom'
-    }
+        comboboxStore: 'Johnny.comboxBranchRoom'
+    },
 
     initComponent: function() {
         var me = this; 
@@ -43,7 +43,9 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     hidden:true
                 },{
                     xtype: 'combo',
+                    action: 'room_id',
                     name: 'room_id',
+                    itemId: 'add_room_id',
                     fieldLabel: MSG['room_name'],
                     allowBlank: false,
                     store: me.getComboboxStore(),
@@ -51,13 +53,6 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     displayField: 'room_name', 
                     valueField: 'room_id', 
                     editable: false,
-                    listeners: {
-                        // 即時reload combox
-                        expand: function(field, eOpts) {
-                            field.getStore().reload();
-                        }
-                    }
-
                 },{
                     name: 'detail_name',
                     fieldLabel: MSG['detail_name'],
@@ -72,7 +67,7 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     allowBlank: false
                 },{
                     xtype: 'displayfield',
-                    value: '＊圖片尺寸須符合1080x1920。',
+                    value: '＊圖片尺寸須符合1080x1080。',
                     fieldStyle: {
                         // fontStyle: 'italic',
                         color: '#7f7f7f'

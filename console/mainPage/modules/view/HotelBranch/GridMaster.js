@@ -70,12 +70,6 @@ Ext.define('Console.view.HotelBranch.GridMaster', {
                     text: MSG['delete'],
                     action: 'delete_user',
                     allowMulti: true
-                }, '->', {
-                    xtype: 'searchfieldmvc',
-                    store: me.getStore(),
-                    fieldLabel: MSG['search'],
-                    labelWidth: 50,
-                    width: 200
                 }
             ],
             bbar: {

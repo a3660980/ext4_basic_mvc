@@ -179,6 +179,9 @@ Ext.define('Console.controller.JohnnyControllers.Branch', {
             records = me.getGrid().getSelectionModel().getSelection();
         let filefield = me.getFilefield_home_photo();
         let clearFile_btn = me.getButton_clearFile();
+        let textfield = me.getTextfield_home_photo();
+
+        textfield.setDisabled(false);
         if (records[0].data['branch_photo'] != '') {
             filefield.setDisabled(true);
             clearFile_btn.setDisabled(false);

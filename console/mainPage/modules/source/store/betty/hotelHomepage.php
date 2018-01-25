@@ -1,43 +1,38 @@
 <?php
 require "../../../../../init.php";
-
 $result = [];
 $sql = [];
-// $sysConnDebug = true;//測試用
-// db execution
-$table = 'profile_c';//要使用的資料表名稱
-
+$table = 'femobile_hotel_homepage_betty';//要使用的資料表名稱
 $whereClause = '1=1'; //永遠條件成立
-
-// 要搜尋的欄位名稱，日期搜尋要另外寫
-$searchColumn = [
-    'student_id',
-    'name',
-    'gender',
-    'email',
-    'phone',
-    'address'
-];
-
-$searchValue = isset($_GET['searchValue']) ? trim($_GET['searchValue']) : null;//取搜尋框中要搜尋的值
-//結果= ( 條件) ? "條件為真":"條件為假";判斷變數是否存在?"清除空白":"空值";
-$whereClause = get_where_clause_with_live_search($whereClause, $searchColumn, $searchValue);
-//$searchColumn like $searchValue搜尋,get_where_clause_with_live_search自己定義的函數
-
-$limit = isset($_POST['limit']) ? trim($_POST['limit']) : 0;//限制筆數
-$start = isset($_POST['start']) ? trim($_POST['start']) : 0;
-
+$orderby = "{$table}.home_sort ASC,{$table}.updated_date ASC";
 $getTotalSql = "SELECT COUNT(*) FROM {$table} where {$whereClause}";//where永遠成立
-$sql="SELECT * FROM {$table} where {$whereClause}";
-// -- where  LIMIT {$start},{$limit}
+$sql="SELECT * FROM {$table} where {$whereClause} order by {$orderby} ";
 
+$records = dbGetAll($sql); 
+$total = dbGetTotal($records); 
 
-$records = dbGetAll($sql); //dbgetall 回傳資料使用陣列格式
-$total = dbGetTotal($records); //dbGetTotal回傳總數 不受limit影響
+//把datetime傳成date
+foreach ($records as $i => $value) {
+
+    if(!empty($value['start_date'])){
+        $records[$i]['start_date'] = date("Y-m-d",strtotime($value['start_date']));
+    }
+    if(!empty($value['expire_date'])){
+        $records[$i]['expire_date']= date("Y-m-d",strtotime($value['expire_date']));
+    }
+    if(!empty($value['created_date']))
+        $records[$i]['created_date'] =date("Y-m-d H:i:s",strtotime($value['created_date']));
+    if(!empty($value['updated_date']))
+        $records[$i]['updated_date'] =date("Y-m-d H:i:s",strtotime($value['updated_date']));
+}
+
+$result['total'] = $total;
+$result['result'] = $records;
+
 // output result
 $result['total'] = $total;
 $result['result'] = $records;
 
-echo json_encode($result);//php回傳json格式
+echo json_encode($result);
 
-$sysConn = null;//在db.php中,$sysConn = new PDO($db_connection, $db_username, $db_password);
+$sysConn = null;

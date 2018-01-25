@@ -57,15 +57,6 @@ Ext.define('Console.view.HotelPhoto.GridMaster', {
                 }
             ],
 
-            tbar: [
-                '->', {
-                    xtype: 'searchfieldmvc',
-                    store: me.getStore(),
-                    fieldLabel: MSG['search'],
-                    labelWidth: 50,
-                    width: 200
-                }
-            ],
             bbar: {
                 xtype: 'pagingtoolbar',
                 store: me.getStore(),

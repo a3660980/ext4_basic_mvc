@@ -7,7 +7,8 @@ Ext.define('Console.view.HotelDetail.FormAdd', {
     layout: 'anchor',
 
     config: {
-        UserI18n: 'HotelHomepage.UserI18n'
+        UserI18n: 'HotelHomepage.UserI18n',
+        RoomId: 'HotelDetail.RoomId'
     },
 
     initComponent: function() {
@@ -34,10 +35,15 @@ Ext.define('Console.view.HotelDetail.FormAdd', {
                     hidden: true
                 }, {
                     name: 'room_id',
-                    fieldLabel: MSG['room_id'],
-                    maxLength: 36,
+                    action: 'room_id',
+                    itemId: 'hotdetadd_room_id',
+                    fieldLabel: MSG['room_name'],
+                    xtype: 'combobox',
+                    displayField: 'room_name',
+                    valueField: 'room_id',
+                    store: me.getRoomId(),
+                    editable: false,
                     allowBlank: false,
-                    hidden: true
                 }, {
                     name: 'detail_sort',
                     fieldLabel: MSG['detail_sort'],
@@ -56,7 +62,8 @@ Ext.define('Console.view.HotelDetail.FormAdd', {
                     fieldLabel: MSG['detail_photo'],
                     maxLength: 200,
                     xtype: 'filefield',
-                    allowBlank: false
+                    allowBlank: false,
+                    emptyText: '請上傳1080X1080px的照片'
                 }, {
                     
                     name:'user_i18n',

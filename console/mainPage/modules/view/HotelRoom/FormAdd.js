@@ -7,18 +7,19 @@ Ext.define('Console.view.HotelRoom.FormAdd', {
     layout: 'anchor',
 
     config: {
-        comboboxStore: 'HotelHomepage.UserI18n'
+        comboboxStore: 'HotelHomepage.UserI18n',
+        BranchName:'HotelRoom.BranchName'
     },
 
   
     initComponent: function() {
         var me = this;
-        var branch_name = Ext.create('Ext.data.Store', {
-        fields: ['name'],
-        data : [
-            {"name":"北投"},{"name":"嘉義"},{"name":"高雄"}
-        ]
-        });
+        // var branch_name = Ext.create('Ext.data.Store', {
+        // fields: ['name'],
+        // data : [
+        //     {"name":"北投"},{"name":"嘉義"},{"name":"高雄"}
+        // ]
+        // });
 
         Ext.apply(me, {
             width: 450,
@@ -48,9 +49,10 @@ Ext.define('Console.view.HotelRoom.FormAdd', {
                     fieldLabel: MSG['branch_name'],
                     maxLength: 50,
                     allowBlank: false,
-                    store: branch_name,
-                    displayField: 'name',
-                    valueField: 'name',
+                    store: me.getBranchName(),
+                    // action:'comboboxbranchname',
+                    displayField: 'branch_name',
+                    valueField: 'branch_name',
                     editable: false,
                 }, {
                     name:'room_name',
@@ -69,7 +71,7 @@ Ext.define('Console.view.HotelRoom.FormAdd', {
                     name: 'room_photo',
                     fieldLabel: MSG['room_photo'],
                     maxLength: 200,
-                    allowBlank: true
+                    allowBlank: false
                    
                 }, {
                     xtype:'combo',

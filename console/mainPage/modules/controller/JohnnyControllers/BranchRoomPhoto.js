@@ -1,12 +1,13 @@
 Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
     extend: 'Ext.app.Controller',
     stores: [ 
+        'Johnny.BranchRoomPhoto',
         'Johnny.Branch',
-        'Johnny.BranchRoomPhoto'
+        'Johnny.comboxBranchRoom'
     ],
     models: [ 
+        'Johnny.BranchRoomPhoto',
         'Johnny.Branch',
-        'Johnny.BranchRoomPhoto'
     ],
     views: [  
         'JohnnyBranchRoomPhoto.TabPanel',
@@ -43,6 +44,9 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
         },{
             ref: 'Button_clearFile',
             selector: 'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #button_clearFile'
+        },{
+            ref: 'add_room_id',
+            selector: 'johnnyBranchRoomPhotoDetailFormAdd #add_room_id'
         }
     ],
 
@@ -65,13 +69,13 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
                 select: me.selectDetailList,
                 deselect: me.deselectDetailList
             },
-            'johnnyBranchRoomPhotoDetailPanel button[action=add_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=add_branch_room_photo]': {
                 click: me.addData
             },
-            'johnnyBranchRoomPhotoDetailPanel button[action=edit_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=edit_branch_room_photo]': {
                 click: me.editData
             },
-            'johnnyBranchRoomPhotoDetailPanel button[action=delete_branch_photo]': {
+            'johnnyBranchRoomPhotoDetailPanel button[action=delete_branch_room_photo]': {
                 click: me.deleteData
             },
             'johnnyBranchRoomPhotoDetailFormAdd button[action=form_confirm]': {//確認
@@ -91,9 +95,43 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
             },
             'johnnyBranchRoomPhotoDetailFormEdit fieldcontainer #filefield_detail_photo': {
                 change: me.Import_filefield_change
+            },
+            'johnnyBranchRoomPhotoDetailFormAdd combobox[action=room_id]': {
+                expand: me.combobox_room_expand
             }
 
         });
+    },
+
+
+    combobox_room_expand: function(field, eOpts){
+        var me = this;
+        var record = me.getGrid().getSelectionModel().getSelection()[0];
+        var branch_id = record.data['branch_id'];
+        var room_id = me.getAdd_room_id();
+        var actionPanel = me.getActionPanel();
+        room_id.clearValue();
+
+        field.getStore().load({
+            params: {
+                'branch_id': branch_id
+            },
+            callback: function(records, operation, success) {
+                if(records.length ==0) {
+                    actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
+                    Ext.MessageBox.show({
+                        title: MSG['msg_box_info'],
+                        msg: "目前無房型可新增，請先新增房型",
+                        width: 300,
+                        buttons: Ext.MessageBox.OK,
+                        icon: Ext.MessageBox.INFO
+                    });
+                } else {
+                    return records;
+                }
+            }
+        });
+
     },
 
     checkSession: function() {
@@ -159,12 +197,14 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
         var me = this;
         var count = obj.getCount();
         var formEdit = me.getFormEdit();
+        let formAdd = me.getFormAdd();
 
         if (count == 1) {
             var deselectRecord = obj.selected.items[0];
             me.loadFormReocrd(formEdit, deselectRecord);
         } else {
             formEdit.getForm().reset();
+            formAdd.getForm().reset();
         }
     },
 
@@ -199,8 +239,10 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
     addData: function(btn) {
         var me = this;
         var form = me.getFormAdd(),
-            title = me.getFormAddTitle();
-
+            title = me.getFormAddTitle(),
+            record = me.getGrid().getSelectionModel().getSelection()[0];
+        var branch_id = record.data['branch_id'];
+        form.getForm().findField('branch_id').setValue(branch_id);
         me.showForm(form, title);
     },
 
@@ -211,6 +253,9 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
             records = me.getDetailGrid().getSelectionModel().getSelection();
         let filefield = me.getFilefield_photo_url();
         let clearFile_btn = me.getButton_clearFile();
+        let textfield = me.getTextfield_photo_url();
+
+        textfield.setDisabled(false);
         if (records[0].data['detail_photo'] != '') {
             filefield.setDisabled(true);
             clearFile_btn.setDisabled(false);
@@ -297,6 +342,7 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
         var records_Master = me.getGrid().getSelectionModel().getSelection();
 
         form.findField('branch_id').setValue(records_Master[0].data.branch_id);
+
         // check value
         if (! form.isValid()) {
             return;
@@ -368,9 +414,10 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
         var store = grid.getStore();
         var form = formPanel.getForm();
         var records_Master = me.getGrid().getSelectionModel().getSelection();
-        
-        form.findField('branch_id').setValue(records_Master[0].data.branch_id);
+        let textfield = me.getTextfield_photo_url();
 
+        form.findField('branch_id').setValue(records_Master[0].data.branch_id);
+        form.findField('detail_photo').setValue(textfield.value);
          // check value
         if (! form.isValid()) {
             return;

@@ -7,12 +7,18 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
     layout: 'anchor',
 
     config: {
-        comboboxStore: 'CpsUserOrganization'
+        comboboxStore: 'HotelHomepage.UserI18n'
     },
 
     initComponent: function() {
 
         var me = this;
+        // var branch_name = Ext.create('Ext.data.Store', {
+        // fields: ['name'],
+        // data : [
+        //     {"name":"北投"},{"name":"嘉義"},{"name":"高雄"}
+        // ]
+        // });
 
         Ext.apply(me, {
             width: 450,
@@ -28,45 +34,48 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
             },
             items: [
                 {
-                    name: 'student_id',
-                    fieldLabel: MSG['student_id_d'],
-                    xtype: 'displayfield'
-
+                    name: 'branch_id',
+                    hidden:true
                 }, {
-                    name: 'name',
-                    fieldLabel: MSG['student_name_d'],
+                    xtype:'numberfield',
+                    name: 'branch_sort',
+                    fieldLabel: MSG['branch_sort'],
                     maxLength: 10,
-                    allowBlank: false
+                    allowBlank: true,
+                    minValue:10,
+                    value:10,
+                    editable: false
                 }, {
-                    name: 'gender',
-                    fieldLabel: MSG['student_gender_d'],
-                    maxLength: 1,
-                    allowBlank: false
-                }, {
-                    name: 'email',
-                    fieldLabel: MSG['student_email_d'],
-                    maxLength: 100,
-                    vtype: 'email',
-                    allowBlank: false
-                }, {
-                    vtype: 'cellphone',
-                    name: 'phone',
-                    fieldLabel: MSG['student_phone_d'],
-                    maxLength: 10,
-                    allowBlank: false
-                },{
-                    name: 'address',
-                    fieldLabel: MSG['student_address_d'],
+                    // xtype:'combo',
+                    name: 'branch_name',
+                    fieldLabel: MSG['branch_name'],
+                    maxLength: 50,
                     allowBlank: false,
-                    maxLength: 100,
-                },{
-                    xtype:'datefield',
-                    name: 'birthday',
-                    fieldLabel: MSG['student_birthday_d'],
+                    // store: branch_name,
+                    // displayField: 'name',
+                    // valueField: 'name',
+                    // editable: false,
+                }, {
+                    xtype:'combo',
+                    name: 'user_i18n',
+                    fieldLabel: MSG['user_i18n'],
+                    maxLength: 8,
                     allowBlank: false,
+                    store: me.getComboboxStore(),
+                    displayField: 'display',
+                    valueField: 'value',
+                    value:'tw',
+                    editable: false
+                }, {
+                    xtype: 'filefield',
+                    name: 'branch_photo',
+                    fieldLabel: MSG['branch_photo'],
+                    maxLength: 200,
+                    allowBlank: true,
+                    hidden:true
                 }
             ],
-            bbar: [
+            bbar: [ 
                 {
                     text: MSG['confirm'],
                     action: 'form_confirm'

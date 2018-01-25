@@ -15,9 +15,10 @@ $table = "johnny_femobile_hotel_photo";
 
 
 //判斷照片是否與資料庫相同
-$sql = "SELECT * FROM {$table} WHERE photo_url = '{$photo_url}';";
+$sql = "SELECT * FROM {$table} WHERE {$table}.photo_url = '{$photo_url}';";
 $records = dbGetAll($sql);
 $total = dbGetTotal($records);
+$arrField = []; //自定變數陣列
 
 if($total == 0) {
 
@@ -63,16 +64,10 @@ if($total == 0) {
 
         $photo_url = $uploadFileResult['name'];
 
-        $arrField = []; //自定變數陣列
-        $arrField['branch_photo_id'] = $branch_photo_id;
-        $arrField['branch_id'] = $branch_id;
-        $arrField['photo_name'] = $photo_name;
         $arrField['photo_url'] = $photo_url;
-        $arrField['photo_sort'] = $photo_sort;
-        $arrField['updated_date'] = $updated_date;
-        $arrField['operator'] = $operator;
+        
 
-    }else{
+    } else {
         $result = [
             'success' => false,
             'msg' => "圖檔未上傳或上傳失敗"
@@ -83,16 +78,15 @@ if($total == 0) {
         return;
     }
 
-} else {
+} 
+    
+$arrField['branch_photo_id'] = $branch_photo_id;
+$arrField['branch_id'] = $branch_id;
+$arrField['photo_name'] = $photo_name;
+$arrField['photo_sort'] = $photo_sort;
+$arrField['updated_date'] = $updated_date;
+$arrField['operator'] = $operator;
 
-    $arrField = []; //自定變數陣列
-    $arrField['branch_photo_id'] = $branch_photo_id;
-    $arrField['branch_id'] = $branch_id;
-    $arrField['photo_name'] = $photo_name;
-    $arrField['photo_sort'] = $photo_sort;
-    $arrField['updated_date'] = $updated_date;
-    $arrField['operator'] = $operator;
-}
 
 $whereClause = "branch_photo_id = '{$branch_photo_id}'";
 

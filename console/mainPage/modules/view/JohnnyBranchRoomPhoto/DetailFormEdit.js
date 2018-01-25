@@ -1,7 +1,7 @@
 Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormEdit', {
     extend: 'Console.override.Form',
    
-    alias:'widget.johnnyBranchPhotoRoomDetailFormEdit', 
+    alias:'widget.johnnyBranchRoomPhotoDetailFormEdit', 
 
     requires:['Ext.layout.container.Anchor'],//API(應用程式介面)讓元件大小隨容器改變
 
@@ -50,12 +50,10 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormEdit', {
                     xtype: 'displayfield',
                     name: 'room_name',
                     fieldLabel: MSG['room_name'],
-                    store: me.getComboboxStore()
                 },{
                     xtype: 'displayfield',
                     name: 'room_spec',
                     fieldLabel: MSG['room_spec'],
-                    store: me.getComboboxStore()
                 },{
                     name:'detail_name',
                     fieldLabel: MSG['detail_name'],
@@ -94,7 +92,7 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormEdit', {
                     ]
                 },{
                     xtype: 'displayfield',
-                    value: '＊圖片尺寸須符合1080x1920。',
+                    value: '＊圖片尺寸須符合1080x1080。',
                     fieldStyle: {
                         // fontStyle: 'italic',
                         color: '#7f7f7f'

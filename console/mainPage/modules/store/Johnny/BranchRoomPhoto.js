@@ -6,7 +6,7 @@ Ext.define('Console.store.Johnny.BranchRoomPhoto', {
         type: 'ajax',
         api: {
             read: './modules/source/store/Johnny/getBranchRoomPhoto.php',
-            destroy: './modules/source/controller/JohnnyBranchPhoto/deleteBranchRoomPhoto.php'
+            destroy: './modules/source/controller/JohnnyBranchRoomPhoto/deleteBranchRoomPhoto.php'
         },
         reader: {
             type: 'json',

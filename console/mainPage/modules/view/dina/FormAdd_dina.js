@@ -1,4 +1,4 @@
-Ext.define('Console.view.dina.FormAdd_dina', {
+Ext.define('Console.view.dina.FormAdd_dina',{
     extend: 'Console.override.Form',
     alias: 'widget.dinformadd',
 

@@ -50,7 +50,8 @@ Ext.define('Console.view.HotelPhoto.FormAdd', {
                     fieldLabel: MSG['photo_url'],
                     maxLength: 200,
                     xtype: 'filefield',
-                    allowBlank: false
+                    allowBlank: false,
+                    emptyText: '請上傳1080X1920px的照片'
                 }, {
                     
                     name:'user_i18n',

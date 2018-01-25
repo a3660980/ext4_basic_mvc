@@ -35,6 +35,14 @@ Ext.define('Console.view.HotelDetail.GridDetail', {
                     flex: 1,
                     hidden: true
                 }, {
+                    header: MSG['room_name'],
+                    dataIndex: 'room_name',
+                    flex: 1,
+                }, {
+                    header: MSG['room_spec'],
+                    dataIndex: 'room_spec',
+                    flex: 1,
+                }, {
                     header: MSG['detail_sort'],
                     dataIndex: 'detail_sort',
                     flex: 1,
@@ -86,13 +94,6 @@ Ext.define('Console.view.HotelDetail.GridDetail', {
                     action: 'delete_detail',
                     allowMulti: true,
                     disabled: true
-                },
-                '->', {
-                    xtype: 'searchfieldmvc',
-                    store: me.getStore(),
-                    fieldLabel: MSG['search'],
-                    labelWidth: 50,
-                    width: 200
                 }
             ],
             bbar: {

@@ -6,9 +6,19 @@ Ext.define('Console.view.HotelBranch.FormAdd', {
 
     layout: 'anchor',
 
+    config: {
+        comboboxStore: 'HotelHomepage.UserI18n'
+    },
+
   
     initComponent: function() {
         var me = this;
+        // var branch_name = Ext.create('Ext.data.Store', {
+        // fields: ['name'],
+        // data : [
+        //     {"name":"北投"},{"name":"嘉義"},{"name":"高雄"}
+        // ]
+        // });
 
         Ext.apply(me, {
             width: 450,
@@ -24,25 +34,42 @@ Ext.define('Console.view.HotelBranch.FormAdd', {
             },
             items: [ 
                 {
-                    name: 'p_name',
-                    fieldLabel: MSG['p_name'],
+                    xtype:'numberfield',
+                    name: 'branch_sort',
+                    fieldLabel: MSG['branch_sort'],
                     maxLength: 10,
-                    allowBlank: false
+                    allowBlank: true,
+                    minValue:10,
+                    value:10,
+                    editable: false
                 }, {
-                    name: 'p_cost',
-                    fieldLabel: MSG['p_cost'],
-                    maxLength: 20,
-                    allowBlank: false
+                    // xtype:'combo',
+                    name: 'branch_name',
+                    fieldLabel: MSG['branch_name'],
+                    maxLength: 50,
+                    allowBlank: false,
+                    // store: branch_name,
+                    // displayField: 'name',
+                    // valueField: 'name',
+                    // editable: false,
                 }, {
-                    name: 'p_amount',
-                    fieldLabel: MSG['p_amount'],
-                    maxLength: 10,
-                    allowBlank: true
+                    xtype:'combo',
+                    name: 'user_i18n',
+                    fieldLabel: MSG['user_i18n'],
+                    maxLength: 8,
+                    allowBlank: false,
+                    store: me.getComboboxStore(),
+                    displayField: 'display',
+                    valueField: 'value',
+                    value:'tw',
+                    editable: false
                 }, {
-                    name: 'p_time',
-                    fieldLabel: MSG['p_time'],
-                    maxLength: 10,
-                    allowBlank: false
+                    xtype: 'filefield',
+                    name: 'branch_photo',
+                    fieldLabel: MSG['branch_photo'],
+                    maxLength: 200,
+                    allowBlank: true,
+                    hidden:true
                 }
             ],
             bbar: [ 

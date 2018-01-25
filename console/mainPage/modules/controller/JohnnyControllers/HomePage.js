@@ -178,6 +178,9 @@ Ext.define('Console.controller.JohnnyControllers.HomePage', {
             title = me.getFormEditTitle(),
             records = me.getGrid().getSelectionModel().getSelection();
         let filefield = me.getFilefield_home_photo();
+        let textfield = me.getTextfield_home_photo();
+
+        textfield.setDisabled(false);
         filefield.setDisabled(true);
 
         me.show_form_load(form, records, title, true);

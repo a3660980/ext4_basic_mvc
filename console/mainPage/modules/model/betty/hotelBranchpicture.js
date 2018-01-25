@@ -1,0 +1,35 @@
+Ext.define('Console.model.betty.hotelBranchpicture',
+{
+	extend: 'Ext.data.Model',
+	fields: [ //對應資料庫
+	{
+		name:'branch_photo_id',
+		type:'String'
+	},{
+		name:'branch_id',
+		type:'String'
+	},{
+		name:'photo_sort',
+		type:'String'
+	},{
+		name:'photo_name',
+		type:'String'
+	},{
+		name:'photo_url',
+		type:'String'
+	},{
+		name:'user_i18n',
+		type:'String'
+	},{
+        name:'created_date',
+        type:'String'
+	},{
+		name:'updated_date',
+		type:'String'
+	},{
+		name:'operator',
+		type:'String'	
+	}
+	]
+}
+);

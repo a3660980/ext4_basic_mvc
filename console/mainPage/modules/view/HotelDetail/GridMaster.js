@@ -10,7 +10,7 @@ Ext.define('Console.view.HotelDetail.GridMaster', {
     selType: 'checkboxmodel',
 
     config: {
-         store: 'HotelDetail.HotelRoom',
+         store: 'HotelBranch.HotelBranch',
     },
 
     initComponent: function() {
@@ -20,57 +20,40 @@ Ext.define('Console.view.HotelDetail.GridMaster', {
             store: me.getStore(),
             columns: [
                 {
-                    header: MSG['room_id'],
-                    dataIndex: 'room_id',
-                    flex: 1,
-                    hidden:true
-                }, {
                     header: MSG['branch_id'],
                     dataIndex: 'branch_id',
                     flex: 1,
                     hidden:true
                 }, {
-                    header: MSG['room_sort'],
-                    dataIndex: 'room_sort',
+                    header: MSG['branch_sort'],
+                    dataIndex: 'branch_sort',
                     flex: 1
-                }, {
+                },  {
                     header: MSG['branch_name'],
                     dataIndex: 'branch_name',
                     flex: 1
                 }, {
-                    header: MSG['room_name'],
-                    dataIndex: 'room_name',
+                    header: MSG['branch_photo'],
+                    dataIndex: 'branch_photo',
                     flex: 1,
-                }, {
-                    header: MSG['room_spec'],
-                    dataIndex: 'room_spec',
-                    flex: 1,
-                }, {
-                    header: MSG['room_photo'],
-                    dataIndex: 'room_photo',
-                    flex: 1,
-                    renderer: function(value, p, r) {
-                        return me.renderImage(this, r.data['room_photo']);
-                    }
+                    hidden:true
                 }, {
                     header: MSG['user_i18n'],
                     dataIndex: 'user_i18n',
                     flex: 1,
-                    hidden: true
+                    hidden:true
+                }, {
+                    header: MSG['created_date'],
+                    dataIndex: 'created_date',
+                    flex: 1
+                }, {
+                    header: MSG['updated_date'],
+                    dataIndex: 'updated_date',
+                    flex: 1
                 }, {
                     header: MSG['operator'],
                     dataIndex: 'operator',
                     flex: 1
-                }
-            ],
-
-            tbar: [
-                '->', {
-                    xtype: 'searchfieldmvc',
-                    store: me.getStore(),
-                    fieldLabel: MSG['search'],
-                    labelWidth: 50,
-                    width: 200
                 }
             ],
             bbar: {

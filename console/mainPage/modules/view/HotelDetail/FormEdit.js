@@ -27,34 +27,36 @@ Ext.define('Console.view.HotelDetail.FormEdit', {
             },
             items: [
                 {
-                    name: 'branch_photo_id',
-                    fieldLabel: MSG['branch_photo_id'],
+                    name: 'detail_id',
+                    fieldLabel: MSG['detail_id'],
                     allowBlank: false,
-                    maxLength: 36,
                     hidden: true
                 }, {
-                    name: 'branch_id',
-                    fieldLabel: MSG['branch_id'],
-                    allowBlank: false,
-                    maxLength: 36,
-                    hidden: true
+                    name: 'room_name',
+                    fieldLabel: MSG['room_name'],
+                    xtype: 'displayfield'
                 }, {
-                    name: 'photo_sort',
-                    fieldLabel: MSG['photo_sort'],
+                    name: 'room_spec',
+                    fieldLabel: MSG['room_spec'],
+                    xtype: 'displayfield'
+                }, {
+                    name: 'detail_sort',
+                    fieldLabel: MSG['detail_sort'],
                     xtype: 'numberfield',
                     maxLength: 10,
                     minValue: 10,
                     editable: false
                 }, {
-                    name: 'photo_name',
-                    fieldLabel: MSG['photo_name'],
+                    name: 'detail_name',
+                    fieldLabel: MSG['detail_name'],
                     allowBlank: false,
                     maxLength: 50,
                 }, {
-                    name: 'photo_url',
-                    fieldLabel: MSG['photo_url'],
+                    name: 'detail_photo',
+                    fieldLabel: MSG['detail_photo'],
                     maxLength: 200,
                     xtype: 'filefield',
+                    emptyText: '請上傳1080X1080px的照片'
                 }, {
                     
                     name:'user_i18n',

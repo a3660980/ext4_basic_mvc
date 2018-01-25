@@ -15,6 +15,9 @@ Ext.define('Console.model.HotelDetail.HotelDetail',
 		name:'room_name',
 		type:'string'
 	},{
+		name:'room_spec',
+		type:'string'
+	},{
 		name:'detail_sort',
 		type:'string'
 	},{

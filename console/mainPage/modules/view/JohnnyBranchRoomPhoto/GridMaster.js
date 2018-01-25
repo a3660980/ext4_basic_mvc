@@ -11,14 +11,16 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.GridMaster', {
         store: 'Johnny.Branch'
     },
 
-    
-
     initComponent: function() {
         var me = this;
 
         Ext.apply(me, {
             store: me.getStore(),//取得store檔
             columns: [
+                {
+                    dataIndex: 'branch_id',
+                    hidden:true
+                },
                 {
                     header: MSG['branch_name'],
                     dataIndex: 'branch_name',

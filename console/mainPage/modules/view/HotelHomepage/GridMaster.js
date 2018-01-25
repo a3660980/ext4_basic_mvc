@@ -89,14 +89,6 @@ Ext.define('Console.view.HotelHomepage.GridMaster', {
                     action: 'delete',
                     allowMulti: true,
                     disabled: true
-                },
-            
-            '->', {
-                    xtype: 'searchfieldmvc',
-                    store: me.getStore(),
-                    fieldLabel: MSG['search'],
-                    labelWidth: 50,
-                    width: 200
                 }
             ],
             bbar: {

@@ -177,10 +177,9 @@ $MSG['search_t']='搜尋';
 $MSG['priority_t']='優惠權重';
 $MSG['delete_fail_t']='下面表中有資料不可以刪除';
 
-
-
-
-
+//tms練習用
+$MSG['t_date1']='到職日期';
+$MSG['t_date2']='離職日期';
 
 
 $MSG['authorized'] = '授權項目';

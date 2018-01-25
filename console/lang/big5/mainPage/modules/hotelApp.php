@@ -36,11 +36,12 @@ $MSG['branch_photo']='照片檔案';
 //BranchPhoto
 $MSG['photo_name'] = '照片名稱';
 $MSG['photo_url'] = '照片檔案';
+$MSG['photo_sort'] = '顯示順序';
 $MSG['btn_BranchPhoto'] = '各館照片';
 $MSG['add_branch_photo'] = '新增相片';
 $MSG['edit_branch_photo'] = '修改相片';
 $MSG['delete_branch_photo'] = '刪除相片';
-
+$MSG['btn_HotelbranchPicture']='各館照片';
 //BranchRoom
 $MSG['add_branch_room'] = '新增房間';
 $MSG['edit_branch_room'] = '修改房間';
@@ -48,8 +49,6 @@ $MSG['delete_branch_room'] = '刪除房間';
 $MSG['btn_BranchRoom'] = '各館房型';
 $MSG['room_spec'] = '床型規格';
 $MSG['room_photo'] = '房型照片';
-$MSG['room_name'] = '房型名稱';
-
-//BranchRoomPhoto
-$MSG['detail_name'] = '房型簡介';
-$MSG['detail_photo'] = '展示照片';
+$MSG['btn_BranchRoomPhoto'] = '房型照片';
+$MSG['room_sort']='顯示順序';
+$MSG['room_name']='房型名稱';
