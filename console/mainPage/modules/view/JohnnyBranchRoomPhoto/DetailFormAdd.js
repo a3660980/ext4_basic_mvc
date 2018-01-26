@@ -52,7 +52,7 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     displayField: 'room_name', 
                     valueField: 'room_id', 
                     editable: false,
-                    
+                    queryMode: 'remote'
                 },{
                     name: 'detail_name',
                     fieldLabel: MSG['detail_name'],

@@ -106,31 +106,37 @@ Ext.define('Console.controller.JohnnyControllers.BranchRoomPhoto', {
 
     combobox_room_expand: function(field, eOpts){
         var me = this;
-        var record = me.getGrid().getSelectionModel().getSelection()[0];
-        var branch_id = record.data['branch_id'];
         var room_id = me.getAdd_room_id();
-        var actionPanel = me.getActionPanel();
         room_id.clearValue();
+        
+        var record = me.getGrid().getSelectionModel().getSelection()[0];
+        if (typeof(record) === "undefined") {
+            Ext.MessageBox.show({
+                title: MSG['msg_box_info'],
+                msg: "請選擇分館，再新增",
+                width: 300,
+                buttons: Ext.MessageBox.OK,
+                icon: Ext.MessageBox.INFO
+            });
+            return;
+        }
 
-        field.getStore().load({
-            params: {
-                'branch_id': branch_id
-            },
-            callback: function(records, operation, success) {
-                if(records.length ==0) {
-                    actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
-                    Ext.MessageBox.show({
-                        title: MSG['msg_box_info'],
-                        msg: "目前無房型可新增，請先新增房型",
-                        width: 300,
-                        buttons: Ext.MessageBox.OK,
-                        icon: Ext.MessageBox.INFO
-                    });
-                } else {
-                    return records;
-                }
-            }
-        });
+        var store = field.getStore();
+        var branch_id = record.data['branch_id'];
+        var actionPanel = me.getActionPanel();
+        
+        store.clearFilter(true);
+        store.filter('branch_id', branch_id);
+        if(store.data.length ==0) {
+            actionPanel.collapse(Ext.Component.DIRECTION_RIGHT, true);
+            Ext.MessageBox.show({
+                title: MSG['msg_box_info'],
+                msg: "目前無房型可新增，請先新增房型",
+                width: 300,
+                buttons: Ext.MessageBox.OK,
+                icon: Ext.MessageBox.INFO
+            });
+        } 
 
     },
 

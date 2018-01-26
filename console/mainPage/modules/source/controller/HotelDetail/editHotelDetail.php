@@ -8,8 +8,6 @@ $operator = $sysSession->user_name;
 
 $detail_id = isset($_POST['detail_id']) ? trim($_POST['detail_id']) : null;
 $detail_sort = isset($_POST['detail_sort']) ? trim($_POST['detail_sort']) : null;
-$detail_name = isset($_POST['detail_name']) ? trim($_POST['detail_name']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
 
 $detail_photo = '';
 $fileName = "{$detail_id}"."_photo";
@@ -49,7 +47,7 @@ if (isset($_FILES)) {
         }
         $imginfo = getimagesize($_FILES[$uploadParam]['tmp_name']);
 
-        if($imginfo[0]!=1080&&$imginfo[1]!=1080){
+        if($imginfo[0]!=1080||$imginfo[1]!=1080){
             $result = [
                 'success' => false,
                 'msg' => '照片尺寸只能為1080X1080px，請確認！'
@@ -59,7 +57,7 @@ if (isset($_FILES)) {
         }
         $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
 
-        if (! $uploadFileResult) {
+        if ($uploadFileResult['result'] === false) {
             $result['success'] = false;
             $result['msg'] = $uploadFileResult['msg'];
             echo json_encode($result);
@@ -79,13 +77,11 @@ $table = 'femobile_hotel_detail';
 $whereClause = "detail_id = '{$detail_id}'";
 $arrField = [];
 $arrField['detail_sort'] = $detail_sort;
-$arrField['detail_name'] = $detail_name;
 $arrField['detail_photo'] = $detail_photo;
-$arrField['user_i18n'] = $user_i18n;
 $arrField['updated_date'] = $current_date;
 $arrField['operator'] = $operator;
 $result['success'] = dbUpdate($table, $arrField, $whereClause);
-$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
+$result['msg'] = $result['success'] ? 'success' : 'Update失敗';
 
 if ($result['success']){
     dbCommit();
