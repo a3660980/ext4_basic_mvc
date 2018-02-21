@@ -140,6 +140,11 @@ Ext.define('Console.view.NorthToolbar', {
                             id: 'btn_Subject',
                             text: MSG['btn_Subject'],
                             action:'btn_Subject'
+                        },
+                        {
+                            id: 'btn_mvctab',
+                            text: 'tab練習',
+                            action:'btn_mvctab'
                         }
                     ]
 

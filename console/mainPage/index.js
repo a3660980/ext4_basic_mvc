@@ -58,7 +58,8 @@ Ext.application({
         'HotelDetail',
         'Zoe',
         'Zoe_detail',
-        'Zoe2'
+        'Zoe2',
+        'Feeds'
     ],
 
     launch: function() {
