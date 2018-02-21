@@ -4,8 +4,9 @@ require "../../../../../init.php";
 $result = [];
 $table = "johnny_femobile_hotel_homepage";
 $whereClause = '1=1';
+$orderby = "{$table}.home_sort ASC, {$table}.start_date ASC";
 
-$sql="SELECT * FROM {$table} where {$whereClause}";
+$sql="SELECT * FROM {$table}  where {$whereClause} ORDER BY {$orderby}";
 
 $records = dbGetAll($sql);
 $total = dbGetTotal($records);

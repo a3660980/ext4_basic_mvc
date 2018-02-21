@@ -18,9 +18,9 @@ Ext.define('Console.view.zoe.ActionPanel_zoe', {
       collapsible: false, //不可折疊actionpanel
             defaults: {
                 hidden: true //可隱藏
-            },items:[
+            },items:[ //這個actionpanel會出現的form頁面
                 {
-                  xtype: 'zoeformadd' //新增
+                  xtype: 'zoeformadd' //gridmaster的add
                 },{
                   xtype: 'zoeformedit' //修改
                 }

@@ -12,7 +12,6 @@ $updated_date = date(DB_DATE_FORMAT);
 $branch_id = isset($_POST['branch_id']) ? trim($_POST['branch_id']) : null;
 $branch_sort = isset($_POST['branch_sort']) ? trim($_POST['branch_sort']) : null;
 $branch_name = isset($_POST['branch_name']) ? trim($_POST['branch_name']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
 
 // db execution
 $table = 'femobile_hotel_branch';
@@ -24,7 +23,6 @@ $whereClause = "branch_id = '{$branch_id}'";
 $arrField = [];
 $arrField['branch_sort'] = $branch_sort;
 $arrField['branch_name'] = $branch_name;
-$arrField['user_i18n'] = $user_i18n;
 $arrField['updated_date'] = $updated_date;
 $arrField['operator'] = $operator;
 

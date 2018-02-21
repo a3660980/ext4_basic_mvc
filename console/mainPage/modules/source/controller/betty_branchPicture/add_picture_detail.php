@@ -21,7 +21,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     $source= @ getimagesize($_FILES[$uploadParam]['tmp_name']);
     $w = $source[0]; /*取得圖片的寬 */
     $h = $source[1]; /*取得圖片的高 */
-    if ($w !=1080 && $h != 1920) {
+    if ($w !=1080 || $h != 1920) {
        $result = [
             'success' => false,
             'msg' => '圖檔大小要符合1080X1920'

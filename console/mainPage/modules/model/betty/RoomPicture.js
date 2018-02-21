@@ -1,18 +1,27 @@
-Ext.define('Console.model.betty.hotelBranch',
+Ext.define('Console.model.betty.RoomPicture',
 {
 	extend: 'Ext.data.Model',
 	fields: [ //對應資料庫
 	{
+		name:'detail_id',
+		type:'String'
+	},{
 		name:'branch_id',
 		type:'String'
 	},{
-		name:'branch_sort',
+		name:'room_id',
 		type:'String'
 	},{
-		name:'branch_name',
+		name:'room_name',
 		type:'String'
 	},{
-		name:'branch_photo',
+		name:'detail_sort',
+		type:'String'
+	},{
+		name:'detail_name',
+		type:'String'
+	},{
+		name:'detail_photo',
 		type:'String'
 	},{
 		name:'user_i18n',
@@ -21,12 +30,11 @@ Ext.define('Console.model.betty.hotelBranch',
 		name:'created_date',
 		type:'String'
 	},{
-        name:'updated_date',
-        type:'String'
+		name:'updated_date',
+		type:'String'
 	},{
 		name:'operator',
 		type:'String'
-
 	}
 	]
 }

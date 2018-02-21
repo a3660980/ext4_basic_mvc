@@ -1,70 +1,70 @@
-Ext.define('Console.controller.hotelHomepagebranch_betty', {
+Ext.define('Console.controller.hotelRoom_betty', {
     extend: 'Ext.app.Controller',
-
     stores: [ 
-        'betty.Service_hotelHomepagebranch'
+        'betty.Service_hotelRoom',
+        'betty.Service_BranchName'
     ],
     models: [ 
-         'betty.hotelHomepagebranch'
+         'betty.hotelRoom'
      ],
     views: [  //view資料夾中的betty資料夾向下的五個檔案
-        'bettyHotelbranch.TabPanel',
-        'bettyHotelbranch.GridMaster',
-        'bettyHotelbranch.ActionPanel',
-        'bettyHotelbranch.FormAdd',
-        'bettyHotelbranch.FormEdit'
+        'bettyHotelroom.TabPanel',
+        'bettyHotelroom.GridMaster',
+        'bettyHotelroom.ActionPanel',
+        'bettyHotelroom.FormAdd',
+        'bettyHotelroom.FormEdit'
     ],
 
     refs: [ //指定任何在頁面上的組件
         {
             ref: 'actionPanel', //將actionpanel指向給bettyactionpanel這個參照
-            selector: 'bhbactionpanel' //指定頁面中的bettyactionpanel
+            selector: 'bhractionpanel' //指定頁面中的bettyactionpanel
         }, {
             ref: 'grid',
-            selector: 'bhbgridmaster'
+            selector: 'bhrgridmaster'
         }, {
             ref: 'formAdd',
-            selector: 'bhbformadd'
+            selector: 'bhrformadd'
         }, {
             ref: 'formEdit',
-            selector: 'bhbformedit'
+            selector: 'bhrformedit'
         }
     ],
 
     config: { //配置
         formAddTitle: '新增用戶資料',
         formEditTitle: '修改用戶資料',
-        addRequestUrl: './modules/source/controller/betty_hotelBranch/add_branch.php',
-        editRequestUrl: './modules/source/controller/betty_hotelBranch/edit_branch.php'
+        addRequestUrl: './modules/source/controller/betty_hotelRoom/add_room.php',
+        editRequestUrl: './modules/source/controller/betty_hotelRoom/edit_room.php'
     },
 
     init: function() { //controller
         var me = this;
 
         me.control({
-            'bhbgridmaster': {
+            'bhrgridmaster': {
                 select: me.selectMasterList,
                 deselect: me.deselectMasterList
             },
-            'bhbgridmaster button[action=add_user]': {
+            'bhrgridmaster button[action=add_user]': {
                 click: me.addData
             },
-            'bhbgridmaster button[action=edit_user]': {
+            'bhrgridmaster button[action=edit_user]': {
                 click: me.editData
             },
-            'bhbgridmaster button[action=delete_user]': {
+            'bhrgridmaster button[action=delete_user]': {
                 click: me.deleteData
             },
-            'bhbformadd button[action=form_confirm]': {//確認
+            'bhrformadd button[action=form_confirm]': {//確認
                 click: me.addConfirm
             },
-            'bhbformadd button[action=form_cancel]': {//取消
+            'bhrformadd button[action=form_cancel]': {//取消
                 click: me.addCancel
             },
-            'bhbformedit button[action=form_confirm]': {
+            'bhrformedit button[action=form_confirm]': {
                 click: me.editConfirm
             },
-            'bhbformedit button[action=form_cancel]': {
+            'bhrformedit button[action=form_cancel]': {
                 click: me.editCancel
             }
         });

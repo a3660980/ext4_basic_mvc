@@ -37,6 +37,10 @@ Ext.define('Console.view.bettyHotelroom.FormEdit', {
                     hidden:true
        
                 },{
+                    xtype: 'displayfield',
+                    name:'branch_name',
+                    fieldLabel: MSG['branch_name']
+                },{
                     name:'branch_id',
                     hidden:true
                 },{
@@ -51,9 +55,10 @@ Ext.define('Console.view.bettyHotelroom.FormEdit', {
                     name: 'room_name',
                     fieldLabel: MSG['room_name'],
                     maxLength: 50,
-                    allowBlank:false
+                    allowBlank:true
                 },{
                     name:'room_spec',
+                    fieldLabel: MSG['room_spec'],
                     maxLength:50,
                     allowBlank:true
                 },{
@@ -61,7 +66,8 @@ Ext.define('Console.view.bettyHotelroom.FormEdit', {
                     xtype:'filefield',
                     fieldLabel: MSG['room_photo'],
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: true,
+                    emptyText: '請上傳1080X1920px的照片'
                     
                 },{
                     name: 'operator',

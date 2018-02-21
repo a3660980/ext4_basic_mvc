@@ -63,15 +63,9 @@ Ext.define('Console.view.JohnnyBranchRoomPhoto.DetailFormAdd', {
                     name: 'detail_photo',
                     fieldLabel: MSG['detail_photo'],
                     buttonText: '上傳照片',
+                    emptyText: '＊圖片尺寸須符合1080x1080。',
                     maxLength: 200,
                     allowBlank: false
-                },{
-                    xtype: 'displayfield',
-                    value: '＊圖片尺寸須符合1080x1080。',
-                    fieldStyle: {
-                        // fontStyle: 'italic',
-                        color: '#7f7f7f'
-                    }
                 },{
                     xtype:"numberfield",
                     name: 'detail_sort',

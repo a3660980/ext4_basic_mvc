@@ -176,7 +176,9 @@ $MSG['address_t']='地址';
 $MSG['search_t']='搜尋';
 $MSG['priority_t']='優惠權重';
 $MSG['delete_fail_t']='下面表中有資料不可以刪除';
-
+$MSG['btn_HotelRoom']='各館房型';
+$MSG['btn_HotelRoomPicture']='展示照片';
+$MSG['click_three']='星座展示';
 //tms練習用
 $MSG['t_date1']='到職日期';
 $MSG['t_date2']='離職日期';

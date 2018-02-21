@@ -1,0 +1,34 @@
+Ext.define('Console.model.zoe.Servicedetail_zoe',
+{
+	extend: 'Ext.data.Model',
+	fields: [
+	{
+		name:'sysid',
+		type:'string'
+	},{
+		name:'t_id',
+		type:'string'
+	},{
+		name:'p_year',
+		type:'string'
+	},{
+		name:'p_part1',
+		type:'string'
+	},{
+		name:'p_part2',
+		type:'string'
+	},{
+		name:'p_total',
+		type:'string'
+	},{
+		name:'p_grade',
+		type:'string'
+	},{
+		name:'p_date',
+		type:'string'
+	},{
+		name:'p_update',
+		type:'string'
+	}
+	]
+});

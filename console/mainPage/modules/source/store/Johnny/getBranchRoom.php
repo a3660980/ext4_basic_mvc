@@ -4,9 +4,9 @@ require "../../../../../init.php";
 $result = [];
 
 $whereClause = '1=1';
+$orderby = "johnny_femobile_hotel_branch.branch_name ASC,johnny_femobile_hotel_branch.room_sort ASC,johnny_femobile_hotel_branch.updated_date ASC";
 
-
-$sql="SELECT johnny_femobile_hotel_room.*, johnny_femobile_hotel_branch.branch_name AS 'com_name' FROM johnny_femobile_hotel_room INNER JOIN johnny_femobile_hotel_branch ON johnny_femobile_hotel_room.branch_id = johnny_femobile_hotel_branch.branch_id where 1=1;";
+$sql="SELECT johnny_femobile_hotel_room.*, johnny_femobile_hotel_branch.branch_name AS 'com_name' FROM johnny_femobile_hotel_room INNER JOIN johnny_femobile_hotel_branch ON johnny_femobile_hotel_room.branch_id = johnny_femobile_hotel_branch.branch_id where 1=1 ORDER BY {$orderby};";
 
 $records = dbGetAll($sql);
 $total = dbGetTotal($records);

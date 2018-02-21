@@ -17,7 +17,6 @@ $branch_name = isset($_POST['branch_name']) ? trim($_POST['branch_name']) : null
 $room_sort = isset($_POST['room_sort']) ? trim($_POST['room_sort']) : null;
 $room_name = isset($_POST['room_name']) ? trim($_POST['room_name']) : null;
 $room_spec = isset($_POST['room_spec']) ? trim($_POST['room_spec']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
 
 
 // 用branch_name找branch_id
@@ -91,7 +90,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     $fileName = $room_id . "_photo";
     $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
 
-    if (! $uploadFileResult) {
+    if ( $uploadFileResult['result'] === false) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
         echo json_encode($result);
@@ -125,7 +124,6 @@ $arrField['room_sort'] = $room_sort;
 $arrField['room_name'] = $room_name;
 $arrField['room_spec'] = $room_spec;
 $arrField['room_photo'] = $room_photo;
-$arrField['user_i18n'] = $user_i18n;
 $arrField['operator'] = $operator;
 $arrField['updated_date'] = $updated_date;
 $arrField['operator'] = $operator;

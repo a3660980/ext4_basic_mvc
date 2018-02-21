@@ -37,6 +37,10 @@ Ext.define('Console.view.bettyHotelbranch.FormEdit', {
                     hidden:true
        
                 },{
+                    xtype: 'displayfield',
+                    name:'branch_name',
+                    fieldLabel: MSG['branch_name']
+                },{
                     xtype:'numberfield',
                     name: 'branch_sort',
                     fieldLabel: MSG['branch_sort'],
@@ -45,15 +49,12 @@ Ext.define('Console.view.bettyHotelbranch.FormEdit', {
                     minValue:10,
                     editable: false
     			},{
-                    name: 'branch_name',
-                    fieldLabel: MSG['branch_name'],//性別
-                    maxLength: 50
-                },{
                     name: 'branch_photo',
                     xtype:'filefield',
                     fieldLabel: MSG['branch_photo'],//信箱
                     maxLength: 200,
-                    allowBlank: true
+                    allowBlank: true,
+                    emptyText: '請上傳1080X1920px的照片'
                     
                 },{
                     name: 'operator',

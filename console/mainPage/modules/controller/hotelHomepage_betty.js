@@ -1,13 +1,13 @@
 Ext.define('Console.controller.hotelHomepage_betty', {
     extend: 'Ext.app.Controller',
 
-    stores: [ //store資料夾中的betty資料夾向下的Service_betty
+    stores: [ 
         'betty.Service_hotelHomepage'
     ],
-    models: [ //model資料夾中的betty資料夾向下的Service_betty
+    models: [ 
         'betty.hotelHomepage'
     ],
-    views: [  //view資料夾中的betty資料夾向下的五個檔案
+    views: [  
         'bettyHotel.TabPanel',
         'bettyHotel.GridMaster',
         'bettyHotel.ActionPanel',
@@ -15,10 +15,10 @@ Ext.define('Console.controller.hotelHomepage_betty', {
         'bettyHotel.FormEdit'
     ],
 
-    refs: [ //指定任何在頁面上的組件
+    refs: [ 
         {
-            ref: 'actionPanel', //將actionpanel指向給bettyactionpanel這個參照
-            selector: 'bhactionpanel' //指定頁面中的bettyactionpanel
+            ref: 'actionPanel', 
+            selector: 'bhactionpanel' 
         }, {
             ref: 'grid',
             selector: 'bhgridmaster'

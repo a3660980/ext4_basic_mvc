@@ -13,7 +13,7 @@ $table = 'femobile_hotel_branch';
 
 $branch_sort = isset($_POST['branch_sort']) ? trim($_POST['branch_sort']) : null;
 $branch_name = isset($_POST['branch_name']) ? trim($_POST['branch_name']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
+$user_i18n = "tw";
 
 // 判斷是否已經有相同的飯店名稱
 $sql="SELECT branch_name FROM {$table} where branch_name = '{$branch_name}' ";
@@ -45,7 +45,7 @@ $arrField['operator'] = $operator;
 dbBegin();
 
 $result['success'] = dbInsert($table, $arrField);
-$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
+$result['msg'] = $result['success'] ? 'success' : 'fails';
 
 if ($result['success'] ) {
     dbCommit();

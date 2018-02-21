@@ -47,14 +47,17 @@ Ext.define('Console.view.bettyHotelbranch.FormAdd', {
                     editable: false
     			},{
                     name: 'branch_name',
-                    fieldLabel: MSG['branch_name'],//性別
-                    maxLength: 50
+                    fieldLabel: MSG['branch_name'],
+                    maxLength: 50,
+                    allowBlank: false
                 },{
                     name: 'branch_photo',
                     xtype:'filefield',
-                    fieldLabel: MSG['branch_photo'],//信箱
+                    fieldLabel: MSG['branch_photo'],
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: false,
+                    emptyText: '請上傳1080X1920px的照片'
+                    
                     
                 },{
                     name: 'operator',

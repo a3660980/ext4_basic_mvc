@@ -52,12 +52,14 @@ Ext.define('Console.view.bettyBranchpicture.FormAddDetail', {
                     name: 'photo_name',
                     fieldLabel: MSG['photo_name'],//性別
                     maxLength: 50
+
                 },{
                     name: 'photo_url',
                     xtype:'filefield',
                     fieldLabel: MSG['photo_url'],//信箱
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: false,
+                    emptyText: '請上傳1080X1920px的照片'
                     
                 },{
                     name: 'operator',

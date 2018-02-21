@@ -39,7 +39,7 @@ if($total == 0) {
         }
 
         $image = getimagesize($_FILES[$uploadParam]['tmp_name']);
-        if($image[0] != 1080 && $image[1] != 1080) {
+        if($image[0] != 1080 || $image[1] != 1080) {
             $result = [
                 'success' => false,
                 'msg' => '您的圖片尺寸為'.(string)$image[0].'x'.(string)$image[1].'，圖檔尺寸須符合1080x1080'

@@ -6,9 +6,7 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
 
     layout: 'anchor',
 
-    config: {
-        comboboxStore: 'HotelHomepage.UserI18n'
-    },
+    
 
     initComponent: function() {
 
@@ -46,7 +44,7 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
                     value:10,
                     editable: false
                 }, {
-                    // xtype:'combo',
+                    xtype: 'displayfield',
                     name: 'branch_name',
                     fieldLabel: MSG['branch_name'],
                     maxLength: 50,
@@ -55,17 +53,6 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
                     // displayField: 'name',
                     // valueField: 'name',
                     // editable: false,
-                }, {
-                    xtype:'combo',
-                    name: 'user_i18n',
-                    fieldLabel: MSG['user_i18n'],
-                    maxLength: 8,
-                    allowBlank: false,
-                    store: me.getComboboxStore(),
-                    displayField: 'display',
-                    valueField: 'value',
-                    value:'tw',
-                    editable: false
                 }, {
                     xtype: 'filefield',
                     name: 'branch_photo',
@@ -80,7 +67,7 @@ Ext.define('Console.view.HotelBranch.FormEdit', {
                     text: MSG['confirm'],
                     action: 'form_confirm'
                 }, {
-                    text: MSG['cancle'],
+                    text: MSG['cancel'],
                     action: 'form_cancel'
                 }
             ]

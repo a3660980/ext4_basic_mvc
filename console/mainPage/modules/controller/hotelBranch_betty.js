@@ -2,10 +2,10 @@ Ext.define('Console.controller.hotelBranch_betty', {
     extend: 'Ext.app.Controller',
 
     stores: [ 
-        'betty.Service_hotelBranch'
+        'betty.Service_hotelHomepagebranch'
     ],
     models: [ 
-         'betty.hotelBranch'
+         'betty.hotelHomepagebranch'
      ],
     views: [  //view資料夾中的betty資料夾向下的五個檔案
         'bettyHotelbranch.TabPanel',
@@ -16,7 +16,6 @@ Ext.define('Console.controller.hotelBranch_betty', {
     ],
 
     refs: [ //指定任何在頁面上的組件
-
         {
             ref: 'actionPanel', //將actionpanel指向給bettyactionpanel這個參照
             selector: 'bhbactionpanel' //指定頁面中的bettyactionpanel
@@ -35,8 +34,8 @@ Ext.define('Console.controller.hotelBranch_betty', {
     config: { //配置
         formAddTitle: '新增用戶資料',
         formEditTitle: '修改用戶資料',
-        addRequestUrl: './modules/source/controller/betty_hotel/add_hotel.php',
-        editRequestUrl: './modules/source/controller/betty_hotel/edit_hotel.php'
+        addRequestUrl: './modules/source/controller/betty_hotelBranch/add_branch.php',
+        editRequestUrl: './modules/source/controller/betty_hotelBranch/edit_branch.php'
     },
 
     init: function() { //controller
@@ -182,7 +181,7 @@ Ext.define('Console.controller.hotelBranch_betty', {
             msg = MSG['delete_confirm_header'] + length + MSG['delete_confirm_footer'];
 
         Ext.MessageBox.show({
-            title: MSG['msg_box_info'],
+            title: MSG['msg_box_info'],//提示
             msg: msg,
             width: 300,
             buttons: Ext.MessageBox.YESNO,
@@ -209,7 +208,7 @@ Ext.define('Console.controller.hotelBranch_betty', {
                         failure: function() {
                             Ext.MessageBox.show({
                                 title: MSG['msg_box_info'],
-                                msg: MSG['delete_fail'],
+                                msg: this.getReader().jsonData['msg'],//取得delete的php檔中的錯誤訊息
                                 width: 300,
                                 buttons: Ext.MessageBox.OK,
                                 icon: Ext.MessageBox.ERROR

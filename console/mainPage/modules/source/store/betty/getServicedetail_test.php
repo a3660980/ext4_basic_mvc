@@ -4,6 +4,7 @@ require "../../../../../init.php";
 // $sysConnDebug = true;
 
 // result defination
+
 $result = [];
 $sql = [];
 // 宣告資料儲存陣列
@@ -11,7 +12,12 @@ $table = 'joinme_brand_log';
 // 要用的資料表
 $whereClause = '1=1';
 // 條件永遠成立
-
+$filter = isset($_POST['filter']) ? json_decode(trim($_POST['filter'])) : null;  //json_decode:字符串转换
+//($_POST['filter'])，過濾器，在MASTER中對應DETAIL索引，然後才可以過濾出相等的東西
+if ($filter == null) {
+    echo json_encode($result);
+    return;
+}
 $searchColumn = [
     'hand_gasoline_offer'
     

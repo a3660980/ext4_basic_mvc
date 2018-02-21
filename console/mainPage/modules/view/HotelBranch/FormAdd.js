@@ -6,9 +6,7 @@ Ext.define('Console.view.HotelBranch.FormAdd', {
 
     layout: 'anchor',
 
-    config: {
-        comboboxStore: 'HotelHomepage.UserI18n'
-    },
+    
 
   
     initComponent: function() {
@@ -53,17 +51,6 @@ Ext.define('Console.view.HotelBranch.FormAdd', {
                     // valueField: 'name',
                     // editable: false,
                 }, {
-                    xtype:'combo',
-                    name: 'user_i18n',
-                    fieldLabel: MSG['user_i18n'],
-                    maxLength: 8,
-                    allowBlank: false,
-                    store: me.getComboboxStore(),
-                    displayField: 'display',
-                    valueField: 'value',
-                    value:'tw',
-                    editable: false
-                }, {
                     xtype: 'filefield',
                     name: 'branch_photo',
                     fieldLabel: MSG['branch_photo'],
@@ -77,7 +64,7 @@ Ext.define('Console.view.HotelBranch.FormAdd', {
                     text: MSG['confirm'],
                     action: 'form_confirm'
                 }, {
-                    text: MSG['cancle'],
+                    text: MSG['cancel'],
                     action: 'form_cancel'
                 }
             ]

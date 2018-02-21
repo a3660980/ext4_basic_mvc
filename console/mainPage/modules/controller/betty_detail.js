@@ -175,7 +175,7 @@ Ext.define('Console.controller.betty_detail', {
         var me = this;
         var count = obj.getCount();//選取幾筆資料      
         var store = me.getDetailGrid().getStore();//取得detail的store
-        console.log(store)
+        //console.log(store)
 
         if (count == 1) {              
             store.clearFilter(true); //clearFilter:取消過濾並顯示所有數據 

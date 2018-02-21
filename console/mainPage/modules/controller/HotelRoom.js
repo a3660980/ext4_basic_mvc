@@ -35,8 +35,8 @@ Ext.define('Console.controller.HotelRoom', {
     ],
 
     config: {
-        formAddTitle: '新增用戶資料',
-        formEditTitle: '修改用戶資料',
+        formAddTitle: '新增',
+        formEditTitle: '修改',
         addRequestUrl: './modules/source/controller/HotelRoom/addHotelRoom.php',
         editRequestUrl: './modules/source/controller/HotelRoom/editHotelRoom.php'
     },

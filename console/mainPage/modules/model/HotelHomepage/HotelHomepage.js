@@ -21,7 +21,13 @@ Ext.define('Console.model.HotelHomepage.HotelHomepage',
 		name:'start_date',
 		type:'string'
 	},{
+		name:'start_time',
+		type:'string'
+	},{
 		name:'expire_date',
+		type:'string'
+	},{
+		name:'expire_time',
 		type:'string'
 	},{
 		name:'created_date',

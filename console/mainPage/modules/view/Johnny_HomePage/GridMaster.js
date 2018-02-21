@@ -25,6 +25,10 @@ Ext.define('Console.view.Johnny_HomePage.GridMaster', {
         			dataIndex: 'home_name',
         			flex: 1
         		}, {
+                    header: MSG['home_sort'],
+                    dataIndex: 'home_sort',
+                    flex: 1
+                }, {
                     header: MSG['home_photo'],
                     dataIndex: 'home_photo',
                     flex: 2,

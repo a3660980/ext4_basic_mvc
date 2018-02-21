@@ -128,12 +128,9 @@ Ext.define('Console.controller.JohnnyDetail', {
 
     selectMasterList: function(obj, record, index, eOpts) {
         var me = this;
-        var count = obj.getCount();//選取幾筆資料    
-        if(typeof me.getDetailGrid() == 'undefined') {
-            return;
-        }
-
+        var count = obj.getCount();//選取幾筆資料      
         var store = me.getDetailGrid().getStore();//取得detail的store
+        console.log(store)
         if (count == 1) {              
             store.clearFilter(true); //clearFilter:取消過濾並顯示所有數據 
             store.filter([//filter:在store內過濾資料
@@ -147,10 +144,7 @@ Ext.define('Console.controller.JohnnyDetail', {
 
     deselectMasterList: function(obj, record, index, eOpts) {
         var me = this;
-        var count = obj.getCount();//選取幾筆資料     
-        if(typeof me.getDetailGrid() == 'undefined') {
-            return;
-        } 
+        var count = obj.getCount();//選取幾筆資料      
         var store = me.getDetailGrid().getStore();//取得detail的store
 
         if (count == 1) {              

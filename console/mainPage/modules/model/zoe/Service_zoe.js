@@ -11,13 +11,15 @@ Ext.define('Console.model.zoe.Service_zoe',
 	},{
 		name:'t_dep',
 		type:'string'
-	},{
+	},/*{
+		name:'d_name',
+		type:'string'
+	},*/{
 		name:'t_date1',
-		type:'datetime'
+		type:'string'
 	},{
 		name:'t_date2',
-		type:'datetime'
+		type:'string'
 	}
 	]
-}
-);
+});

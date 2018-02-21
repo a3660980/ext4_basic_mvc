@@ -37,7 +37,11 @@ Ext.define('Console.view.bettyHotel.GridMaster', {
                 },{
                     header: MSG['expire_date'],
                     dataIndex: 'expire_date',
-                    flex: 1
+                    flex: 1,
+                    renderer: function(value, p, r) {//判斷截止日期是不是，是的話顯示永久有效
+                        if (r.data['expire_date'] == '') return '永久有效';
+                        else return r.data['expire_date'];
+                    }
                 }, {
                     header: MSG['created_date'],
                     dataIndex: 'created_date',

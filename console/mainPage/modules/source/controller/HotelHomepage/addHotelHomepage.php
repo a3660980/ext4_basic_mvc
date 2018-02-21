@@ -12,11 +12,13 @@ $uuid = uuid_generator();
 $operator = $sysSession->user_name;
 
 $home_sort = isset($_POST['home_sort']) ? trim($_POST['home_sort']) : null;
-$home_name = isset($_POST['home_name']) ? trim($_POST['home_name']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
 $start_date = isset($_POST['start_date']) ? trim($_POST['start_date']) : null;
+$start_time = isset($_POST['start_time']) ? trim($_POST['start_time']) : null;
 $expire_date = isset($_POST['expire_date']) ? trim($_POST['expire_date']) : null;
+$expire_time = isset($_POST['expire_time']) ? trim($_POST['expire_time']) : null;
 
+$start_date = $start_date." ".$start_time.":00";
+if ($expire_date != '')$expire_date = $expire_date." ".$expire_time.":00";
 dbBegin();
 
 if( ($start_date !='') && ($expire_date !='') && ($start_date >= $expire_date) ){
@@ -46,7 +48,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     }
     $imginfo = getimagesize($_FILES[$uploadParam]['tmp_name']);
 
-    if($imginfo[0]!=1080&&$imginfo[1]!=1920){
+    if($imginfo[0]!=1080||$imginfo[1]!=1920){
         $result = [
             'success' => false,
             'msg' => '照片尺寸只能為1080X1920px，請確認！'
@@ -57,7 +59,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     $filePath = "HotelHomepage/images";
     $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
 
-    if (! $uploadFileResult) {
+    if ($uploadFileResult['result'] === false) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
         echo json_encode($result);
@@ -77,14 +79,11 @@ $table = 'femobile_hotel_homepage';
 $arrField = [];
 $arrField['home_id'] = $uuid;
 $arrField['home_sort'] = $home_sort;
-$arrField['home_name'] = $home_name;
 $arrField['home_photo'] = $home_photo;
-$arrField['user_i18n'] = $user_i18n;
 $arrField['start_date'] = $start_date;
 $arrField['expire_date'] = $expire_date;
 $arrField['created_date'] = $current_date;
 $arrField['operator'] = $operator;
-
 
 $result['success'] = dbInsert($table, $arrField);
 $result['msg'] = $result['success'] ? 'success' : 'fails';

@@ -8,8 +8,6 @@ $operator = $sysSession->user_name;
 
 $branch_photo_id = isset($_POST['branch_photo_id']) ? trim($_POST['branch_photo_id']) : null;
 $photo_sort = isset($_POST['photo_sort']) ? trim($_POST['photo_sort']) : null;
-$photo_name = isset($_POST['photo_name']) ? trim($_POST['photo_name']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
 
 $photo_url = '';
 $fileName = "{$branch_photo_id}"."_photo";
@@ -48,7 +46,7 @@ if (isset($_FILES)) {
         }
         $imginfo = getimagesize($_FILES[$uploadParam]['tmp_name']);
 
-        if($imginfo[0]!=1080&&$imginfo[1]!=1920){
+        if($imginfo[0]!=1080||$imginfo[1]!=1920){
             $result = [
                 'success' => false,
                 'msg' => '照片尺寸只能為1080X1920px，請確認！'
@@ -58,7 +56,7 @@ if (isset($_FILES)) {
         }
         $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
 
-        if (! $uploadFileResult) {
+        if ($uploadFileResult['result'] === false) {
             $result['success'] = false;
             $result['msg'] = $uploadFileResult['msg'];
             echo json_encode($result);
@@ -78,13 +76,11 @@ $table = 'femobile_hotel_photo';
 $whereClause = "branch_photo_id = '{$branch_photo_id}'";
 $arrField = [];
 $arrField['photo_sort'] = $photo_sort;
-$arrField['photo_name'] = $photo_name;
 $arrField['photo_url'] = $photo_url;
-$arrField['user_i18n'] = $user_i18n;
 $arrField['updated_date'] = $current_date;
 $arrField['operator'] = $operator;
 $result['success'] = dbUpdate($table, $arrField, $whereClause);
-$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
+$result['msg'] = $result['success'] ? 'success' : 'Update失敗';
 
 if ($result['success']){
     dbCommit();

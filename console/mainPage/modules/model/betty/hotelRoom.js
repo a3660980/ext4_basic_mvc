@@ -6,6 +6,9 @@ Ext.define('Console.model.betty.hotelRoom',
 		name:'room_id',
 		type:'String'
 	},{
+		name:'branch_name',
+		type:'String'
+	},{
 		name:'branch_id',
 		type:'String'
 	},{
@@ -26,7 +29,6 @@ Ext.define('Console.model.betty.hotelRoom',
 	},{
 		name:'created_date',
 		type:'String'
-
 	},{
 		name:'updated_date',
 		type:'String'

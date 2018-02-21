@@ -34,10 +34,6 @@ Ext.define('Console.view.HotelPhoto.GridDetail', {
                     dataIndex: 'photo_sort',
                     flex: 1,
                 }, {
-                    header: MSG['photo_name'],
-                    dataIndex: 'photo_name',
-                    flex: 1,
-                }, {
                     header: MSG['photo_url'],
                     dataIndex: 'photo_url',
                     flex: 1,

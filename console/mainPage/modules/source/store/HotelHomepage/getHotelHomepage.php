@@ -48,10 +48,10 @@ $total = dbGetTotal($records);
 
 foreach ($records as $key => $value) {
     if(!empty($value['start_date'])){
-        $records[$key]['start_date'] =date("Y-m-d",strtotime($value['start_date']));
+        $records[$key]['start_date'] =date("Y-m-d H:i",strtotime($value['start_date']));
     }
     if(!empty($value['expire_date'])){
-        $records[$key]['expire_date'] =date("Y-m-d",strtotime($value['expire_date']));
+        $records[$key]['expire_date'] =date("Y-m-d H:i",strtotime($value['expire_date']));
     }
 }
 // output result

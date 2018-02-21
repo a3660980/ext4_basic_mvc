@@ -120,7 +120,7 @@ Ext.define('Console.view.NorthToolbar', {
                             id: 'clicktwo',
                             text: MSG['click_two'],
                             action:'clicktwo'
-                        }   
+                        }
                     ]
 
                 },{
@@ -154,7 +154,16 @@ Ext.define('Console.view.NorthToolbar', {
                             id:'btn_emp',
                             text:'人事資料',
                             action:'btn_emp'
-
+                        },
+                        {
+                            id:'btn_emp2',
+                            text:'考績資料',
+                            action:'btn_emp2'
+                        },
+                        {
+                            id:'btn_zoetest',
+                            text:MSG['btn_Student'],
+                            action:'btn_zoetest'
                         }
                     ]
                 },{
@@ -199,7 +208,7 @@ Ext.define('Console.view.NorthToolbar', {
                         hidden: true
                     },
                    
-                    menu: [
+                     menu: [
                         {
                             id: 'btn_homePage_t',
                             text: MSG['btn_homePage_t'],
@@ -212,6 +221,14 @@ Ext.define('Console.view.NorthToolbar', {
                             id: 'btn_HotelbranchPicture',
                             text: MSG['btn_HotelbranchPicture'],
                             action:'btn_HotelbranchPicture'
+                        },{
+                            id: 'btn_HotelRoom',
+                            text: MSG['btn_HotelRoom'],
+                            action:'btn_HotelRoom'
+                        },{
+                            id: 'btn_HotelRoomPicture',
+                            text: MSG['btn_HotelRoomPicture'],
+                            action:'btn_HotelRoomPicture'
                         }
                     ]
 

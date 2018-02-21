@@ -20,5 +20,6 @@ Ext.define('Console.store.Johnny.HomePage', {
             root: 'data'
         }
     },
-    autoLoad: true
+    autoLoad: true,
+    
 });

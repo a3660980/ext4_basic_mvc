@@ -33,8 +33,8 @@ Ext.define('Console.controller.HotelBranch', {
     ],
 
     config: {
-        formAddTitle: '新增用戶資料',
-        formEditTitle: '修改用戶資料',
+        formAddTitle: '新增',
+        formEditTitle: '修改',
         addRequestUrl: './modules/source/controller/HotelBranch/addHotelBranch.php',
         editRequestUrl: './modules/source/controller/HotelBranch/editHotelBranch.php'
     },

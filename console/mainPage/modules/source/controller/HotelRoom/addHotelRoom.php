@@ -16,7 +16,7 @@ $room_sort = isset($_POST['room_sort']) ? trim($_POST['room_sort']) : null;
 $branch_name = isset($_POST['branch_name']) ? trim($_POST['branch_name']) : null;
 $room_name = isset($_POST['room_name']) ? trim($_POST['room_name']) : null;
 $room_spec = isset($_POST['room_spec']) ? trim($_POST['room_spec']) : null;
-$user_i18n = isset($_POST['user_i18n']) ? trim($_POST['user_i18n']) : null;
+$user_i18n = "tw";
 
 // 用branch_name找branch_id
 $sql="SELECT branch_id FROM {$table_branch} where {$table_branch}.branch_name = '{$branch_name}' ";
@@ -80,7 +80,7 @@ if (isset($_FILES) && ! empty($_FILES[$uploadParam]['name'])) {
     $fileName = $room_id . "_photo";
     $uploadFileResult = uploadFile($filePath, $fileName, $uploadParam);
 
-    if (! $uploadFileResult) {
+    if ( $uploadFileResult['result'] === false) {
         $result['success'] = false;
         $result['msg'] = $uploadFileResult['msg'];
         echo json_encode($result);
@@ -110,7 +110,7 @@ $arrField['operator'] = $operator;
 dbBegin();
 
 $result['success'] = dbInsert($table, $arrField);
-$result['msg'] = $result['success'] ? 'success' : SQL_FAILS;
+$result['msg'] = $result['success'] ? 'success' : 'fails';
 
 if ($result['success'] ) {
     dbCommit();

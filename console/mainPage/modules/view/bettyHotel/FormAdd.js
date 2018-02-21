@@ -47,14 +47,15 @@ Ext.define('Console.view.bettyHotel.FormAdd', {
                     editable: false
     			},{
                     name: 'home_name',
-                    fieldLabel: MSG['home_name'],//性別
+                    fieldLabel: MSG['home_name'],
                     maxLength: 50
                 },{
                     name: 'home_photo',
                     xtype:'filefield',
-                    fieldLabel: MSG['home_photo'],//信箱
+                    fieldLabel: MSG['home_photo'],
                     maxLength: 200,
-                    allowBlank: false
+                    allowBlank: false,
+                    emptyText: '請上傳1080X1920px的照片'
                     
                 },{
                     xtype: 'startexpiredatefield',

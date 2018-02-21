@@ -153,6 +153,18 @@ Ext.define('Console.controller.Viewport', {
 			},
 			'northpanel menuitem[action=btn_HotelbranchPicture]':{
 				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_HotelRoom]':{
+				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_HotelRoomPicture]':{
+				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_emp2]':{
+				click: this.addTab
+			},
+			'northpanel menuitem[action=btn_zoetest]':{
+				click: this.addTab
 			}
 		});
 	},
@@ -434,6 +446,22 @@ Ext.define('Console.controller.Viewport', {
 			itemId='btn_HotelbranchPicture';
 			title=MSG['btn_HotelbranchPicture'];
 			xtype='bbptabpaneldetail';
+		}else if(btn.getId()=='btn_HotelRoom'){
+			itemId='btn_HotelRoom';
+			title=MSG['btn_HotelRoom'];
+			xtype='bhrtabpanel';
+		}else if(btn.getId()=='btn_HotelRoomPicture'){
+			itemId='btn_HotelRoomPicture';
+			title=MSG['btn_HotelRoomPicture'];
+			xtype='brptabpanedetail';
+		}else if(btn.getId()=='btn_emp2'){
+			itemId='btn-emp2';
+			title='考績資料';
+			xtype='zoedetailtabpanel';
+		}else if (btn.getId() == 'btn_zoetest') {
+			itemId='btn-zoetest';
+			title='學生資料';
+			xtype='zoetabpanel2';
 		}
 		
 		

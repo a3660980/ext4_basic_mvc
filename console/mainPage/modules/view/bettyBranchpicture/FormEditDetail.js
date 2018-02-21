@@ -40,23 +40,25 @@ Ext.define('Console.view.bettyBranchpicture.FormEditDetail', {
                     name:'branch_id',
                     hidden:true
                 },{
+                    xtype: 'displayfield',
+                    name:'photo_name',
+                    fieldLabel: MSG['photo_name']
+                },{
                     xtype:'numberfield',
                     name: 'photo_sort',
                     fieldLabel: MSG['photo_sort'],
                     maxLength: 4,
                     allowBlank: false,
                     minValue:10,
-                    editable: false
+                    editable: false,
+
     			},{
-                    name: 'photo_name',
-                    fieldLabel: MSG['photo_name'],//性別
-                    maxLength: 50
-                },{
                     name: 'photo_url',
                     xtype:'filefield',
                     fieldLabel: MSG['photo_url'],//信箱
                     maxLength: 200,
-                    allowBlank: true
+                    allowBlank: true,
+                     emptyText: '請上傳1080X1920px的照片'
                     
                 },{
                     name: 'operator',

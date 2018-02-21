@@ -76,6 +76,7 @@ Ext.define('Console.view.JohnnyBranchPhoto.DetailPanel', {
                 xtype: 'pagingtoolbar',
                 store: me.getStore(),
                 displayInfo: true,
+                clearFilter: false,
                 plugins: new Ext.ux.ProgressBarPager()
             }
         });

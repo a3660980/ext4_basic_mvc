@@ -53,7 +53,6 @@ Ext.define('Console.view.JohnnyBranchRoom.FormAdd', {
                     valueField: 'com_id', 
                     editable: false,
                     listeners: {
-                        // 即時reload combox
                         expand: function(field, eOpts) {
                             field.getStore().reload();
                         }

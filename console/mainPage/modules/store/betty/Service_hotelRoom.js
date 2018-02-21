@@ -5,8 +5,8 @@ Ext.define('Console.store.betty.Service_hotelRoom', {
         actionMethods: 'POST',
         type: 'ajax',
         api: {
-            //read: './modules/source/store/betty/hotelBranch.php',//顯示
-            //destroy: './modules/source/controller/betty_hotel/delete_hotel.php'//刪除
+            read: './modules/source/store/betty/hotelRoom.php',//顯示
+            destroy: './modules/source/controller/betty_hotelRoom/delete_room.php'//刪除
             //destroy function (override)選擇delete.php or get.php的url
         },
         reader: {

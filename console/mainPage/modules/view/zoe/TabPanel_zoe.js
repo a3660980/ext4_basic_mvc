@@ -16,8 +16,8 @@ Ext.define('Console.view.zoe.TabPanel_zoe', {
     				region: 'center',
     				xtype: 'zoeGridMaster'
     			}, {
-    				region: 'west',
-    				xtype: 'zoeactionpanel'// 視窗跳出方向
+    				region: 'west', // 視窗跳出方向
+    				xtype: 'zoeactionpanel'
     			}
 			]
 		});

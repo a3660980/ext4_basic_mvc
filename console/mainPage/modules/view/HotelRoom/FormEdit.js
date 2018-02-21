@@ -7,7 +7,6 @@ Ext.define('Console.view.HotelRoom.FormEdit', {
     layout: 'anchor',
 
     config: {
-        comboboxStore: 'HotelHomepage.UserI18n',
         BranchName:'HotelRoom.BranchName'
     },
 
@@ -76,17 +75,6 @@ Ext.define('Console.view.HotelRoom.FormEdit', {
                     maxLength: 200,
                     allowBlank: true
                    
-                }, {
-                    xtype:'combo',
-                    name: 'user_i18n',
-                    fieldLabel: MSG['user_i18n'],
-                    maxLength: 8,
-                    allowBlank: false,
-                    store: me.getComboboxStore(),
-                    displayField: 'display',
-                    valueField: 'value',
-                    value:'tw',
-                    editable: false
                 }
             ],
             bbar: [ 
@@ -94,7 +82,7 @@ Ext.define('Console.view.HotelRoom.FormEdit', {
                     text: MSG['confirm'],
                     action: 'form_confirm'
                 }, {
-                    text: MSG['cancle'],
+                    text: MSG['cancel'],
                     action: 'form_cancel'
                 }
             ]

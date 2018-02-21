@@ -7,18 +7,22 @@ Ext.define('Console.view.bettyHotelroom.GridMaster', {
 	],
 	selType: 'checkboxmodel',
     config: {
-        //store: 'betty.Service_hotelHomepage'
+        store: 'betty.Service_hotelRoom'
     },
 	initComponent: function() {
         var me = this;
 		Ext.apply(me, {
-			//store: me.getStore(),//取得store檔
+			store: me.getStore(),//取得store檔
 			columns: [
         		{
                     header: MSG['room_sort'],
                     dataIndex: 'room_sort',
                     flex: 1
-                },  {
+                }, {
+                    header: MSG['branch_name'],
+                    dataIndex: 'branch_name',
+                    flex: 1
+                }, {
         			header: MSG['room_name'],
         			dataIndex: 'room_name',
         			flex: 1

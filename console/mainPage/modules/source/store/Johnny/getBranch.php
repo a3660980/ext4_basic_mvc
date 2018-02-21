@@ -4,8 +4,8 @@ require "../../../../../init.php";
 $result = [];
 $table = "johnny_femobile_hotel_branch";
 $whereClause = '1=1';
-
-$sql="SELECT * FROM {$table} where {$whereClause}";
+$orderby = "{$table}.branch_sort ASC,{$table}.updated_date ASC";
+$sql="SELECT * FROM {$table} where {$whereClause} ORDER BY {$orderby}";
 
 $records = dbGetAll($sql);
 $total = dbGetTotal($records);

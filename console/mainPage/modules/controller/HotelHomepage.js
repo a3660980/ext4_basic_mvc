@@ -130,6 +130,16 @@ Ext.define('Console.controller.HotelHomepage', {
         var me = this;
         
         form.loadRecord(record);
+        var start_date = record.data['start_date'];
+        var expire_date = record.data['expire_date'];
+        var date = Ext.util.Format.date(start_date, 'Y-m-d');
+        var time = Ext.util.Format.date(start_date, 'H:i');
+        form.getForm().findField('start_date').setValue(date);
+        form.getForm().findField('start_time').setValue(time);
+        var date = Ext.util.Format.date(expire_date, 'Y-m-d');
+        var time = Ext.util.Format.date(expire_date, 'H:i');
+        form.getForm().findField('expire_date').setValue(date);
+        form.getForm().findField('expire_time').setValue(time);
     },
 
 

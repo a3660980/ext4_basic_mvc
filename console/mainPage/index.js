@@ -47,14 +47,18 @@ Ext.application({
         'JohnnyControllers.BranchRoom',
         'JohnnyControllers.BranchRoomPhoto',
         'hotelHomepage_betty',
-        'hotelHomepagebranch_betty',
+        'hotelBranch_betty',
         'hotelBranchpicture_betty',
+        'hotelRoom_betty',
+        'hotelRoompicture_betty',
         'HotelHomepage',
         'HotelBranch',
         'HotelPhoto',
         'HotelRoom',
         'HotelDetail',
-        'Zoe'
+        'Zoe',
+        'Zoe_detail',
+        'Zoe2'
     ],
 
     launch: function() {
