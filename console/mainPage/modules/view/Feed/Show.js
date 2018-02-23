@@ -6,12 +6,13 @@ Ext.define('Console.view.Feed.Show', {
         'Console.view.Feed.Grid',
         'Console.view.Feed.Preview'
     ],
-
-    closable: false,
-    layout: {
-        type: 'vbox',
-        align: 'stretch'
-    },
+    border: false,
+    autoScroll: true,
+    closable: true,
+    // layout: {
+    //     type: 'vbox',
+    //     align: 'stretch'
+    // },
 
     initComponent: function() {
         Ext.apply(this, {

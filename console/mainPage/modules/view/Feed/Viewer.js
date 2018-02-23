@@ -10,11 +10,11 @@ Ext.define('Console.view.Feed.Viewer', {
     // cls: 'preview',
     
     initComponent: function() {
-        this.items = [{
-            closable: true,
-            xtype: 'feedshow',
-            title: 'Sencha Blog'
-        }];
+        // this.items = [{
+        //     closable: true,
+        //     xtype: 'feedshow',
+        //     title: 'Sencha Blog'
+        // }];
         
         this.callParent(arguments);
     }

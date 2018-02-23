@@ -9,21 +9,16 @@ Ext.define('Console.view.Feed.List', {
     animCollapse: true,
     margins: '5 0 5 5',
     layout: 'fit',
-   
+    config: {
+        store: 'Feed.Feed'
+    },
     initComponent: function() {
-        var store = Ext.create('Ext.data.Store', {
-            // 宣告定義下拉式選單方法
-            fields: ['name'],
-            data : [
-                {"name":"測試1", 'content':'test' , 'title': 'test11123'},
-                {"name":"測試2", 'content':'test2', 'title': 'test2415154'},
-            ]
-        })
+        
         Ext.apply(this, {
             items: [{
                 xtype: 'dataview',
                 trackOver: true,
-                store: store,
+                store: this.store,
                 // cls: 'feed-list',
                 itemSelector: '.feed-list-item',
                 overItemCls: 'feed-list-item-hover',

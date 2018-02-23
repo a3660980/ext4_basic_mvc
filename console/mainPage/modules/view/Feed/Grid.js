@@ -1,43 +1,49 @@
 Ext.define('Console.view.Feed.Grid', {
-    extend: 'Ext.grid.Panel',
+    extend: 'Ext.panel.Panel',
     alias: 'widget.feedgrid',
 
     // cls: 'feed-grid',
-    disabled: true,
+    
 
     // requires: ['Ext.ux.PreviewPlugin'],
     
     border: false,
-    
+    autoScroll: true,
+    closable: true,
+    config: {
+        store: 'Feed.Feed'
+    },
     initComponent: function() {
+        
         Ext.apply(this, {
-            // store: 'Articles',
+            tpl: new Ext.XTemplate(
+                '<div class="post-data">',
+                    '<h3 class="post-title">{title}</h3>',
+                '</div>',
+                '<div class="post-body">{content}</div>', {
+            }),
+            // store: gridStore,
 
-            // viewConfig: {
-            //     plugins: [{
-            //         pluginId: 'preview',
-            //         ptype: 'preview',
-            //         bodyField: 'description',
-            //         previewExpanded: true
-            //     }]
-            // },
+            // // viewConfig: {
+            // //     plugins: [{
+            // //         pluginId: 'preview',
+            // //         ptype: 'preview',
+            // //         bodyField: 'description',
+            // //         previewExpanded: true
+            // //     }]
+            // // },
 
-            columns: [{
-                text: 'Title',
-                dataIndex: 'title',
-                flex: 1,
-                renderer: this.formatTitle
-            }, {
-                text: 'Author',
-                dataIndex: 'author',
-                hidden: true,
-                width: 200
-            }, {
-                text: 'Date',
-                dataIndex: 'pubDate',
-                renderer: this.formatDate,
-                width: 200
-            }],
+            // columns: [{
+            //     text: 'Title',
+            //     dataIndex: 'title',
+            //     flex: 1,
+            //     renderer: this.formatTitle
+            // }, {
+            //     text: 'content',
+            //     dataIndex: 'content',
+            //     flex:1,
+            //     width: 200
+            // }],
             // dockedItems:[{
             //     xtype: 'toolbar',
             //     dock: 'top',
@@ -57,7 +63,7 @@ Ext.define('Console.view.Feed.Grid', {
      * @private
      */
     formatTitle: function(value, p, record) {
-        return Ext.String.format('<div class="topic"><b>{0}</b><span class="author">{1}</span></div>', value, record.get('author') || "Unknown");
+        return Ext.String.format('<div class="topic"><b>{0}</b></div>', value);
     },
 
     /**
